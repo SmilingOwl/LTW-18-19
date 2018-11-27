@@ -2,30 +2,27 @@
     include_once('../database/connection.php');
     include_once('../database/access_database.php');
 
-    /*if (!isset($_GET['story_id']))
-        die("No id passed for the story item!");*/
+    if (!isset($_GET['story_id']))
+        die("No id passed for the story item!");
     
-    $user_id = $_GET['user_id'];
+    if (isset($_GET['user_id']))
+    {
+        $user_id = $_GET['user_id'];
+        $user = get_user($user_id);
+    }
     $story_id=$_GET['story_id'];
     $story = get_story($story_id);
     $writer = get_user($story['writer_id']);
     $paragraphs = explode("\n", $story['text']);
-    $user = get_user($user_id);
     $comments = get_comments_in_story($story['story_id']); 
     $comments_to_write='comments';
-    if(count($num_comments) == 1)
+    if(count($comments) == 1)
         $comments_to_write='comment';
     $tasteChoice = get_taste_choice($story['id_taste']);
+
+    include_once('../templates/common/header.php');
 ?>
 
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Stories Website</title>
-    <meta charset="utf-8">
-    <link href="style.css" rel="stylesheet">
-</head>
-<body>
     <header>
         <h1><?=$story['title']?></a></h1>
     </header>
@@ -60,12 +57,16 @@
             <span class="dislikes"><?=$comment['dislikes']?> dislikes</span>
         </article>
     <?php } ?>
-    <form>
-        <h3><?=$user['username']?> says:</h3>
-        <textarea name="text"></textarea>
-        <input type="hidden" name="id" value="<?=$article['id']?>">
-        <input type="submit" value="Reply">
-    </form>
+    <?php if (isset($_GET['user_id'])) { ?>
+        <form>
+            <h3><?=$user['username']?> says:</h3>
+            <textarea name="text"></textarea>
+            <input type="hidden" name="id" value="<?=$article['id']?>">
+            <input type="submit" value="Reply">
+        </form>
+    <?php } else {?>
+        <h3> Log in to add a comment <h3>
+    <?php } ?>
     </section>
     </body>
 </html>

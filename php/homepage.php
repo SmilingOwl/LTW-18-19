@@ -5,16 +5,10 @@
     $user_id = 2;//$_GET['id'];
     $stories = get_filtered_stories_by_user($user_id);
     $user = get_user($user_id);
+
+    include_once('../templates/common/header.php');
 ?>
 
-<!DOCTYPE html>
-<html>
-  <head>
-    <title>Stories Website</title>
-    <meta charset="utf-8">
-    <link href="style.css" rel="stylesheet">
-  </head>
-  <body>
     <header>
       <h1> Home Page </h1>
     </header>
