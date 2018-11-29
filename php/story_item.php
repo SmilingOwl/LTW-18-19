@@ -15,9 +15,6 @@
     $writer = get_user($story['writer_id']);
     $paragraphs = explode("\n", $story['text']);
     $comments = get_comments_in_story($story['story_id']); 
-    $comments_to_write='comments';
-    if(count($comments) == 1)
-        $comments_to_write='comment';
 
     $tasteChoice = get_taste_choice($story['id_taste']);
 
@@ -63,12 +60,12 @@
                 <span class="tasteChoice">
                     <a href="story_item.html">#<?=$tasteChoice['taste']?></a>
                 </span>
-                <span class="comments"><?=count($comments)?> <?=$comments_to_write?>:</span>
             </footer>
         </article>
     </section>
 
     <section id="comments">
+    <h3> Comments: </h3>
     <?php foreach ($comments as $comment) { 
         $comments_likes = get_likes_comment($comment['id_comment']);
         $comments_dislikes = get_dislikes_comment($comment['id_comment']);
