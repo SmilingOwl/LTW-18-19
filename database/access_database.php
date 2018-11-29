@@ -57,4 +57,35 @@
         $stmt->execute();
         return $stmt->fetch();
     }
+
+    function get_taste_choices(){
+        global $db;
+        $stmt = $db->prepare('SELECT * FROM TasteChoice');
+        $stmt->execute();
+        return $stmt->fetchAll();
+    }
+
+    function get_users_taste_choices($id){
+        global $db;
+        $stmt = $db->prepare('SELECT * FROM TasteChoice, TasteChoiceUser 
+                                WHERE user_id = :id 
+                                AND TasteChoice.id_taste = TasteChoiceUser.id_taste');
+        $stmt->bindParam(':id', $id, PDO::PARAM_INT);
+        $stmt->execute();
+        return $stmt->fetchAll();
+    }
+
+    function add_comment($story_id, $id_user, $text) {
+        global $db;
+    
+        $stmt = $db->prepare('INSERT INTO Comment (story_id, user_id, likes, dislikes, text) VALUES (?, ?, ?, ?, ?)');
+        $stmt->execute(array($story_id, $id_user, 0, 0, $text));
+
+        $stmt = $db->prepare('SELECT * FROM Comment WHERE story_id = :s_id AND user_id= :u_id AND text = :t');
+        $stmt->bindParam(':s_id', $story_id, PDO::PARAM_INT);
+        $stmt->bindParam(':u_id', $id_user, PDO::PARAM_INT);
+        $stmt->bindParam(':t', $text, PDO::PARAM_STR);
+        $stmt->execute();
+        return $stmt->fetch();
+    }
 ?>

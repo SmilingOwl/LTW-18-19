@@ -70,9 +70,13 @@ INSERT INTO Story (writer_id, title, likes, dislikes, text, photo, id_taste) VAL
 INSERT INTO Comment (story_id, user_id, likes, dislikes, text) VALUES (1, 2, 0, 0, 'nice!');
 
 INSERT INTO TasteChoice (taste) VALUES ('animals');
+INSERT INTO TasteChoice (taste) VALUES ('art');
 INSERT INTO TasteChoice (taste) VALUES ('photography');
 INSERT INTO TasteChoice (taste) VALUES ('music');
-INSERT INTO TasteChoice (taste) VALUES ('art');
+INSERT INTO TasteChoice (taste) VALUES ('books');
+INSERT INTO TasteChoice (taste) VALUES ('fashion');
+INSERT INTO TasteChoice (taste) VALUES ('health');
+INSERT INTO TasteChoice (taste) VALUES ('movies');
 
 INSERT INTO TasteChoiceUser (user_id, id_taste) VALUES (1, 1);
 INSERT INTO TasteChoiceUser (user_id, id_taste) VALUES (2, 1);

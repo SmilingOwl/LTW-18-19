@@ -51,7 +51,7 @@
     <?php foreach ($comments as $comment) { ?>
         <article class="comment">
             <?php $comment_user = get_user($comment['user_id']);?>
-            <span class="user"><?=$comment_user['username']?></span>
+            <span class="user"><?=$comment_user['username']?> says: </span>
             <p><?=$comment['text']?></p>
             <span class="likes"><?=$comment['likes']?> likes</span>
             <span class="dislikes"><?=$comment['dislikes']?> dislikes</span>
@@ -60,12 +60,13 @@
     <?php if (isset($_GET['user_id'])) { ?>
         <form>
             <h3><?=$user['username']?> says:</h3>
-            <textarea name="text"></textarea>
-            <input type="hidden" name="id" value="<?=$article['id']?>">
+            <textarea name="text"> Write your comment here</textarea>
+            <input type="hidden" name="user_id" value="<?=$user_id?>">
+            <input type="hidden" name="story_id" value="<?=$story_id?>">
             <input type="submit" value="Reply">
         </form>
     <?php } else {?>
-        <h3> Log in to add a comment <h3>
+        <h3> Log in to add a comment! <h3>
     <?php } ?>
     </section>
     </body>
