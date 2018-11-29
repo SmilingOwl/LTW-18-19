@@ -75,13 +75,46 @@
         return $stmt->fetchAll();
     }
 
+    function get_likes_story($id){
+        global $db;
+        $stmt = $db->prepare('SELECT * FROM LikesStories WHERE story_id = :id');
+        $stmt->bindParam(':id', $id, PDO::PARAM_INT);
+        $stmt->execute();
+        return $stmt->fetchAll();
+    }
+
+    function get_dislikes_story($id){
+        global $db;
+        $stmt = $db->prepare('SELECT * FROM LikesStories WHERE story_id = :id');
+        $stmt->bindParam(':id', $id, PDO::PARAM_INT);
+        $stmt->execute();
+        return $stmt->fetchAll();
+    }
+
+    function get_likes_comment($id){
+        global $db;
+        $stmt = $db->prepare('SELECT * FROM LikesComments WHERE comment_id = :id');
+        $stmt->bindParam(':id', $id, PDO::PARAM_INT);
+        $stmt->execute();
+        return $stmt->fetchAll();
+    }
+
+    function get_dislikes_comment($id){
+        global $db;
+        $stmt = $db->prepare('SELECT * FROM DisLikesComments WHERE comment_id = :id');
+        $stmt->bindParam(':id', $id, PDO::PARAM_INT);
+        $stmt->execute();
+        return $stmt->fetchAll();
+    }
+
     function add_comment($story_id, $id_user, $text) {
         global $db;
     
         $stmt = $db->prepare('INSERT INTO Comment (story_id, user_id, likes, dislikes, text) VALUES (?, ?, ?, ?, ?)');
         $stmt->execute(array($story_id, $id_user, 0, 0, $text));
 
-        $stmt = $db->prepare('SELECT * FROM Comment WHERE story_id = :s_id AND user_id= :u_id AND text = :t');
+        $stmt = $db->prepare('SELECT * FROM Comment, Users WHERE story_id = :s_id AND Comment.user_id= :u_id AND text = :t
+                                AND Comment.user_id = Users.user_id');
         $stmt->bindParam(':s_id', $story_id, PDO::PARAM_INT);
         $stmt->bindParam(':u_id', $id_user, PDO::PARAM_INT);
         $stmt->bindParam(':t', $text, PDO::PARAM_STR);

@@ -9,6 +9,10 @@ DROP TABLE IF EXISTS Comment;
 DROP TABLE IF EXISTS SavedStory;
 DROP TABLE IF EXISTS TasteChoice;
 DROP TABLE IF EXISTS TasteChoiceUser;
+DROP TABLE IF EXISTS LikesStories;
+DROP TABLE IF EXISTS DislikesStories;
+DROP TABLE IF EXISTS LikesComments;
+DROP TABLE IF EXISTS DislikesComments;
 
 CREATE TABLE Users (
   user_id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -24,8 +28,6 @@ CREATE TABLE Story (
   story_id INTEGER PRIMARY KEY AUTOINCREMENT,
   writer_id INTEGER REFERENCES Users,
   title VARCHAR NOT NULL,
-  likes INTEGER NOT NULL,
-  dislikes INTEGER NOT NULL,
   text VARCHAR NOT NULL,
   photo VARCHAR,
   id_taste INTEGER NOT NULL
@@ -57,13 +59,37 @@ CREATE TABLE SavedStory (
   PRIMARY KEY(user_id, story_id)
 );
 
+CREATE TABLE LikesStories (
+  user_id INTEGER REFERENCES Users,
+  story_id INTEGER REFERENCES Story,
+  PRIMARY KEY(user_id, story_id)
+);
+
+CREATE TABLE DislikesStories (
+  user_id INTEGER REFERENCES Users,
+  story_id INTEGER REFERENCES Story,
+  PRIMARY KEY(user_id, story_id)
+);
+
+CREATE TABLE LikesComments (
+  user_id INTEGER REFERENCES Users,
+  comment_id INTEGER REFERENCES Story,
+  PRIMARY KEY(user_id, comment_id)
+);
+
+CREATE TABLE DislikesComments (
+  user_id INTEGER REFERENCES Users,
+  comment_id INTEGER REFERENCES Story,
+  PRIMARY KEY(user_id, comment_id)
+);
+
 INSERT INTO Users (user_id, username, email, birthdate, photo, password, gender) Values (1, 'lorem', 'lorem@gmail.com', '1998-12-03', 'lorem.jpg', 'asdfg', 'male');
 INSERT INTO Users (username, email, birthdate, photo, password, gender) Values ('lorina', 'lorina@gmail.com', '1998-12-03', 'lorina.jpg', 'asdfghj', 'female');
 
-INSERT INTO Story (writer_id, title, likes, dislikes, text, photo, id_taste) VALUES (1, 'Lorem', 0, 0,
+INSERT INTO Story (writer_id, title, text, photo, id_taste) VALUES (1, 'Lorem',
  'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum in ultricies mi. Sed fermentum vitae sapien sed aliquam. Maecenas a.',
  'lorem.jpg', 1);
-INSERT INTO Story (writer_id, title, likes, dislikes, text, photo, id_taste) VALUES (2, 'Ipsum', 2, 0,
+INSERT INTO Story (writer_id, title, text, photo, id_taste) VALUES (2, 'Ipsum',
  'Ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum in ultricies mi. Sed fermentum vitae sapien sed aliquam. Maecenas a.',
  'orem.jpg', 2);
 
@@ -83,3 +109,8 @@ INSERT INTO TasteChoiceUser (user_id, id_taste) VALUES (2, 1);
 INSERT INTO TasteChoiceUser (user_id, id_taste) VALUES (2, 3);
 
 INSERT INTO SavedStory (user_id, story_id) VALUES (1, 2);
+
+INSERT INTO LikesStories (user_id, story_id) VALUES (1, 2);
+INSERT INTO DislikesStories (user_id, story_id) VALUES (2, 1);
+
+INSERT INTO LikesComments (user_id, comment_id) VALUES (1, 1);
