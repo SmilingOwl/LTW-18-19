@@ -1,0 +1,10 @@
+#introduction {
+	display: grid;
+	grid-template-columns: [start] 2fr [middle] 1fr [end];
+}
+#introduction p {
+	grid-column: 1;
+}
+#introduction img {
+	grid-column: 2;
+}
