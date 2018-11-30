@@ -2,7 +2,7 @@
     include_once('../database/connection.php');
     include_once('../database/access_database.php');
     
-    $user_id = $_GET['user_id'];
+    $user_id = 2;//$_GET['id'];
     $stories = get_filtered_stories_by_user($user_id);
     $user = get_user($user_id);
 
