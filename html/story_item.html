@@ -4,6 +4,8 @@
     <title>Online Newspaper</title>
     <meta charset="utf-8">
     <link href="style.css" rel="stylesheet">
+    <link href="comments.css" rel="stylesheet">
+    <link href="layout.css" rel="stylesheet">
   </head>
   <body>
     <header>
@@ -15,9 +17,45 @@
             <header>
                 <h1>Story1</h1>
             </header>
-            <p>Introduction</p>
-            <p>paragraph1</p>
-            <p>paragraph2</p>
+            <section id="introduction">
+                <h2>Introduction</h2>
+                <p>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin elementum ornare gravida. Donec tristique sit amet mauris a aliquam. Etiam non nisl a mauris fermentum facilisis non a felis. Aliquam aliquet sed leo vitae sodales. Sed tellus magna, tincidunt sit amet tincidunt ut, ornare sed urna. In aliquam, lectus at vestibulum lobortis, turpis massa facilisis leo, sed ultrices ante orci eget libero. Integer feugiat dignissim eros eu feugiat. Sed id metus metus.
+                </p>
+                <img src="https://i.ytimg.com/vi/aaqzPMOd_1g/maxresdefault.jpg" alt="">
+            </section>
+            <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin elementum ornare gravida. Donec tristique sit amet mauris a aliquam. Etiam non nisl a mauris fermentum facilisis non a felis. Aliquam aliquet sed leo vitae sodales. Sed tellus magna, tincidunt sit amet tincidunt ut, ornare sed urna. In aliquam, lectus at vestibulum lobortis, turpis massa facilisis leo, sed ultrices ante orci eget libero. Integer feugiat dignissim eros eu feugiat. Sed id metus metus.
+            </p>
+            <p>
+                Praesent cursus nisi id nisi mollis ultrices. Vestibulum varius eros sagittis malesuada elementum. Duis mollis fermentum sapien, et interdum dolor. Sed suscipit nisi vel metus sodales, eget vehicula augue aliquam. In vehicula vulputate magna venenatis tempus. Aliquam luctus, ipsum blandit dictum lacinia, ipsum ex scelerisque nunc, non accumsan ipsum diam ac ante. Nam non felis ultricies, euismod lacus in, maximus leo. Quisque tincidunt cursus mauris non commodo. Nullam malesuada felis a cursus molestie. Curabitur at eleifend lorem. In quis euismod erat. Quisque id augue ultrices, vehicula tellus vitae, pharetra tortor. Curabitur diam lacus, aliquam quis rutrum quis, dapibus sed purus. Vivamus nulla nulla, scelerisque ac arcu sit amet, venenatis pharetra sem.
+            </p>
+            <section id="comments">
+                <h1>5 Comments</h1>
+                  <article class="comment">
+                    <span class="user">Alice</span>
+                    <span class="date">10 November</span>
+                    <p>Aliquam maximus commodo dui, ut viverra urna vulputate et. Donec posuere vitae sem sed vehicula. Sed in erat eu diam fringilla sodales. Aenean lacinia vulputate nisl, dignissim dignissim nisl. Nam at nibh mollis, facilisis nibh sit amet, mattis urna. Maecenas.</p>
+                  </article>
+                  <article class="comment">
+                    <span class="user">Bob</span>
+                    <span class="date">11 November</span>
+                    <p>Duis scelerisque purus fermentum turpis euismod congue. Phasellus sit amet sem mollis, imperdiet quam porta, volutpat purus. In et sodales urna, sed cursus lectus. Vivamus a massa vitae nisl lobortis laoreet nec tristique magna. Mauris egestas ipsum eu sem lacinia.</p>
+                  </article>
+                  <form>
+                    <h2>Add your voice...</h2>
+                    <label>Username 
+                      <input type="text" name="username">
+                    </label>
+                    <label>E-mail
+                      <input type="email" name="email">
+                    </label>
+                    <label>Comment
+                      <textarea name="comment"></textarea>            
+                    </label>
+                    <input type="submit" value="Reply">
+                  </form>
+            </section>
             <footer>
                 <span class="author">Author</span>
                 <span class="tasteChoice">
