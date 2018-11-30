@@ -1,0 +1,83 @@
+body {
+    font-family: 'Verdana', sans-serif;
+    background-color: #CCCCFF;
+}
+body > header {
+    background-color: #07dabd;
+    color: black; 
+    padding: 0.6em;
+    margin: 1em;
+    font-family: "Georgia";
+}
+#story {
+    margin: 1em;
+}
+#story header {
+    text-align: center;
+    font-size: 32px;
+
+    border-radius: 25px;
+    border: 10px groove #73AD21;
+    padding: 20px;
+    height: 150px;
+    margin: 1em 0em;
+}
+#introduction {
+    background-color: #993366;
+    color: white;
+    font-size: 18px;
+    padding: 16px;
+    border: 0em;
+}
+#introduction h2 {
+    font-size: 25px;
+    margin: 0px;
+    border: 0px;
+}
+#story p:first-of-type:first-letter {
+    font-size: 32px;
+    color: #993366;
+    font-family: "Times New Roman", Times, serif;
+}
+#introduction > p:first-of-type:first-letter {
+    font-size: 32px;
+    color: white;
+    font-family: "Times New Roman", Times, serif;
+}
+#story img {
+    border-radius: 25px;
+    border: 5px groove #73AD21;
+    width: 100%
+}
+form {
+    background-color: rgb(216, 196, 196);
+}
+
+label{
+    margin: 0.5em;
+    padding: 0.8em;
+    display: block;
+    font-size: 1em;
+    font-family: "Georgia";
+}
+
+input[type=checkbox]{
+    padding: 0.8em;
+}
+
+input[type=submit] {
+    width: auto;
+  
+    background-color: black;
+    color: #07dabd;
+  
+    border: none;
+    margin: 1em;
+    padding: 0.8em;
+    margin-left: 2em;
+}
+
+#login h2 {
+    margin: 2em 1em 1em 1em;
+    font-family: "Georgia";
+}
