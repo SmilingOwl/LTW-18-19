@@ -24,19 +24,16 @@ let submitComment = function() {
 function receiveComments(event) {
     let section = document.querySelector('#comments');
     
-    console.log(this.responseText);
     let comments = JSON.parse(this.responseText);
   
-    for (let i = 0; i < comments.length; i++) {
       let comment = document.createElement('article');
       comment.classList.add('comment');
   
       comment.innerHTML = '<span class="user">' +
-        comments[i].name + '</span><p>' +
-        comments[i].text + '</p>' + 
+        comments.username + '</span><p>' +
+        comments.text + '</p>' + 
         '<span class="likes">0 likes </span> <span class="dislikes">0 dislikes</span>';
   
       section.insertBefore(comment, commentForm);
-    }
 }
 commentForm.addEventListener('submit', submitComment);

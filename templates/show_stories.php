@@ -28,7 +28,8 @@
             <span class="tasteChoice">
                 <a href="story_item.html">#<?=$tasteChoice['taste']?></a>
             </span>
-            <a class="comments" href="story_item.php?story_id=<?=$story['story_id']?>&user_id=<?=$user_id?>"><?=count($num_comments)?> <?=$comments_to_write?></a>
+            <span class="comments"><?=count($num_comments)?> <?=$comments_to_write?></span>
+            <input type="hidden" name="story_id" value="<?=$story['story_id']?>">
         </footer>
     </article>
     <?php } ?>

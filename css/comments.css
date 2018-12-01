@@ -1,0 +1,93 @@
+#comments {
+  margin: 1em;
+}
+
+#comments article{
+  background-color: #edeff0;
+  margin: 1em;
+}
+
+#comments .user {
+  font-style: italic;
+  font-family: "Calibri";
+  font-size: 1.3em;
+}
+
+#comments .user:after { 
+  content: ' says:';
+}
+
+#comments .date {
+  float: right;
+}
+
+#comments p {
+  background-color: #edeff0;
+  padding: 0em 1em;
+  margin: 0em;
+  margin-bottom: 0.5em;
+}
+
+#comments footer {
+  background-color: #d894d1;
+  display: flex;
+  flex-direction: row;
+  font-family: "Calibri";
+  font-size: 0.9em;
+}
+
+#comments footer span {
+  padding: 0.2em 1em;
+}
+
+#comments p:before {
+  content: '\201C';
+  font-size: 2.8em;
+  position: relative;
+  top: 15px;
+  color: #ccc;
+}
+#comments p:after {
+  content: '\201C';
+  font-size: 2.8em;
+  position: relative;
+  top: 15px;
+  color: #ccc;
+}
+#comments form {
+  width: auto;
+  margin: 0;
+  background-color: #edeff0;
+}
+
+#comments input {
+  background-color: #edeff0;
+}
+
+#comments textarea {
+  display: block;
+  width: 90%;
+  height: 6em;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#comments form h3 {
+  display: block;
+  margin-left: 2.5em;
+  padding: 1em 1em 0em 0em;
+  font-family: "Calibri";
+  font-size: 1.2em;
+}
+
+#comments input[type=submit] {
+  width: auto;
+
+  background-color: black;
+  color: white;
+
+  border: none;
+  margin: 1em;
+  margin-left: 3em;
+  padding: 1em;
+}

@@ -2,20 +2,19 @@
     include_once('../database/connection.php');
     include_once('../database/access_database.php');
     
-    $user_id = 2;//$_GET['id'];
-    $stories = get_filtered_stories_by_user($user_id);
+    $user_id = $_GET['user_id'];
+    $stories = get_all_stories($user_id);
     $user = get_user($user_id);
 
     include_once('../templates/common/header.php');
 ?>
 
     <header>
-      <h1> Home Page </h1>
+        <h1> Home Page </h1>
+        <span>Menu</span>
     </header>
 
-    <?php 
-        include_once('../templates/show_stories.php');
-    ?>
-        
-  </body>
-</html>
+<?php 
+    include_once('../templates/show_stories.php');
+    include_once('../templates/common/footer.php');
+?>

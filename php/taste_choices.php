@@ -31,5 +31,4 @@
 
         </form>
     </section>
-    </body>
-</html>
+    <?php include_once('../templates/common/footer.php'); ?>

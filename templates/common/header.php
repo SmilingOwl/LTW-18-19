@@ -3,7 +3,10 @@
 <head>
     <title>Stories Website</title>
     <meta charset="utf-8">
-    <link href="style.css" rel="stylesheet">
-    <script src="../scripts/script.js" defer></script>
+    <link href="../css/style.css" rel="stylesheet">
+    <link href="../css/comments.css" rel="stylesheet">
+    <link href="../css/layout.css" rel="stylesheet">
+    <script src="../scripts/show_menu.js" defer></script>
+    <script src="../scripts/show_comments.js" defer></script>
 </head>
 <body>
