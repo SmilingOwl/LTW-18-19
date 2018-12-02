@@ -26,6 +26,13 @@
         return $stmt->fetchAll();
     }
 
+    function get_all_stories(){
+        global $db;
+        $stmt = $db->prepare('SELECT * FROM Story');
+        $stmt->execute();
+        return $stmt->fetchAll();
+    }
+
     function get_comments_in_story($id){
         global $db;
         $stmt = $db->prepare('SELECT * FROM Comment WHERE story_id = :id');
@@ -70,22 +77,6 @@
         $stmt = $db->prepare('SELECT * FROM TasteChoice, TasteChoiceUser 
                                 WHERE user_id = :id 
                                 AND TasteChoice.id_taste = TasteChoiceUser.id_taste');
-        $stmt->bindParam(':id', $id, PDO::PARAM_INT);
-        $stmt->execute();
-        return $stmt->fetchAll();
-    }
-
-    function get_likes_story($id){
-        global $db;
-        $stmt = $db->prepare('SELECT * FROM LikesStories WHERE story_id = :id');
-        $stmt->bindParam(':id', $id, PDO::PARAM_INT);
-        $stmt->execute();
-        return $stmt->fetchAll();
-    }
-
-    function get_dislikes_story($id){
-        global $db;
-        $stmt = $db->prepare('SELECT * FROM LikesStories WHERE story_id = :id');
         $stmt->bindParam(':id', $id, PDO::PARAM_INT);
         $stmt->execute();
         return $stmt->fetchAll();

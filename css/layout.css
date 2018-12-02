@@ -8,3 +8,13 @@
 #introduction img {
 	grid-column: 2;
 }
+
+#story article {
+	display: grid;
+	grid-template-rows: auto auto;
+	grid-template-columns: auto auto;
+	grid-template-areas: "p header"
+						   "footer footer";
+	grid-row-gap: 1em;
+	grid-column-gap: 1em;
+}

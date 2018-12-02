@@ -1,6 +1,7 @@
 <?php
     include_once('../database/connection.php');
     include_once('../database/access_database.php');
+    include_once('../database/access_for_likes.php');
 
     if (!isset($_GET['story_id']))
         die("No id passed for the story item!");
@@ -40,6 +41,7 @@
     <link href="../css/layout.css" rel="stylesheet">
     <script src="../scripts/script.js" defer></script>
     <script src="../scripts/show_menu.js" defer></script>
+    <script src="../scripts/update_likes.js" defer></script>
 </head>
 <body>
 

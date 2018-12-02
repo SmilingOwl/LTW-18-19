@@ -1,6 +1,7 @@
 <?php
     include_once('../database/connection.php');
     include_once('../database/access_database.php');
+    include_once('../database/access_for_likes.php');
     
     $user_id = $_GET['user_id'];
     $stories = get_all_stories($user_id);
