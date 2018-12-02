@@ -19,6 +19,7 @@
         <footer>
             <span class="likes"><?=count($comments_likes)?> <?=$likes_to_write?></span>
             <span class="dislikes"><?=count($comments_dislikes)?> <?=$dislikes_to_write?></span>
+            <input type="hidden" name="id_comment" value="<?=$comment['id_comment']?>">
         </footer>
     </article>
 <?php } ?>

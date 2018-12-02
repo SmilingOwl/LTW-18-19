@@ -83,3 +83,79 @@ let receive_answer_dislike = function(event) {
 
 dislikes.addEventListener('click', add_dislike);
 /*END OF PART3*/
+
+/*---------------------------COMMENTS---------------------------*/
+
+let likes_comments = document.querySelectorAll('#comments span.likes');
+let dislikes_comments = document.querySelectorAll('#comments span.dislikes');
+let current_comment;
+let current_likes;
+let current_dislikes;
+let current_input;
+
+/*BEGINING OF PART4 : add like by clicking on comments*/
+let addlike_comment = function() {
+    let comment_id = this.parentNode.querySelector('input[name=id_comment]').value;
+    current_comment = this.parentNode;
+    current_likes = this;
+    current_dislikes = this.parentNode.querySelector('span.dislikes');
+    
+    let request4 = new XMLHttpRequest();
+    request4.addEventListener('load', receive_answer_like_comment);
+    request4.open('POST', '../templates/add_like_comment.php', true);
+    request4.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+    request4.send(encodeForAjax({comment_id: comment_id, user_id: user_id}));
+}
+
+let receive_answer_like_comment = function(event) {
+    let answer = JSON.parse(this.responseText);
+
+    let likes_to_write = " likes";
+    if(answer == 1)
+        likes_to_write = " like";
+ 
+    current_comment.removeChild(current_likes);
+
+    let new_likes_comment = document.createElement('span');
+    new_likes_comment.className = "likes";
+    new_likes_comment.textContent = answer + likes_to_write;
+    current_comment.insertBefore(new_likes_comment, current_dislikes);
+}
+
+for(let i = 0; i < likes_comments.length; i++)
+    likes_comments[i].addEventListener('click', addlike_comment);
+/*END OF PART4*/
+
+/*BEGINING OF PART5 : add dislike by clicking on comments*/
+let add_dislike_comment = function() {
+    let comment_id = this.parentNode.querySelector('input[name=id_comment]').value;
+    current_comment = this.parentNode;
+    current_likes = this;
+    current_dislikes = this.parentNode.querySelector('span.dislikes');
+    current_input = this.parentNode.querySelector('input[name=id_comment]');
+    
+    let request4 = new XMLHttpRequest();
+    request4.addEventListener('load', receive_answer_dislike_comment);
+    request4.open('POST', '../templates/add_dislike_comment.php', true);
+    request4.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+    request4.send(encodeForAjax({comment_id: comment_id, user_id: user_id}));
+}
+
+let receive_answer_dislike_comment = function(event) {
+    let answer = JSON.parse(this.responseText);
+
+    let dislikes_to_write = " dislikes";
+    if(answer == 1)
+        dislikes_to_write = " dislike";
+ 
+    current_comment.removeChild(current_dislikes);
+
+    let new_dislikes_comment = document.createElement('span');
+    new_dislikes_comment.className = "dislikes";
+    new_dislikes_comment.textContent = answer + dislikes_to_write;
+    current_comment.insertBefore(new_dislikes_comment, current_input);
+}
+
+for(let i = 0; i < dislikes_comments.length; i++)
+    dislikes_comments[i].addEventListener('click', add_dislike_comment);
+/*END OF PART5*/

@@ -18,7 +18,6 @@
     <article>
         <header>
             <h1><a href="story_item.php?story_id=<?=$story['story_id']?>&user_id=<?=$user_id?>"><?=$story['title']?></a></h1>
-            <img src=<?=$story['photo']?> alt="Can't load picture">
         </header>
         <p><?=$story['text']?></p>
         <footer>
