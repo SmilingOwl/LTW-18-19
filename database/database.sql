@@ -37,8 +37,6 @@ CREATE TABLE Comment (
   id_comment INTEGER PRIMARY KEY AUTOINCREMENT,
   story_id INTEGER REFERENCES Story,
   user_id INTEGER REFERENCES Users,
-  likes INTEGER NOT NULL,
-  dislikes INTEGER NOT NULL,
   text VARCHAR NOT NULL
 );
 
@@ -93,7 +91,7 @@ INSERT INTO Story (writer_id, title, text, photo, id_taste) VALUES (2, 'Ipsum',
  'Ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum in ultricies mi. Sed fermentum vitae sapien sed aliquam. Maecenas a.',
  'orem.jpg', 2);
 
-INSERT INTO Comment (story_id, user_id, likes, dislikes, text) VALUES (1, 2, 0, 0, 'nice!');
+INSERT INTO Comment (story_id, user_id, text) VALUES (1, 2,'nice!');
 
 INSERT INTO TasteChoice (taste) VALUES ('animals');
 INSERT INTO TasteChoice (taste) VALUES ('art');

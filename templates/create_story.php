@@ -2,9 +2,9 @@
 
 <section id=create_story>
     <form>
-        <label>Title: <textarea name="text"></textarea></label>
+        <label>Title: <textarea name="title"></textarea></label>
         <textarea name="text"> Write your story here! </textarea>
-        <textarea name="text"> Write the name of the image here! </textarea>
+        <textarea name="image"> Write the name of the image here! </textarea>
         <input type="hidden" name="user_id" value="<?=$user_id?>">
         <select name="tasteChoice">
             <?php foreach($taste_choices as $taste) {?>
