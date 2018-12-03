@@ -39,6 +39,7 @@
     <link href="../css/style.css" rel="stylesheet">
     <link href="../css/comments.css" rel="stylesheet">
     <link href="../css/layout.css" rel="stylesheet">
+    <link href="../css/icons.css" rel="stylesheet">
     <script src="../scripts/add_comment.js" defer></script>
     <script src="../scripts/show_menu.js" defer></script>
     <script src="../scripts/update_likes.js" defer></script>
@@ -47,21 +48,21 @@
 
     <header>
         <h1><?=$story['title']?></a></h1>
-        <span>Menu</span>
+        <span class="menu"><img src="../icons/menu_icon.png" alt="Menu"></span>
     </header>
 
     <section id="story">
         <article>
-            <header>
-                <img src=<?=$story['photo']?> alt="Can't load picture">
-            </header>
             <?php foreach($paragraphs as $paragraph) {?>
                 <p><?=$paragraph?></p>
             <?php } ?>
+            <header>
+                <img src=<?=$story['photo']?> alt="Can't load picture">
+            </header>
             <footer>
                 <span class="author">By <?=$writer['username']?></span>
-                <span class="likes"><?=count($likes)?> <?=$likes_to_write?></span>
-                <span class="dislikes"><?=count($dislikes)?> <?=$dislikes_to_write?></span>
+                <span class="likes"><?=count($likes)?> <img src="../icons/like_icon.png" alt="<?=$likes_to_write?>"></span>
+                <span class="dislikes"><?=count($dislikes)?> <img src="../icons/dislike_icon.png" alt="<?=$dislikes_to_write?>"></span>
                 <span class="tasteChoice">
                     <a href="story_item.html">#<?=$tasteChoice['taste']?></a>
                 </span>

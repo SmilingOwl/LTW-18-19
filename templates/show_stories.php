@@ -22,8 +22,8 @@
         <p><?=$story['text']?></p>
         <footer>
             <span class="author">By <?=$user['username']?></span>
-            <span class="likes"><?=count($likes)?> <?=$likes_to_write?></span>
-            <span class="dislikes"><?=count($dislikes)?> <?=$dislikes_to_write?></span>
+            <span class="likes"><?=count($likes)?> <img src="../icons/like_icon.png" alt="<?=$likes_to_write?>"></span>
+            <span class="dislikes"><?=count($dislikes)?> <img src="../icons/dislike_icon.png" alt="<?=$dislikes_to_write?>"></span>
             <span class="tasteChoice">
                 <a href="story_item.html">#<?=$tasteChoice['taste']?></a>
             </span>
