@@ -8,11 +8,19 @@
 
     include_once('../templates/common/header.php');
 ?>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <link href="style.css" rel="stylesheet">
+    </head>
 
-<header>
-      <h1> Taste Choice Page </h1>
-    </header>
-    <section id=save_tastes>
+    <body>
+   
+   <header>
+            <h4> </h4>
+        </header>
+    <div id=save_tastes>
+        <h1>Choose your favorites topics!</h1>
         <form action="save_tastes.php" method="get">
         <?php foreach($taste_choices as $taste) { 
             $is_checked = false;
@@ -30,5 +38,5 @@
             <input type="submit" value="Submit">
 
         </form>
-    </section>
+    </div>
     <?php include_once('../templates/common/footer.php'); ?>

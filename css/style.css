@@ -1,22 +1,114 @@
 body {
     font-family: 'Verdana', sans-serif;
-    background-color: #CCCCFF;
+    background-color: #C5C6C7;
     margin: 0em;
     padding: 0em;
 }
 body > header {
-    background-color: #d894d1;
-    color: black; 
+    background-color: #1F2833;
+    color: #66FCF1;
     padding: 0.6em;
     margin: 0em 0em 1em 0em;
     font-family: "Georgia";
 }
+
+
+body> header h1 {
+    color: #66FCF1;
+    font-size: 4em;
+    margin-block-end: 10px;
+    font-weight: 1000;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    text-align: center;
+    font-family: "Arial Black",sans-serif;
+}
+  
+body > header h2 {
+    color:white;
+    font-size: 1.5em;
+    margin-top: 0em;
+    font-weight: 100;
+    font-family: sans-serif;
+    text-align: center;
+}
+
+body > header h3 {
+      font-size: 1em;
+      color:#C5C6C7;
+      margin-top: 2em;
+      margin-bottom:3em;
+      font-family: sans-serif;
+      text-align: center;
+      font-weight: bold;
+  }
+  
+  body > header h4 {
+      margin-bottom:6em;
+  
+  }
+  
+  /*LOGIN*/
+  
+  div.register_container>h1{
+      font-family:'Open Sans Condensed';
+      font-weight: bold;
+      margin-top: 0em;
+  }
+  
+  
+  div.register_container_sign_up{
+      display: block;
+      margin: auto;
+      width: 50%;
+      border: 3px solid;
+      padding: 10px;
+      background-color: #DCDCDC;
+      text-align: left;
+  }
+  
+  div.register_container_sign_up>h1{
+      font-size: 2em;
+      color: black;
+      font-family: sans-serif;
+      text-align: center;
+      font-weight: bold;
+      margin-top: 0em;
+      margin-down: 0.5em;
+  }
+  
+  
+  
+  
+  div.register_container {
+      display: block;
+      margin: auto;
+      width: 45%;
+      border: 3px solid;
+      padding: 10px;
+      background-color: #DCDCDC;
+      text-align: center;
+      font-weight: bold;
+  }
+  
+  
+  div.register_container > form{
+    margin: 0;
+    padding: 1em;
+  }
+  
+  #final{
+      font-family: sans-serif;
+       text-align: center;
+       color:white;
+  }
+  
 #story {
     margin: 1em;
 }
 
 #introduction {
-    background-color: #993366;
+    background-color: #1F2833;
     color: white;
     font-size: 18px;
     padding: 16px;
@@ -29,7 +121,7 @@ body > header {
 }
 #story p:first-of-type:first-letter {
     font-size: 32px;
-    color: #993366;
+    color: #1F2833;
     font-family: "Times New Roman", Times, serif;
 }
 #introduction > p:first-of-type:first-letter {
@@ -39,7 +131,7 @@ body > header {
 }
 #story img {
     border-radius: 25px;
-    border: 5px groove #993366;
+    border: 5px groove #1F2833;
     display: block;
 }
 
@@ -47,10 +139,6 @@ body > header {
     display: block;
     font-family: "Georgia";
     font-size: 0.9em;
-}
-
-form {
-    background-color: rgb(216, 196, 196);
 }
 
 label{
@@ -64,17 +152,20 @@ label{
 input[type=checkbox]{
     padding: 0.8em;
 }
-
+  
 input[type=submit] {
     width: auto;
-  
-    background-color: black;
-    color: #07dabd;
-  
-    border: none;
-    margin: 1em;
-    padding: 0.8em;
-    margin-left: 2em;
+    color:white;
+    font-family:'Open Sans Condensed';
+    font-size:1em;
+    border: 3px solid black ;
+    margin-top: 1.5em;
+    padding-top: 0.5em;
+    padding-right: 1.5em;
+    padding-bottom: 0.5em;
+    padding-left: 1.5em;
+    background-color: #1F2833;
+
 }
 
 #login h2 {
@@ -82,8 +173,6 @@ input[type=submit] {
     font-family: "Georgia";
 }
 
-/*Helena added this:
-START*/
 #menu {
     position: absolute;
     display: block;
@@ -114,14 +203,14 @@ START*/
     display: block;
     padding: 0em;
     margin: 1em;
-    background-color: #d894d1;
+    background-color: #1F2833;
 }
 
 #stories article header{
     display: block;
     padding: 0.2em;
     margin: 1em;
-    background-color: #d894d1;
+    background-color: #1F2833;
 }
 
 #stories article header a {
@@ -149,7 +238,7 @@ START*/
     display: block;
     margin: 0em;
     padding: 0.2em;
-    background-color: black;
+    background-color: #1F2833;
     text-align: center;
 }
 
@@ -158,4 +247,7 @@ START*/
     font-family: "Times New Roman";
     font-size: 0.8em;
 }
-/*END*/
+
+body#first_page {
+    background-color: #1F2833;
+}

@@ -16,6 +16,7 @@
     </header>
 
 <?php 
+    include_once('../templates/create_story.php');
     include_once('../templates/show_stories.php');
     include_once('../templates/common/footer.php');
 ?>
