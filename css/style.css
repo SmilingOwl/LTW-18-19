@@ -254,3 +254,54 @@ body#first_page {
 body#story_item {
     background-color: #DCDCDC;
 }
+
+
+#create_story {
+  /* position it to the center of the page */
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  /* border style */
+  border: 2px solid #66FCF1;
+  padding: 10px;
+  border-radius: 25px;
+  
+  /* size */
+  width: 50%;
+  height: 70%;
+
+  background-color: #ffbb99;
+
+  /* box shadow */
+  box-shadow: 10px 10px 6px 0px rgba(83, 103, 115, 0.83);
+}
+#create_story form {
+  /* display flex on columns */
+  display: flex;
+  flex-direction: column;
+}
+
+#create_story form > label {
+  padding: 3em 2em 0em 0em;
+}
+#create_story form > label > textarea {
+  width: 100%;
+}
+#create_story form > select {
+  margin: 2em 2em 0em 1em;
+}
+#create_story form > input {
+  margin: 2em 2em 0em 1em;
+}
+#create_story form textarea {
+  border: 2px solid #66FCF1;
+  border-radius: 5px;
+}
+#create_story form textarea:nth-child(2) {
+  height: 10em;
+}
+#create_story form textarea:not(:first-child) {
+  margin: 1em 1em 1em 1em;
+}
