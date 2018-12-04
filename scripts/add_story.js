@@ -1,4 +1,5 @@
-let storyForm = document.querySelector('#create_story form');console.log(storyForm);
+let storyForm = document.querySelector('#create_story');
+console.log(storyForm);
 
 function encodeForAjax(data) {
     return Object.keys(data).map(function(k){
@@ -24,7 +25,6 @@ let submit_story = function() {
 };
 
 let receive_story = function(event) {
-    console.log(this.responseText);
     let section = document.querySelector('#stories');
     let first_story = document.querySelector('#stories article:first-child');
     
@@ -38,8 +38,8 @@ let receive_story = function(event) {
         '<p>' + story.text + '</p>' +
         '<footer>' +
         '<span class="author">By ' + story.username + '</span>' +
-        '<span class="likes">0 likes</span>' +
-        '<span class="dislikes">0 dislikes</span>' +
+        '<span class="likes">0 <img src="../icons/like_icon.png" alt="likes"></span>' +
+        '<span class="dislikes">0 <img src="../icons/dislike_icon.png" alt="dislikes"></span>' +
         '<span class="tasteChoice"> <a href="story_item.html">#' + story.taste + '</a></span>' +
         ' <a class="comments" href="story_item.php?story_id=' + story.story_id + '&user_id=' + story.user_id + '">'+
         '0 comments</a>' +
