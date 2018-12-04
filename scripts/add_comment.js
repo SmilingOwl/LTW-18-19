@@ -30,7 +30,7 @@ function receiveComments(event) {
       comment.innerHTML = '<span class="user">' +
         comments.username + '</span><p>' +
         comments.text + '</p>' + 
-        '<footer><span class="likes">0 likes </span> <span class="dislikes">0 dislikes</span></footer>';
+        '<footer><span class="likes">0 <img src="../icons/like_icon.png" alt="likes"></span> <span class="dislikes">0 <img src="../icons/dislike_icon.png" alt="dislikes"></span></footer>';
   
       section.insertBefore(comment, commentForm);
 }
