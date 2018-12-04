@@ -85,7 +85,7 @@
     function add_comment($story_id, $id_user, $text) {
         global $db;
     
-        $stmt = $db->prepare('INSERT INTO Comment (story_id, user_id, likes, dislikes, text) VALUES (?, ?, ?)');
+        $stmt = $db->prepare('INSERT INTO Comment (story_id, user_id, text) VALUES (?, ?, ?)');
         $stmt->execute(array($story_id, $id_user, $text));
 
         $stmt = $db->prepare('SELECT * FROM Comment, Users WHERE story_id = :s_id AND Comment.user_id= :u_id AND text = :t
