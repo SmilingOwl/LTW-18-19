@@ -1,6 +1,6 @@
 body {
     font-family: 'Verdana', sans-serif;
-    background-color: #C5C6C7;
+    background-color: #1F2833;
     margin: 0em;
     padding: 0em;
 }
@@ -203,14 +203,13 @@ input[type=submit] {
     display: block;
     padding: 0em;
     margin: 1em;
-    background-color: #1F2833;
+    background-color: #DCDCDC;
 }
 
 #stories article header{
     display: block;
     padding: 0.2em;
     margin: 1em;
-    background-color: #1F2833;
 }
 
 #stories article header a {
@@ -250,4 +249,8 @@ input[type=submit] {
 
 body#first_page {
     background-color: #1F2833;
+}
+
+body#story_item {
+    background-color: #DCDCDC;
 }
