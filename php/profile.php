@@ -12,7 +12,7 @@
 
     <header>
       <h1> Profile </h1>
-      <span>Menu</span>
+      <span class="menu"><img src="../icons/menu_icon.png" alt="Menu"></span>
     </header>
 
     <section id="presentation">

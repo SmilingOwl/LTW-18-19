@@ -11,7 +11,7 @@
 
     <header>
       <h1> Favorite Stories </h1>
-      <span>Menu</span>
+      <span class="menu"><img src="../icons/menu_icon.png" alt="Menu"></span>
     </header>
 
     <?php 

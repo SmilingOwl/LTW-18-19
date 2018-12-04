@@ -16,6 +16,7 @@
     $writer = get_user($story['writer_id']);
     $paragraphs = explode("\n", $story['text']);
     $comments = get_comments_in_story($story['story_id']); 
+    $favorites = get_favorites_story($story_id);
 
     $tasteChoice = get_taste_choice($story['id_taste']);
 
@@ -43,6 +44,7 @@
     <script src="../scripts/add_comment.js" defer></script>
     <script src="../scripts/show_menu.js" defer></script>
     <script src="../scripts/update_likes.js" defer></script>
+    <script src="../scripts/add_favorite.js" defer></script>
 </head>
 <body>
 
@@ -66,6 +68,7 @@
                 <span class="tasteChoice">
                     <a href="story_item.html">#<?=$tasteChoice['taste']?></a>
                 </span>
+                <span class="favorites"><?=count($favorites)?> <img src="../icons/saved_icon.png" alt="favorites"></span>
             </footer>
         </article>
     </section>
