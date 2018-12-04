@@ -19,16 +19,18 @@
     <link href="../css/icons.css" rel="stylesheet">
     <script src="../scripts/show_menu.js" defer></script>
     <script src="../scripts/show_comments.js" defer></script>
-    <script src="../scripts/add_story.js" defer></script>
+    <script src="../scripts/show_add_story.js" defer></script>
 </head>
 <body>
     <header>
         <h1> Home Page </h1>
         <span>Menu</span>
     </header>
+    <span class="add_story"><img src="../icons/add_icon.png" alt="Add story"> </span>
+    <input type="hidden" name="user_id" value="<?=$user_id?>">
 
 <?php 
-    include_once('../templates/create_story.php');
+    //include_once('../templates/create_story.php');
     include_once('../templates/show_stories.php');
     include_once('../templates/common/footer.php');
 ?>
