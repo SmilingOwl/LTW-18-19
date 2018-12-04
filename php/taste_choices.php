@@ -11,17 +11,16 @@
 <html>
     <head>
         <meta charset="utf-8">
-        <link href="style.css" rel="stylesheet">
+        <link href="..css/style.css" rel="stylesheet">
     </head>
 
     <body>
    
    <header>
-            <h4> </h4>
+            <h5>Choose your <br> favorites topics!</h5>
         </header>
     <div id=save_tastes>
-        <h1>Choose your favorites topics!</h1>
-        <form action="save_tastes.php" method="get">
+        <form action="homepage.php" method="get">
         <?php foreach($taste_choices as $taste) { 
             $is_checked = false;
             foreach($users_taste_choices as $user_taste)

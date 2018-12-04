@@ -11,9 +11,10 @@
 
 	<body id=first_page>
 		<header>
-			<h1>Eunoia</h1>
+			<h1>Eunoia </h1>
+			<img src="../icons/mainIcon.png" alt="main_icon">
 			<h2> Share your stories </h2>
-			<img src="logo.png" alt="logo">
+			
 		</header>
 
 	<div class="register_container">

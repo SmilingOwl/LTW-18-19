@@ -12,7 +12,7 @@
 
 	<body id="first_page">
  		<header>
- 			<h3>Welcome! Thanks for joining us!</h3>
+ 			<h3>Welcome! <br> Thanks for joining us!</h3>
  		</header>
 		<div class="register_container_sign_up">
 			<h1>Sign Up </h1>
