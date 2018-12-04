@@ -12,7 +12,6 @@
 	<body id=first_page>
 		<header>
 			<h1>Eunoia </h1>
-			<img src="../icons/mainIcon.png" alt="main_icon">
 			<h2> Share your stories </h2>
 			
 		</header>
@@ -21,11 +20,11 @@
 		<h1> Login </h1>
 		<form action="../actions/action_login.php" method="post" class="register_form">
 			<label>Username:
-				<input type="text" name="Username" placeholder="Username" required="required">
+				<input type="text" name="username" placeholder="username" required="required">
 			</label>
 			
 			<label>Password:
-				<input type="password" name="Password" placeholder="Password" required="required">
+				<input type="password" name="password" placeholder="password" required="required">
 			</label>
 			
 			<input type="submit" name="Submit" value="Enter">
