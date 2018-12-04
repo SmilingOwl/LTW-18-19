@@ -22,9 +22,7 @@ let submitComment = function() {
 
 function receiveComments(event) {
     let section = document.querySelector('#comments');
-    console.log(this.responseText);
     let comments = JSON.parse(this.responseText);
-    console.log(comments);
   
       let comment = document.createElement('article');
       comment.classList.add('comment');
