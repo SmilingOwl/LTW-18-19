@@ -37,4 +37,3 @@ let show_menu = function() {
 }
 
 menu_icon.addEventListener('click', show_menu);
-

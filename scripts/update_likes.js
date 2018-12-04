@@ -50,7 +50,7 @@ let receive_answer = function(event) {
 
     let new_likes = document.createElement('span');
     new_likes.className = "likes";
-    new_likes.textContent = answer + likes_to_write;
+    new_likes.innerHTML = answer + '<img src="../icons/like_icon.png" alt="' + likes_to_write + '"></img>';
     footer.insertBefore(new_likes, dislikes);
 }
 
@@ -77,7 +77,8 @@ let receive_answer_dislike = function(event) {
 
     let new_dislikes = document.createElement('span');
     new_dislikes.className = "dislikes";
-    new_dislikes.textContent = answer + dislikes_to_write;
+    new_dislikes.innerHTML = answer + '<img src="../icons/dislike_icon.png" alt="' + dislikes_to_write + '"></img>';
+    console.log(new_dislikes);
     footer.insertBefore(new_dislikes, tastechoice);
 }
 
@@ -118,7 +119,7 @@ let receive_answer_like_comment = function(event) {
 
     let new_likes_comment = document.createElement('span');
     new_likes_comment.className = "likes";
-    new_likes_comment.textContent = answer + likes_to_write;
+    new_likes_comment.innerHTML = answer + '<img src="../icons/like_icon.png" alt="' + likes_to_write + '"></img>';
     current_comment.insertBefore(new_likes_comment, current_dislikes);
 }
 
@@ -152,7 +153,7 @@ let receive_answer_dislike_comment = function(event) {
 
     let new_dislikes_comment = document.createElement('span');
     new_dislikes_comment.className = "dislikes";
-    new_dislikes_comment.textContent = answer + dislikes_to_write;
+    new_dislikes.innerHTML = answer + ' <img src="../icons/dislike_icon.png" alt="' + dislikes_to_write + '"></img>';
     current_comment.insertBefore(new_dislikes_comment, current_input);
 }
 

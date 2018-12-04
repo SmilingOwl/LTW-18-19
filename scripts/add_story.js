@@ -1,5 +1,4 @@
 let storyForm = document.querySelector('#create_story');
-console.log(storyForm);
 
 function encodeForAjax(data) {
     return Object.keys(data).map(function(k){
@@ -47,5 +46,15 @@ let receive_story = function(event) {
         '</footer>';
   
       section.insertBefore(new_story, first_story);
+
+      let head = document.querySelector('head');
+      let script_to_delete = document.querySelector('head script:first-of-type');
+      let body = document.querySelector('body');
+      body.removeChild(storyForm);
+      head.removeChild(script_to_delete);
+      let button = document.createElement('span');
+      button.className = "add_story";
+      button.innerHTML = '<img src="../icons/add_icon.png" alt="Add story">';
+      body.insertBefore(button, section);
 }
 storyForm.addEventListener('submit', submit_story);
