@@ -15,15 +15,16 @@ let submitComment = function() {
 
     let request = new XMLHttpRequest();
     request.addEventListener('load', receiveComments);
-    request.open('POST', 'add_comment.php', true);
+    request.open('POST', '../templates/add_comment.php', true);
     request.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
     request.send(encodeForAjax({story_id: story_id, user_id: user_id, text: text}));
 };
 
 function receiveComments(event) {
     let section = document.querySelector('#comments');
-    
+    console.log(this.responseText);
     let comments = JSON.parse(this.responseText);
+    console.log(comments);
   
       let comment = document.createElement('article');
       comment.classList.add('comment');
