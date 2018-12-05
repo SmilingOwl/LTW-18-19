@@ -18,7 +18,7 @@ let submit_story = function() {
 
     let request = new XMLHttpRequest();
     request.addEventListener('load', receive_story);
-    request.open('POST', '../templates/add_story.php', true);
+    request.open('POST', '../actions/add_story.php', true);
     request.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
     request.send(encodeForAjax({user_id: user_id, title: title, text: text, img: img, id_taste_choice: id_taste_choice}));
 };

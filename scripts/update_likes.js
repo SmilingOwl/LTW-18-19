@@ -25,7 +25,7 @@ let color_like = function(event) {
 
 let request1 = new XMLHttpRequest();
 request1.addEventListener('load', color_like);
-request1.open('POST', '../templates/check_like.php', true);
+request1.open('POST', '../actions/check_like.php', true);
 request1.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
 request1.send(encodeForAjax({story_id: story_id, user_id: user_id}));
 /*END OF PART1*/
@@ -34,7 +34,7 @@ request1.send(encodeForAjax({story_id: story_id, user_id: user_id}));
 let addlike = function() {
     let request2 = new XMLHttpRequest();
     request2.addEventListener('load', receive_answer);
-    request2.open('POST', '../templates/add_like.php', true);
+    request2.open('POST', '../actions/add_like.php', true);
     request2.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
     request2.send(encodeForAjax({story_id: story_id, user_id: user_id}));
 }
@@ -61,7 +61,7 @@ likes.addEventListener('click', addlike);
 let add_dislike = function() {
     let request2 = new XMLHttpRequest();
     request2.addEventListener('load', receive_answer_dislike);
-    request2.open('POST', '../templates/add_dislike.php', true);
+    request2.open('POST', '../actions/add_dislike.php', true);
     request2.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
     request2.send(encodeForAjax({story_id: story_id, user_id: user_id}));
 }
@@ -103,7 +103,7 @@ let addlike_comment = function() {
     
     let request4 = new XMLHttpRequest();
     request4.addEventListener('load', receive_answer_like_comment);
-    request4.open('POST', '../templates/add_like_comment.php', true);
+    request4.open('POST', '../actions/add_like_comment.php', true);
     request4.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
     request4.send(encodeForAjax({comment_id: comment_id, user_id: user_id}));
 }
@@ -137,7 +137,7 @@ let add_dislike_comment = function() {
     
     let request4 = new XMLHttpRequest();
     request4.addEventListener('load', receive_answer_dislike_comment);
-    request4.open('POST', '../templates/add_dislike_comment.php', true);
+    request4.open('POST', '../actions/add_dislike_comment.php', true);
     request4.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
     request4.send(encodeForAjax({comment_id: comment_id, user_id: user_id}));
 }

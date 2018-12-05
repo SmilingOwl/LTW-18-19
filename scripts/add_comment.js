@@ -15,7 +15,7 @@ let submitComment = function() {
 
     let request = new XMLHttpRequest();
     request.addEventListener('load', receiveComments);
-    request.open('POST', '../templates/add_comment.php', true);
+    request.open('POST', '../actions/add_comment.php', true);
     request.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
     request.send(encodeForAjax({story_id: story_id, user_id: user_id, text: text}));
 };

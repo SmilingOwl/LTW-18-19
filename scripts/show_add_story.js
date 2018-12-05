@@ -3,7 +3,7 @@ add_story_button = document.querySelector('span.add_story');
 let show_add_story_popup = function() {
     let request = new XMLHttpRequest();
     request.addEventListener('load', receive_html);
-    request.open('POST', '../templates/create_story.php', true);
+    request.open('POST', '../actions/create_story.php', true);
     request.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
     request.send();
 }
