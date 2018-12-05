@@ -12,6 +12,9 @@ body > header {
     font-family: "Georgia";
 }
 
+html {
+    background-color: #1F2833;
+}
 
 body> header h1 {
     color: #66FCF1;
@@ -178,11 +181,11 @@ input[type=submit] {
 }
 
 #menu {
-    position: absolute;
+    position: fixed;
     display: block;
     padding: 0em;
     margin: 0em;
-    background-color: #ffffff;
+    background-color: #DCDCDC;
 }
 
 #menu ul {
@@ -192,9 +195,10 @@ input[type=submit] {
 
 #menu li {
     display: block;
-    padding: 0.5em;
+    padding: 1.5em;
     margin: 0em;
     font-family: "Georgia";
+    border: 1px solid #1F2833;
 }
 
 #stories {
