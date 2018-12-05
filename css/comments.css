@@ -91,3 +91,23 @@
   margin-left: 3em;
   padding: 1em;
 }
+
+#comments_section {
+  background-color: #ccc;
+}
+
+#comments_section article {
+  font-style: italic;
+  font-family: "Calibri";
+  font-size: 0.8em;
+  background-color: #ccc;
+  border: 1px solid #1F2833;
+  margin: 0em;
+  padding: 0em 2em;
+}
+
+#comments_section p {
+  background-color: #ccc;
+  margin: 0em;
+  padding: 0em;
+}

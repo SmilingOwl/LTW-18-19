@@ -183,9 +183,10 @@ input[type=submit] {
 #menu {
     position: fixed;
     display: block;
-    padding: 0em;
+    padding: 0em 0em 25em 0em;
     margin: 0em;
     background-color: #DCDCDC;
+    border: 1px solid #1F2833;
 }
 
 #menu ul {
