@@ -1,15 +1,16 @@
-let profile = document.querySelector('#menu li:first-child');
-let favorites = document.querySelector('#menu li:nth-child(2)');
-let homepage = document.querySelector('#menu li:nth-child(3)');
-let logout = document.querySelector('#menu li:nth-child(4)');
-let buttons = document.getElementsByTagName('li');
+profile = document.querySelector('#menu li:first-child');
+favorites = document.querySelector('#menu li:nth-child(2)');
+homepage = document.querySelector('#menu li:nth-child(3)');
+logout = document.querySelector('#menu li:nth-child(4)');
+close_menu = document.querySelector('#menu li:nth-child(5)');
+buttons = document.getElementsByTagName('li');
 
-let change_color = function() {
-    this.style.backgroundColor = "black";
-    this.style.color = "white";
+change_color = function() {
+    this.style.backgroundColor = "#66FCF1";
+    this.style.color = "black";
 }
 
-let change_color_back = function() {
+change_color_back = function() {
     this.style.backgroundColor = "initial";
     this.style.color = "initial";
 }
@@ -19,20 +20,32 @@ for(let i = 0; i< buttons.length; i++){
     buttons[i].addEventListener('mouseout', change_color_back);
 }
 
-let go_to_profile = function() {
-    window.location.href="profile.php?user_id=1"; //to change here!!
+go_to_profile = function() {
+    window.location.href="profile.php?";
 }
 
 profile.addEventListener('click', go_to_profile);
 
-let go_to_favorites = function() {
-    window.location.href="favorites.php?user_id=1"; //to change here!!
+go_to_favorites = function() {
+    window.location.href="favorites.php?";
 }
 
 favorites.addEventListener('click', go_to_favorites);
 
-let go_to_homepage = function() {
-    window.location.href="homepage.php?user_id=1"; //to change here!!
+go_to_homepage = function() {
+    window.location.href="homepage.php?";
 }
 
 homepage.addEventListener('click', go_to_homepage);
+
+hide_menu = function() {
+    let menu = document.querySelector('#menu');
+    let script_to_delete = document.querySelector('head script:first-of-type');
+    let head = document.querySelector('head');
+    let html = document.querySelector('html');
+
+    head.removeChild(script_to_delete);
+    html.removeChild(menu);
+}
+
+close_menu.addEventListener('click', hide_menu);

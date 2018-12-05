@@ -5,18 +5,6 @@ body = document.querySelector('body');
 html = document.querySelector('html');
 header = document.querySelector('body header');
 is_menu_showing = false;
-/*
-let remove_menu = function() {
-    if(!is_menu_showing)
-        return;
-    let menu = document.querySelector('#menu');
-    menu.parentNode.removeChild(menu);
-    let script = document.querySelector('head script:first-of-type');
-    script.parentNode.removeChild(script);
-    is_menu_showing=false;
-}
-
-body.addEventListener('click', remove_menu);*/
 
 let show_menu = function() {
     let menu = document.createElement('nav');
@@ -27,6 +15,7 @@ let show_menu = function() {
         '<li>My Favorites</li>' +
         '<li>Homepage</li>' +
         '<li>Log Out</li>' +
+        '<li>Hide Menu</li>' +
     '</ul>';
     html.insertBefore(menu, body);
 
