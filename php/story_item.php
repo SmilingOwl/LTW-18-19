@@ -46,7 +46,7 @@
     <script src="../scripts/update_likes.js" defer></script>
     <script src="../scripts/add_favorite.js" defer></script>
 </head>
-<body>
+<body id="story_item">
 
     <header>
         <h1><?=$story['title']?></a></h1>
