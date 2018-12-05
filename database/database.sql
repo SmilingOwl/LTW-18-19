@@ -20,8 +20,7 @@ CREATE TABLE Users (
   email VARCHAR NOT NULL,
   birthdate DATE,
   photo VARCHAR,
-  password VARCHAR NOT NULL,
-  gender VARCHAR NOT NULL
+  password VARCHAR NOT NULL
 );
 
 CREATE TABLE Story (
@@ -81,8 +80,8 @@ CREATE TABLE DislikesComments (
   PRIMARY KEY(user_id, comment_id)
 );
 
-INSERT INTO Users (user_id, username, email, birthdate, photo, password, gender) Values (1, 'lorem', 'lorem@gmail.com', '1998-12-03', 'lorem.jpg', 'asdfg', 'male');
-INSERT INTO Users (username, email, birthdate, photo, password, gender) Values ('lorina', 'lorina@gmail.com', '1998-12-03', 'lorina.jpg', 'asdfghj', 'female');
+INSERT INTO Users (user_id, username, email, birthdate, photo, password) Values (1, 'lorem', 'lorem@gmail.com', '1998-12-03', 'lorem.jpg', 'asdfg');
+INSERT INTO Users (username, email, birthdate, photo, password) Values ('lorina', 'lorina@gmail.com', '1998-12-03', 'lorina.jpg', 'asdfghj');
 
 INSERT INTO Story (writer_id, title, text, photo, id_taste) VALUES (1, 'Lorem',
  'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum in ultricies mi. Sed fermentum vitae sapien sed aliquam. Maecenas a.',
