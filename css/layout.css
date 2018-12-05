@@ -16,5 +16,4 @@
 	grid-template-areas: "p header"
 						   "footer footer";
 	grid-row-gap: 1em;
-	grid-column-gap: 1em;
 }

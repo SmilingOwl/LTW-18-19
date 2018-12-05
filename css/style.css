@@ -107,6 +107,10 @@ body > header h3 {
     margin: 1em;
 }
 
+#story article > header img{
+    float: right;
+}
+
 #introduction {
     background-color: #1F2833;
     color: white;
