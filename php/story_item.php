@@ -1,4 +1,5 @@
 <?php
+    include_once('../includes/session.php');
     include_once('../database/connection.php');
     include_once('../database/access_database.php');
     include_once('../database/access_for_likes.php');
@@ -6,9 +7,9 @@
     if (!isset($_GET['story_id']))
         die("No id passed for the story item!");
     
-    if (isset($_GET['user_id']))
+    if (isset($_SESSION['user_id']))
     {
-        $user_id = $_GET['user_id'];
+        $user_id = $_SESSION['user_id'];
         $user = get_user($user_id);
     }
     $story_id=$_GET['story_id'];
@@ -76,7 +77,7 @@
     <section id="comments">
     <h3> Comments: </h3>
     <?php include_once('../templates/show_comments.php'); ?>
-    <?php if (isset($_GET['user_id'])) { ?>
+    <?php if (isset($_SESSION['user_id'])) { ?>
         <form>
             <h3><?=$user['username']?> says:</h3>
             <textarea name="text"> Write your comment here! </textarea>

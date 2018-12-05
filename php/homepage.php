@@ -4,9 +4,9 @@
     include_once('../database/access_database.php');
     include_once('../database/access_for_likes.php');
     
-    $user_id = $_SESSION['user_id'];
-    $stories = get_all_stories($user_id);
-    $user = get_user($user_id);
+    $users_id = $_SESSION['user_id'];
+    $stories = get_all_stories($users_id);
+    $user = get_user($users_id);
 ?>
 
 <!DOCTYPE html>
@@ -28,7 +28,7 @@
         <span class="menu"><img src="../icons/menu_icon.png" alt="Menu"></span>
     </header>
     <span class="add_story"><img src="../icons/add_icon.png" alt="Add story"> </span>
-    <input type="hidden" name="user_id" value="<?=$user_id?>">
+    <input type="hidden" name="user_id" value="<?=$users_id?>">
 
 <?php 
     include_once('../templates/show_stories.php');

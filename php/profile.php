@@ -1,9 +1,10 @@
 <?php
+    include_once('../includes/session.php');
     include_once('../database/connection.php');
     include_once('../database/access_database.php');
     include_once('../database/access_for_likes.php');
     
-    $user_id = $_GET['user_id'];
+    $user_id = $_SESSION['user_id'];
     $stories = get_stories_by_user($user_id);
     $user = get_user($user_id);
 
