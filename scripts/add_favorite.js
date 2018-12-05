@@ -7,6 +7,7 @@ function encodeForAjax(data) {
 }
  /* Part to color favorites */
 let color_favorite = function(event) {
+    console.log(this.responseText);
     let answer = JSON.parse(this.responseText);
     if(answer) {
         favorites_span.style.color = "blue";
@@ -15,7 +16,7 @@ let color_favorite = function(event) {
 
 let request_favorites = new XMLHttpRequest();
 request_favorites.addEventListener('load', color_favorite);
-request_favorites.open('POST', '../templates/check_favorite.php', true);
+request_favorites.open('POST', '../actions/check_favorite.php', true);
 request_favorites.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
 request_favorites.send(encodeForAjax({story_id: story_id, user_id: user_id}));
 
@@ -26,7 +27,7 @@ let add_favorite = function() {
 
     let request = new XMLHttpRequest();
     request.addEventListener('load', receive_favorite_count);
-    request.open('POST', '../templates/add_favorite.php', true);
+    request.open('POST', '../actions/add_favorite.php', true);
     request.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
     request.send(encodeForAjax({story_id: story_id, user_id: user_id}));
 }
