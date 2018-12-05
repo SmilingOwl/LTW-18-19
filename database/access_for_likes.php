@@ -31,6 +31,20 @@
         return $stmt->fetchAll();
     }
 
+    function add_favorite_story($user_id, $story_id){
+        global $db;
+        $stmt = $db->prepare('SELECT * FROM SavedStory WHERE user_id = ? AND story_id=?');
+        $stmt->execute(array($user_id, $story_id));
+        if(empty($stmt->fetch())) {
+            $stmt = $db->prepare('INSERT INTO SavedStory (user_id, story_id) VALUES (?, ?)');
+            $stmt->execute(array($user_id, $story_id));
+        }
+
+        $stmt = $db->prepare('SELECT * FROM SavedStory WHERE story_id=?');
+        $stmt->execute(array($story_id));
+        return $stmt->fetchAll();
+    }
+
     function does_user_like_story($user_id, $story_id){
         global $db;
         $stmt = $db->prepare('SELECT * FROM LikesStories WHERE user_id = ? AND story_id=?');
@@ -55,6 +69,17 @@
         }
 
         return 3;
+    }
+
+    function does_user_have_saved_story($user_id, $story_id){
+        global $db;
+        $stmt = $db->prepare('SELECT * FROM SavedStory WHERE user_id = ? AND story_id=?');
+        $stmt->execute(array($user_id, $story_id));
+
+        if(empty($stmt->fetch())) {
+            return false;
+        }
+        return true;
     }
 
     function get_likes_story($id){

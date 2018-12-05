@@ -82,6 +82,14 @@
         return $stmt->fetchAll();
     }
 
+    function get_favorites_story($id) {
+        global $db;
+        $stmt = $db->prepare('SELECT * FROM SavedStory WHERE story_id = :id');
+        $stmt->bindParam(':id', $id, PDO::PARAM_INT);
+        $stmt->execute();
+        return $stmt->fetchAll();
+    }
+
     function add_comment($story_id, $id_user, $text) {
         global $db;
     
