@@ -14,10 +14,14 @@
         $dislikes_to_write='dislikes';
         if(count($dislikes) == 1)
             $dislikes_to_write='dislike';
+        $favorites = get_favorites_story($story['story_id']);
+        $favorites_to_write='favorites';
+        if(count($favorites) == 1)
+            $favorites_to_write='favorite';
     ?>
     <article>
         <header>
-            <h1><a href="story_item.php?story_id=<?=$story['story_id']?>&user_id=<?=$user_id?>"><?=$story['title']?></a></h1>
+            <h1><a href="story_item.php?story_id=<?=$story['story_id']?>"><?=$story['title']?></a></h1>
         </header>
         <p><?=$story['text']?></p>
         <footer>
@@ -27,8 +31,9 @@
             <span class="tasteChoice">
                 <a href="story_item.html">#<?=$tasteChoice['taste']?></a>
             </span>
-            <a class="comments" href="story_item.php?story_id=<?=$story['story_id']?>&user_id=<?=$user_id?>"><?=count($num_comments)?> 
-                <img src="../icons/comment_icon.png" alt="<?=$comments_to_write?>"></a>
+            <span class="comments"><?=count($num_comments)?> 
+                <img src="../icons/comment_icon.png" alt="<?=$comments_to_write?>"></span>
+            <span class="favorites"><?=count($favorites)?> <img src="../icons/saved_icon.png" alt="<?=$favorites_to_write?>"></span>
             <input type="hidden" name="story_id" value="<?=$story['story_id']?>">
         </footer>
     </article>
