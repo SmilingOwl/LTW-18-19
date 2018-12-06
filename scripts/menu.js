@@ -72,3 +72,15 @@ delete_account_func = function(){
 }
 
 delete_account.addEventListener('click', delete_account_func);
+
+logout_func = function(){
+    let user_id=document.querySelector('input[name=user_id]').value;
+
+    let request = new XMLHttpRequest();
+    request.addEventListener('load', go_to_first_page);
+    request.open('POST', '../actions/action_logout.php', true);
+    request.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+    request.send();
+}
+
+logout.addEventListener('click', logout_func);
