@@ -70,6 +70,8 @@
                     <a href="story_item.html">#<?=$tasteChoice['taste']?></a>
                 </span>
                 <span class="favorites"><?=count($favorites)?> <img src="../icons/saved_icon.png" alt="favorites"></span>
+                <input type="hidden" name="user_id" value="<?=$user_id?>">
+                <input type="hidden" name="story_id" value="<?=$story_id?>">
             </footer>
         </article>
     </section>
