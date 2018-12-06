@@ -15,6 +15,14 @@
         return $stmt->fetchAll();
     }
 
+    function get_stories_by_taste_choice($id){
+        global $db;
+        $stmt = $db->prepare('SELECT * FROM Story WHERE id_taste = :id ORDER BY story_id DESC');
+        $stmt->bindParam(':id', $id, PDO::PARAM_INT);
+        $stmt->execute();
+        return $stmt->fetchAll();
+    }
+
     function get_filtered_stories_by_user($id){
         global $db;
         $stmt = $db->prepare('SELECT * FROM Story, TasteChoice, TasteChoiceUser 
@@ -33,9 +41,25 @@
         return $stmt->fetchAll();
     }
 
+    function get_all_users(){
+        global $db;
+        $stmt = $db->prepare('SELECT * FROM Users');
+        $stmt->execute();
+        return $stmt->fetchAll();
+    }
+
     function get_comments_in_story($id){
         global $db;
         $stmt = $db->prepare('SELECT * FROM Comment WHERE story_id = :id');
+        $stmt->bindParam(':id', $id, PDO::PARAM_INT);
+        $stmt->execute();
+        return $stmt->fetchAll();
+    }
+
+    function get_comments_with_user($id){
+        global $db;
+        $stmt = $db->prepare('SELECT Comment.text, Users.username FROM Comment, Users WHERE story_id = :id
+            AND Comment.user_id = Users.user_id');
         $stmt->bindParam(':id', $id, PDO::PARAM_INT);
         $stmt->execute();
         return $stmt->fetchAll();
