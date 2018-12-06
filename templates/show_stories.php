@@ -19,7 +19,7 @@
         if(count($favorites) == 1)
             $favorites_to_write='favorite';
     ?>
-    <article>
+    <article id="story">
         <header>
             <h1><a href="story_item.php?story_id=<?=$story['story_id']?>"><?=$story['title']?></a></h1>
         </header>
@@ -29,12 +29,13 @@
             <span class="likes"><?=count($likes)?> <img src="../icons/like_icon.png" alt="<?=$likes_to_write?>"></span>
             <span class="dislikes"><?=count($dislikes)?> <img src="../icons/dislike_icon.png" alt="<?=$dislikes_to_write?>"></span>
             <span class="tasteChoice">
-                <a href="story_item.html">#<?=$tasteChoice['taste']?></a>
+                <a href="taste_choice_stories.php?id_taste=<?=$story['id_taste']?>">#<?=$tasteChoice['taste']?></a>
             </span>
             <span class="comments"><?=count($num_comments)?> 
                 <img src="../icons/comment_icon.png" alt="<?=$comments_to_write?>"></span>
             <span class="favorites"><?=count($favorites)?> <img src="../icons/saved_icon.png" alt="<?=$favorites_to_write?>"></span>
             <input type="hidden" name="story_id" value="<?=$story['story_id']?>">
+            <input type="hidden" name="user_id" value="<?=$user['user_id']?>">
         </footer>
     </article>
     <?php } ?>
