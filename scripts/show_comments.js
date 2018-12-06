@@ -1,5 +1,4 @@
 comments = document.querySelectorAll('#stories span.comments');
-let footer;
 showing = [];
 
 function encodeForAjax(data) {
@@ -18,7 +17,6 @@ let show_comments = function()  {
     }
     this.showing = true;
     let story_id = footer.querySelector('input').value;
-    console.log(story_id);
 
     let request = new XMLHttpRequest();
     request.addEventListener('load', receive_answer_show_comments);
@@ -29,10 +27,8 @@ let show_comments = function()  {
 
 let receive_answer_show_comments = function() {
     let story = footer.parentNode;
-    console.log(story);
     let comments_to_show = JSON.parse(this.responseText);
     
-    console.log(comments_to_show);
     let new_comment_section = document.createElement('section');
     new_comment_section.id = "comments_section";
     for (let i = 0; i < comments_to_show.length; i++)

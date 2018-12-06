@@ -1,9 +1,10 @@
-let likes = document.querySelector('#story span.likes');
-let dislikes = document.querySelector('#story span.dislikes');
-let tastechoice = document.querySelector('#story span.tasteChoice');
+let likes = document.querySelectorAll('#story span.likes');
+let dislikes = document.querySelectorAll('#story span.dislikes');
 let footer = document.querySelector('#story footer');
 let user_id=document.querySelector('input[name=user_id]').value;
 let story_id=document.querySelector('input[name=story_id]').value;
+let selected_like;
+let selected_dislike;
 
 /*Function for requests:*/
 function encodeForAjax(data) {
@@ -12,26 +13,12 @@ function encodeForAjax(data) {
     }).join('&')
 }
 
-/*BEGINING OF PART1 : color likes / dislikes if the user has already likes/dislikes story*/
-let color_like = function(event) {
-    let answer = JSON.parse(this.responseText);
-    if(answer == 1 || answer == 3) {
-        likes.style.color = "blue";
-    }
-    if(answer == 2 || answer == 3) {
-        dislikes.style.color = "blue";
-    }
-}
-
-let request1 = new XMLHttpRequest();
-request1.addEventListener('load', color_like);
-request1.open('POST', '../actions/check_like.php', true);
-request1.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-request1.send(encodeForAjax({story_id: story_id, user_id: user_id}));
-/*END OF PART1*/
-
 /*BEGINING OF PART2 : add like by clicking*/
 let addlike = function() {
+    selected_like=this;
+    let user_id=this.parentNode.querySelector('input[name=user_id]').value;
+    let story_id=this.parentNode.querySelector('input[name=story_id]').value;
+
     let request2 = new XMLHttpRequest();
     request2.addEventListener('load', receive_answer);
     request2.open('POST', '../actions/add_like.php', true);
@@ -41,24 +28,30 @@ let addlike = function() {
 
 let receive_answer = function(event) {
     let answer = JSON.parse(this.responseText);
+    let footer = selected_like.parentNode;
+    let after = footer.querySelector('span.dislikes');
 
     let likes_to_write = " likes";
     if(answer == 1)
         likes_to_write = " like";
 
-    likes.parentNode.removeChild(likes);
+        selected_like.parentNode.removeChild(selected_like);
 
     let new_likes = document.createElement('span');
     new_likes.className = "likes";
     new_likes.innerHTML = answer + '<img src="../icons/like_icon.png" alt="' + likes_to_write + '"></img>';
-    footer.insertBefore(new_likes, dislikes);
+    new_likes.style.color = "blue";
+    footer.insertBefore(new_likes, after);
 }
 
-likes.addEventListener('click', addlike);
 /*END OF PART2*/
 
 /*BEGINING OF PART3 : add dislike by clicking*/
 let add_dislike = function() {
+    selected_dislike=this;
+    let user_id=this.parentNode.querySelector('input[name=user_id]').value;
+    let story_id=this.parentNode.querySelector('input[name=story_id]').value;
+
     let request2 = new XMLHttpRequest();
     request2.addEventListener('load', receive_answer_dislike);
     request2.open('POST', '../actions/add_dislike.php', true);
@@ -68,22 +61,45 @@ let add_dislike = function() {
 
 let receive_answer_dislike = function(event) {
     let answer = JSON.parse(this.responseText);
+    let footer = selected_dislike.parentNode;
+    let tastechoice = footer.querySelector('span.tasteChoice');
 
     let dislikes_to_write = " dislikes";
     if(answer == 1)
         dislikes_to_write = " dislike";
 
-    dislikes.parentNode.removeChild(dislikes);
+    footer.removeChild(selected_dislike);
 
     let new_dislikes = document.createElement('span');
     new_dislikes.className = "dislikes";
     new_dislikes.innerHTML = answer + '<img src="../icons/dislike_icon.png" alt="' + dislikes_to_write + '"></img>';
-    console.log(new_dislikes);
+    new_dislikes.style.color = "blue";
     footer.insertBefore(new_dislikes, tastechoice);
 }
 
-dislikes.addEventListener('click', add_dislike);
-/*END OF PART3*/
+ /*END OF PART3*/
+
+for(let i = 0; i < likes.length; i++) {
+    likes[i].addEventListener('click', addlike);
+    dislikes[i].addEventListener('click', add_dislike);
+
+    let user_id=likes[i].parentNode.querySelector('input[name=user_id]').value;
+    let story_id=likes[i].parentNode.querySelector('input[name=story_id]').value;
+
+    let request_likes = new XMLHttpRequest();
+    request_likes.addEventListener('load', function(){
+        let answer = JSON.parse(this.responseText);
+        if(answer == 1 || answer == 3) {
+            likes[i].style.color = "blue";
+        }
+        if(answer == 2 || answer == 3) {
+            dislikes[i].style.color = "blue";
+        }
+    });
+    request_likes.open('POST', '../actions/check_like.php', true);
+    request_likes.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+    request_likes.send(encodeForAjax({story_id: story_id, user_id: user_id}));
+}
 
 /*---------------------------COMMENTS---------------------------*/
 

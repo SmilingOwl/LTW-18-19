@@ -16,6 +16,7 @@ let show_menu = function() {
         '<li>Homepage</li>' +
         '<li>Log Out</li>' +
         '<li>Hide Menu</li>' +
+        '<li>Delete Account</li>' +
     '</ul>';
     html.insertBefore(menu, body);
 

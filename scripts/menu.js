@@ -3,6 +3,7 @@ favorites = document.querySelector('#menu li:nth-child(2)');
 homepage = document.querySelector('#menu li:nth-child(3)');
 logout = document.querySelector('#menu li:nth-child(4)');
 close_menu = document.querySelector('#menu li:nth-child(5)');
+delete_account = document.querySelector('#menu li:nth-child(6)');
 buttons = document.getElementsByTagName('li');
 
 change_color = function() {
@@ -49,3 +50,25 @@ hide_menu = function() {
 }
 
 close_menu.addEventListener('click', hide_menu);
+
+function encodeForAjax(data) {
+    return Object.keys(data).map(function(k){
+        return encodeURIComponent(k) + '=' + encodeURIComponent(data[k])
+    }).join('&')
+}
+
+go_to_first_page = function() {
+    window.location.href="first_page.php?";
+}
+
+delete_account_func = function(){
+    let user_id=document.querySelector('input[name=user_id]').value;
+
+    let request = new XMLHttpRequest();
+    request.addEventListener('load', go_to_first_page);
+    request.open('POST', '../actions/delete_account.php', true);
+    request.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+    request.send(encodeForAjax({user_id: user_id}));
+}
+
+delete_account.addEventListener('click', delete_account_func);
