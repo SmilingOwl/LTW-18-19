@@ -9,11 +9,24 @@ function encodeForAjax(data) {
 
 let show_filtered_stories = function(event) {
     let filtered_stories = JSON.parse(this.responseText);
-    let stories_to_delete = document.querySelector('#stories');
-    let where_to_add = stories_to_delete.parentNode;
+    let stories_to_delete = document.querySelectorAll('#stories');
+    let where_to_add = stories_to_delete[0].parentNode;
     let footer_copyright = document.querySelector('#copyright');
-    stories_to_delete.parentNode.removeChild(stories_to_delete);
+    for(let i = 0; i < stories_to_delete.length; i++)
+        stories_to_delete[i].parentNode.removeChild(stories_to_delete[i]);
+    let stories_ids = [];
+    let flag_continue;
+
     for(let i = 0; i < filtered_stories.length; i++) {
+        for(let j = 0; j < stories_ids.length; j++){
+            if(filtered_stories[i].story_id == stories_ids[j]) {
+                flag_continue = true;
+                break;
+            }
+        }
+        if(flag_continue)
+            continue;
+        stories_ids.push(filtered_stories[i].story_id);
         stories_to_add = document.createElement('section');
         stories_to_add.id = "stories";
         stories_to_add.innerHTML = '<article id="story">' +
@@ -35,6 +48,12 @@ let show_filtered_stories = function(event) {
                 '<input type="hidden" name="user_id" value="' + filtered_stories[i].user_id + '">' +
             '</footer>' +
         '</article>';
+        where_to_add.insertBefore(stories_to_add, footer_copyright);
+    }
+    if(filtered_stories.length == 0) {
+        stories_to_add = document.createElement('section');
+        stories_to_add.id = "stories";
+        stories_to_add.innerHTML = "<h3>We couldn't find any stories!</h3>";
         where_to_add.insertBefore(stories_to_add, footer_copyright);
     }
 }
