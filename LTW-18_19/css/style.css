@@ -1,0 +1,343 @@
+body {
+    font-family: 'Verdana', sans-serif;
+    background-color: #1F2833;
+    margin: 0em;
+    padding: 0em;
+}
+body > header {
+    display:block;
+    background-color: #1F2833;
+    color: #66FCF1;
+    padding: 0.6em;
+    margin: 0em 0em 1em 0em;
+    font-family: "Georgia";
+}
+
+body> header h1 {
+    color: #66FCF1;
+    font-size: 4em;
+    margin-block-end: 10px;
+    font-weight: 1000;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    text-align: center;
+    font-family: "Arial Black",sans-serif;
+}
+  
+body > header h2 {
+    color:white;
+    font-size: 1.5em;
+    margin-top: 0em;
+    font-weight: 100;
+    font-family: sans-serif;
+    text-align: center;
+}
+
+body > header h3 {
+      color: #66FCF1;
+      font-size: 1.7em;
+      margin-top: 1.2em;
+      margin-bottom:0.5em;
+      font-family: Georgia;
+      text-align: center;
+      font-weight: bold;
+  }
+  body > header h6 {
+    color: #66FCF1;
+    font-size: 1em;
+    margin:0;
+    padding: 0.5em;
+    font-family: Georgia;
+    font-weight: bold;
+}
+  
+  
+  /*LOGIN*/
+  
+  div.register_container>h1{
+      font-family:'Open Sans Condensed';
+      font-weight: bold;
+      margin-top: 0em;
+  }
+ 
+div.about{
+    display: block;
+    margin: auto;
+    width: 60%;
+    height: 65%;
+    border: 3px solid;
+    padding: 10px;
+    background-color: #DCDCDC;
+    text-align: left;
+    text-indent: 1.5em;
+    font-family:'Georgia';
+    font-size: 1.2em;
+  }
+
+#first_page>header img{
+    position: absolute;
+    left: 27em;
+    bottom: 29em;
+}
+
+  div.register_container_sign_up{
+      display: block;
+      margin: auto;
+      width: 45%;
+      border: 3px solid;
+      padding: 10px;
+      background-color: #DCDCDC;
+      text-align: left;
+      font-weight: bold;
+  }
+  div.register_container_sign_up span{
+    font-weight: lighter;
+  }
+  
+  div.register_container_sign_up>h1{
+      font-size: 2em;
+      color: black;
+      font-family: sans-serif;
+      text-align: center;
+      font-weight: bold;
+      margin-top: 0em;
+      margin-bottom: 0.5em;
+  }
+  
+  div.register_container {
+      display: block;
+      margin: auto;
+      width: 40%;
+      border: 3px solid;
+      padding: 10px;
+      background-color: #DCDCDC;
+      text-align: center;
+      font-weight: bold;
+  }
+  
+a{
+    color: #66FCF1;
+    font-family: "Georgia";
+    text-decoration: none;
+}
+  div.register_container > form{
+    margin: 0;
+    padding: 1em;
+  }
+  
+  #final{
+      font-family: sans-serif;
+       text-align: center;
+       color:white;
+  }
+  
+#story {
+    margin: 1em;
+}
+
+#introduction {
+    background-color: #1F2833;
+    color: white;
+    font-size: 18px;
+    padding: 16px;
+    border: 0em;
+}
+#introduction h2 {
+    font-size: 25px;
+    margin: 0px;
+    border: 0px;
+}
+#story p:first-of-type:first-letter {
+    font-size: 32px;
+    color: #1F2833;
+    font-family: "Times New Roman", Times, serif;
+}
+#introduction > p:first-of-type:first-letter {
+    font-size: 32px;
+    color: white;
+    font-family: "Times New Roman", Times, serif;
+}
+#story header img {
+    border-radius: 25px;
+    border: 5px groove #1F2833;
+    display: block;
+}
+
+#story footer {
+    display: block;
+    font-family: "Georgia";
+    font-size: 1.2em;
+}
+
+label{
+    margin: 0.5em;
+    padding: 0.4em;
+    display: block;
+    font-size: 1em;
+    font-family: "Georgia";
+}
+
+input[type=checkbox]{
+    padding: 0.8em;
+}
+  
+input[type=submit] {
+    width: 30%;
+    color:white;
+    font-family:'Open Sans Condensed';
+    font-size:1em;
+    border: 3px solid black ;
+    margin-top: 1.5em;
+    padding-top: 0.5em;
+    padding-right: 1.5em;
+    padding-bottom: 0.5em;
+    padding-left: 1.5em;
+    background-color: #1F2833;
+}
+
+#login h2 {
+    margin: 2em 1em 1em 1em;
+    font-family: "Georgia";
+}
+
+#menu {
+    position: fixed;
+    display: block;
+    padding: 0em 0em 25em 0em;
+    margin: 0em;
+    background-color: #DCDCDC;
+    border: 1px solid #1F2833;
+}
+
+#menu ul {
+    padding: 0em;
+    margin: 0em;
+}
+
+#menu li {
+    display: block;
+    padding: 1.5em;
+    margin: 0em;
+    font-family: "Georgia";
+    border: 1px solid #1F2833;
+}
+
+#stories {
+    display: block;
+    padding: 1em;
+    margin: 0em;
+}
+
+#stories article {
+    display: block;
+    padding: 0em;
+    margin: 1em;
+    background-color: #DCDCDC;
+}
+
+#stories article header{
+    display: block;
+    padding: 0.2em;
+    margin: 1em;
+}
+
+#stories article header a {
+    text-decoration: none;
+    font-family: "Georgia";
+    color: black;
+    font-size: 1.5em;
+}
+
+#stories article p {
+    padding: 1em;
+    text-decoration: none;
+    font-family: "Times New Roman";
+    font-size: 1.1em;
+}
+
+#stories article footer {
+    padding: 0.1em 1em;
+    text-decoration: none;
+    font-family: "Times New Roman";
+    font-size: 0.8em;
+}
+
+#copyright {
+    display: block;
+    margin-top: 0.5em;
+    padding: 0.2em;
+    background-color: #1F2833;
+    text-align: center;
+}
+
+#copyright span {
+    color: white;
+    font-family: "Times New Roman";
+    font-size: 0.8em;
+}
+
+body#first_page {
+    background-color: #1F2833;
+}
+
+body#story_item {
+    background-color: #DCDCDC;
+}
+
+
+#create_story {
+  /* position it to the center of the page */
+  display:block;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  /* border style */
+  border: 2px solid #1F2833;
+  padding: 10px;
+  border-radius: 25px;
+  
+  /* size */
+  width: 50%;
+  height: 80%;
+
+  background-color: #DCDCDC;
+
+  /* box shadow */
+  box-shadow: 10px 10px 6px 0px #1F2833;
+}
+
+#create_story form {
+  /* display flex on columns */
+  display: flex;
+  flex-direction: column;
+}
+
+#create_story form > label {
+  padding: 3em 2em 0em 0em;
+}
+#create_story form > label > textarea {
+  width: 100%;
+  background-color:white;
+}
+#create_story form > select {
+  margin: 2em 2em 0em 1em;
+}
+
+#create_story form textarea {
+  border: 2px solid #1F2833;
+  border-radius: 5px;
+}
+#create_story form select {
+    border: 2px solid #1F2833;
+    border-radius: 5px;
+  }
+
+#create_story form textarea:nth-child(2) {
+  height: 10em;
+}
+#create_story form textarea:not(:first-child) {
+  margin: 1em 1em 1em 1em;
+}
+

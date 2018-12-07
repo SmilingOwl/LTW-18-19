@@ -1,0 +1,32 @@
+#introduction {
+	display: grid;
+	grid-template-columns: [start] 2fr [middle] 1fr [end];
+}
+#introduction p {
+	grid-column: 1;
+}
+#introduction img {
+	grid-column: 2;
+}
+
+#story article {
+	display: grid;
+	grid-template-rows: auto auto;
+	grid-template-columns: auto auto;
+	grid-template-areas: "p header"
+						   "footer footer";
+	grid-row-gap: 1em;
+	grid-column-gap: 1em;
+}
+
+div#main_header{
+	display: grid;
+	grid-template-columns: 1fr 0.25fr 5fr 0.5fr 0.5fr;
+    margin:0;
+    font-size: 1em;
+	grid-template-areas: "menu img h5 username logout";
+}
+h5#header_title{
+	font-size: 2em;
+	margin:0;
+}
