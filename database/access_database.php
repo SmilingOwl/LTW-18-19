@@ -7,6 +7,15 @@
         return $stmt->fetchAll();
     }
 
+    function get_stories_by_username($id){
+        global $db;
+        $stmt = $db->prepare('SELECT writer_id, user_id, story_id, id_taste, text, username, title 
+                            FROM Story, Users WHERE username = :id AND writer_id = user_id ORDER BY story_id DESC');
+        $stmt->bindParam(':id', $id, PDO::PARAM_STR);
+        $stmt->execute();
+        return $stmt->fetchAll();
+    }
+
     function get_saved_stories_by_user($id){
         global $db;
         $stmt = $db->prepare('SELECT * FROM SavedStory, Story WHERE SavedStory.story_id = Story.story_id AND user_id = :id ORDER BY story_id DESC');
@@ -19,6 +28,15 @@
         global $db;
         $stmt = $db->prepare('SELECT * FROM Story WHERE id_taste = :id ORDER BY story_id DESC');
         $stmt->bindParam(':id', $id, PDO::PARAM_INT);
+        $stmt->execute();
+        return $stmt->fetchAll();
+    }
+
+    function get_stories_by_title($id){
+        global $db;
+        $stmt = $db->prepare('SELECT writer_id, user_id, story_id, id_taste, text, username, title
+                        FROM Story, Users WHERE title = :id AND writer_id = user_id ORDER BY story_id DESC');
+        $stmt->bindParam(':id', $id, PDO::PARAM_STR);
         $stmt->execute();
         return $stmt->fetchAll();
     }
@@ -37,6 +55,13 @@
     function get_all_stories(){
         global $db;
         $stmt = $db->prepare('SELECT * FROM Story ORDER BY story_id DESC');
+        $stmt->execute();
+        return $stmt->fetchAll();
+    }
+
+    function get_all_stories_users(){
+        global $db;
+        $stmt = $db->prepare('SELECT * FROM Story, Users WHERE writer_id = user_id ORDER BY story_id DESC');
         $stmt->execute();
         return $stmt->fetchAll();
     }
