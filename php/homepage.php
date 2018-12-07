@@ -23,15 +23,18 @@
     <script src="../scripts/show_menu.js" defer></script>
     <script src="../scripts/show_comments.js" defer></script>
     <script src="../scripts/show_add_story.js" defer></script>
+    <script src="../scripts/search_engine.js" defer></script>
 </head>
 <body>
     <header>
-    	   <?php include_once('../templates/common/upper_header.php'); ?>
+    <?php include_once('../templates/common/upper_header.php'); ?>
         <h1> Home Page </h1>
-        
     </header>
     <span class="add_story"><img src="../icons/add_icon.png" alt="Add story"> </span>
     <input type="hidden" name="user_id" value="<?=$users_id?>">
+    <header id="filter_stories">
+            <label>Search: <input type="text" name="search_box" value=""></label>
+    </header>
 
 <?php 
     include_once('../templates/show_stories.php');
