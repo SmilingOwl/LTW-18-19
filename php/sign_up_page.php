@@ -16,42 +16,36 @@
  		</header>
 		<div class="register_container_sign_up">
 			<h1>Sign Up </h1>
+			<form action="../actions/action_sign_up.php" method="post">
 			
-			<form action="../actions/action_signup.php" method="post">
-			
-			<label>Name:
-				<input type="text" name="name" placeholder="Name" required="required">
-			</label>
+				<label>Username:
+					<input type="text" name="username" placeholder="Username" required="required">
+				</label>
+				
+
+				<label>Email:
+					<input type="email" name="email" placeholder="Email" required="required">
+				</label>
+				
+
+				<label>Birthdate:
+					<input type="date" name="birthdate" placeholder="birthdate" required="required">
+				</label>
+				
+
+				<label>Password:
+					<input type="password" name="password" placeholder="Password">
+					<span class="hint">at least 6 characters.</span>
+				</label>
+				
+
+				<label>Repeat password:
+					<input type="password" name="passwordAgain" placeholder="Repeat Password">
+					<span class="hint">Must match new password.</span>
+				</label>
 			
 
-			<label>Username:
-				<input type="text" name="username" placeholder="Username" required="required">
-			</label>
-			
-
-			<label>email:
-				<input type="email" name="email" placeholder="Email" required="required">
-			</label>
-			
-
-			<label>birthdate:
-				<input type="date" name="birthdate" placeholder="birthdate" required="required">
-			</label>
-			
-
-			<label>password:
-				<input type="password" name="password" placeholder="Password">
-				 <span class="hint">at least 6 characters.</span>
-			</label>
-			
-
-			<label>repeat password:
-				<input type="password" name="passwordAgain" placeholder="Repeat Password">
-				 <span class="hint">Must match new password.</span>
-			</label>
-			
-
-			<input name="Submit"  type="submit" value="Next">
+				<input name="Submit"  type="submit" value="Next">
 
 	        </div>
 

@@ -12,6 +12,7 @@
 	<body id=first_page>
 		<header>
 			<h1>Eunoia </h1>
+			<img src="../icons/owl.png" alt="logo" height="85" width="90">
 			<h2> Share your stories </h2>
 			
 		</header>
