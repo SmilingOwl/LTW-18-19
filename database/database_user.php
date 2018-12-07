@@ -1,10 +1,13 @@
 <?php
   include_once('../includes/database.php');
 
-  function insertUser($username, $password, $email,$birthdate) {
+  function insertUser($username, $password, $email, $birthdate) {
     $db = Database::instance()->db();
     $stmt = $db->prepare('INSERT INTO Users (username, email, birthdate, password) VALUES(?,?,?,?)');
     $stmt->execute(array($username, $email, $birthdate, $password));
+    $stmt = $db->prepare('SELECT user_id FROM Users WHERE username = ?');
+    $stmt->execute(array($username));
+    return $stmt->fetch()['user_id'];
   }
 
   function verifyLogin($username, $password) {
