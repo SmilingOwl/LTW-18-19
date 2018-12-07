@@ -10,7 +10,7 @@ if(duplicateUsername($_POST['username'])){
 		header('Location: ../php/sign_up_page.php');
 	}
 
- 	else if (($userID = insertUser($_POST['username'], $_POST['email'], $_POST['birthdate'], $_POST['photo'], $_POST['password'] , $_POST['gender'] )) != -1) {
+ 	else if (($userID = insertUser($_POST['username'], $_POST['password'], $_POST['email'], $_POST['birthdate'])) != -1) {
  		setCurrentUser($userID, $_POST['username']);
  		header("Location:../php/homepage.php");
  	}
