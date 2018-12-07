@@ -26,8 +26,9 @@
 </head>
 <body>
     <header>
+    	   <?php include_once('../templates/common/upper_header.php'); ?>
         <h1> Home Page </h1>
-        <span class="menu"><img src="../icons/menu_icon.png" alt="Menu"></span>
+        
     </header>
     <span class="add_story"><img src="../icons/add_icon.png" alt="Add story"> </span>
     <input type="hidden" name="user_id" value="<?=$users_id?>">

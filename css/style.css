@@ -5,15 +5,12 @@ body {
     padding: 0em;
 }
 body > header {
+    display:block;
     background-color: #1F2833;
     color: #66FCF1;
     padding: 0.6em;
     margin: 0em 0em 1em 0em;
     font-family: "Georgia";
-}
-
-html {
-    background-color: #1F2833;
 }
 
 body> header h1 {
@@ -37,19 +34,23 @@ body > header h2 {
 }
 
 body > header h3 {
-      font-size: 1em;
-      color:#C5C6C7;
-      margin-top: 2em;
-      margin-bottom:3em;
-      font-family: sans-serif;
+      color: #66FCF1;
+      font-size: 1.7em;
+      margin-top: 1.2em;
+      margin-bottom:0.5em;
+      font-family: Georgia;
       text-align: center;
       font-weight: bold;
   }
+  body > header h6 {
+    color: #66FCF1;
+    font-size: 1em;
+    margin:0;
+    padding: 0.5em;
+    font-family: Georgia;
+    font-weight: bold;
+}
   
-  body > header h4 {
-      margin-bottom:6em;
-  
-  }
   
   /*LOGIN*/
   
@@ -58,16 +59,39 @@ body > header h3 {
       font-weight: bold;
       margin-top: 0em;
   }
-  
-  
+ 
+div.about{
+    display: block;
+    margin: auto;
+    width: 60%;
+    height: 65%;
+    border: 3px solid;
+    padding: 10px;
+    background-color: #DCDCDC;
+    text-align: left;
+    text-indent: 1.5em;
+    font-family:'Georgia';
+    font-size: 1.2em;
+  }
+
+#first_page>header img{
+    position: absolute;
+    left: 27em;
+    bottom: 29em;
+}
+
   div.register_container_sign_up{
       display: block;
       margin: auto;
-      width: 50%;
+      width: 45%;
       border: 3px solid;
       padding: 10px;
       background-color: #DCDCDC;
       text-align: left;
+      font-weight: bold;
+  }
+  div.register_container_sign_up span{
+    font-weight: lighter;
   }
   
   div.register_container_sign_up>h1{
@@ -77,16 +101,13 @@ body > header h3 {
       text-align: center;
       font-weight: bold;
       margin-top: 0em;
-      margin-down: 0.5em;
+      margin-bottom: 0.5em;
   }
-  
-  
-  
   
   div.register_container {
       display: block;
       margin: auto;
-      width: 45%;
+      width: 40%;
       border: 3px solid;
       padding: 10px;
       background-color: #DCDCDC;
@@ -94,7 +115,11 @@ body > header h3 {
       font-weight: bold;
   }
   
-  
+a{
+    color: #66FCF1;
+    font-family: "Georgia";
+    text-decoration: none;
+}
   div.register_container > form{
     margin: 0;
     padding: 1em;
@@ -108,10 +133,6 @@ body > header h3 {
   
 #story {
     margin: 1em;
-}
-
-#story article > header img{
-    float: right;
 }
 
 #introduction {
@@ -150,7 +171,7 @@ body > header h3 {
 
 label{
     margin: 0.5em;
-    padding: 0.8em;
+    padding: 0.4em;
     display: block;
     font-size: 1em;
     font-family: "Georgia";
@@ -161,7 +182,7 @@ input[type=checkbox]{
 }
   
 input[type=submit] {
-    width: auto;
+    width: 30%;
     color:white;
     font-family:'Open Sans Condensed';
     font-size:1em;
@@ -172,7 +193,6 @@ input[type=submit] {
     padding-bottom: 0.5em;
     padding-left: 1.5em;
     background-color: #1F2833;
-
 }
 
 #login h2 {
@@ -244,7 +264,7 @@ input[type=submit] {
 
 #copyright {
     display: block;
-    margin: 0em;
+    margin-top: 0.5em;
     padding: 0.2em;
     background-color: #1F2833;
     text-align: center;
@@ -267,25 +287,27 @@ body#story_item {
 
 #create_story {
   /* position it to the center of the page */
-  position: absolute;
+  display:block;
+  position: fixed;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
 
   /* border style */
-  border: 2px solid #66FCF1;
+  border: 2px solid #1F2833;
   padding: 10px;
   border-radius: 25px;
   
   /* size */
   width: 50%;
-  height: 70%;
+  height: 80%;
 
-  background-color: #ffbb99;
+  background-color: #DCDCDC;
 
   /* box shadow */
-  box-shadow: 10px 10px 6px 0px rgba(83, 103, 115, 0.83);
+  box-shadow: 10px 10px 6px 0px #1F2833;
 }
+
 #create_story form {
   /* display flex on columns */
   display: flex;
@@ -297,20 +319,25 @@ body#story_item {
 }
 #create_story form > label > textarea {
   width: 100%;
+  background-color:white;
 }
 #create_story form > select {
   margin: 2em 2em 0em 1em;
 }
-#create_story form > input {
-  margin: 2em 2em 0em 1em;
-}
+
 #create_story form textarea {
-  border: 2px solid #66FCF1;
+  border: 2px solid #1F2833;
   border-radius: 5px;
 }
+#create_story form select {
+    border: 2px solid #1F2833;
+    border-radius: 5px;
+  }
+
 #create_story form textarea:nth-child(2) {
   height: 10em;
 }
 #create_story form textarea:not(:first-child) {
   margin: 1em 1em 1em 1em;
 }
+
