@@ -43,7 +43,16 @@
         <h4> My Stories: </h4>
         <?php include_once('../templates/show_stories.php');?>
     </section>
+    <div id="photo_field">
+            <form action="../actions/action_upload_photo.php" method="post" enctype="multipart/form-data">
+                <label>Photo</label>
+                <img id="photo" src=<?=$user['photo']?> alt="Profile picture">
+                <input type="file" name="fileToUpload" id="fileToUpload">
+                <input type="submit" name="Submit" value="Upload">
+            </form>
+    </div>
 </body>
+
 
 <footer>
     <?php include_once('../templates/common/footer.php');?>
