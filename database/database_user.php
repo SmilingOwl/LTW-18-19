@@ -94,4 +94,29 @@
     }
   }
 
+  
+  function updateUserPhoto($userID, $photoName) {
+    $db = Database::instance()->db();
+    try {
+      $stmt = $db->prepare('UPDATE Users SET photo = ? WHERE user_id = ?');
+      if($stmt->execute(array($photoName, $userID)))
+          return true;
+      else
+          return false;
+    }catch(PDOException $e) {
+      return false;
+    }
+  } 
+  
+  function getUserPhoto($userID) {
+    $db = Database::instance()->db();
+    try {
+      $stmt = $db->prepare('SELECT photo FROM Users WHERE user_id = ?');
+      $stmt->execute(array($userID));
+      return $stmt->fetch();
+    
+    }catch(PDOException $e) {
+      return null;
+    }
+  }
  ?>
