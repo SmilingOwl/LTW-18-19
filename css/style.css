@@ -116,7 +116,7 @@ div.about{
   }
   
 a{
-    color: #66FCF1;
+    color: rgb(165, 179, 178);
     font-family: "Georgia";
     text-decoration: none;
 }
@@ -340,3 +340,29 @@ body#story_item {
   margin: 1em 1em 1em 1em;
 }
 
+
+#photo_field img {
+    height: 200px; 
+    width: 200px;
+    object-fit: cover;
+    border: 1px solid #979797;
+    border-radius: 5%;
+    margin: 1em 0;
+  }
+  
+  #photo_field input[type="file"] {
+    font-family: "Montserrat", sans-serif;
+    font-size: 0.8em;
+    font-weight: 300;
+    color: #666666;
+    margin: 1em 0;
+    width: 100%;
+  }
+  
+  #photo_field input[type="submit"] {
+    background-color: #576886;
+  }
+  
+  #photo_field input[type="submit"]:hover {
+    background-color: #948f8c;
+  }

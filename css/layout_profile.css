@@ -95,8 +95,3 @@ body > p {
 body > footer {
   grid-area: foot;
 }
-
-#photo_field img {
-  height: 200px; 
-  width: 200px;
-}
