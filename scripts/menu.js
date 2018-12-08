@@ -2,8 +2,7 @@ profile = document.querySelector('#menu li:first-child');
 favorites = document.querySelector('#menu li:nth-child(2)');
 homepage = document.querySelector('#menu li:nth-child(3)');
 logout = document.querySelector('#menu li:nth-child(4)');
-close_menu = document.querySelector('#menu li:nth-child(5)');
-delete_account = document.querySelector('#menu li:nth-child(6)');
+delete_account = document.querySelector('#menu li:nth-child(5)');
 buttons = document.getElementsByTagName('li');
 
 change_color = function() {
@@ -39,18 +38,6 @@ go_to_homepage = function() {
 
 homepage.addEventListener('click', go_to_homepage);
 
-hide_menu = function() {
-    let menu = document.querySelector('#menu');
-    let script_to_delete = document.querySelector('head script:first-of-type');
-    let head = document.querySelector('head');
-    let html = document.querySelector('html');
-
-    head.removeChild(script_to_delete);
-    html.removeChild(menu);
-}
-
-close_menu.addEventListener('click', hide_menu);
-
 function encodeForAjax(data) {
     return Object.keys(data).map(function(k){
         return encodeURIComponent(k) + '=' + encodeURIComponent(data[k])
@@ -74,8 +61,6 @@ delete_account_func = function(){
 delete_account.addEventListener('click', delete_account_func);
 
 logout_func = function(){
-    let user_id=document.querySelector('input[name=user_id]').value;
-
     let request = new XMLHttpRequest();
     request.addEventListener('load', go_to_first_page);
     request.open('POST', '../actions/action_logout.php', true);

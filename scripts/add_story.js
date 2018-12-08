@@ -40,8 +40,8 @@ let receive_story = function(event) {
         '<span class="likes">0 <img src="../icons/like_icon.png" alt="likes"></span>' +
         '<span class="dislikes">0 <img src="../icons/dislike_icon.png" alt="dislikes"></span>' +
         '<span class="tasteChoice"> <a href="story_item.html">#' + story.taste + '</a></span>' +
-        ' <a class="comments" href="story_item.php?story_id=' + story.story_id + '&user_id=' + story.user_id + '">'+
-        '0 comments</a>' +
+        '<span class="comments">0 <img src="../icons/comment_icon.png" alt="comments"></span>' +
+        '<span class="favorites">0 <img src="../icons/saved_icon.png" alt="favorites"></span>' +
         '<input type="hidden" name="story_id" value="' + story.story_id + '">' +
         '</footer>';
   

@@ -1,0 +1,8 @@
+html {
+	display: grid;
+    grid-template-rows: auto;
+    grid-template-columns: 1fr 6fr;
+    grid-template-areas: "nav body";
+    
+	grid-column-gap: 1em;
+}

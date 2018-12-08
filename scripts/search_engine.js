@@ -39,7 +39,7 @@ let show_filtered_stories = function(event) {
                 '<span class="likes">' + filtered_stories[i].likes + ' <img src="../icons/like_icon.png" alt="likes"></span>' +
                 '<span class="dislikes">' + filtered_stories[i].dislikes + ' <img src="../icons/dislike_icon.png" alt="dislikes"></span>' +
                 '<span class="tasteChoice">' +
-                    '<a href="taste_choice_stories.php?id_taste=' + filtered_stories[i].id_taste + '">#taste</a>' +
+                    '<a href="taste_choice_stories.php?id_taste=' + filtered_stories[i].id_taste + '">#' + filtered_stories[i].taste + '</a>' +
                 '</span>' +
                 '<span class="comments">' + filtered_stories[i].comments +
                     '<img src="../icons/comment_icon.png" alt="comments"></span>' +

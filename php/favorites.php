@@ -11,8 +11,8 @@
 ?>
 
     <header>
+    <?php include_once('../templates/common/upper_header.php'); ?>
       <h1> Favorite Stories </h1>
-      <span class="menu"><img src="../icons/menu_icon.png" alt="Menu"></span>
     </header>
 
     <?php 

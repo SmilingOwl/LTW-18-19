@@ -22,10 +22,8 @@ let add_favorite = function() {
 
 let receive_favorite_count = function(event) {
     
-console.log(selected_favorite);
     let answer = JSON.parse(this.responseText);
     let footer = selected_favorite.parentNode;
-    console.log(footer);
     footer.removeChild(selected_favorite);
 
     let new_favorites = document.createElement('span');

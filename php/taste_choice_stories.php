@@ -14,8 +14,8 @@
 ?>
 
     <header>
-      <h1> <?=$taste_choice['taste']?> </h1>
-      <span class="menu"><img src="../icons/menu_icon.png" alt="Menu"></span>
+    <?php include_once('../templates/common/upper_header.php'); ?>
+        <h1> <?=$taste_choice['taste']?> </h1>
     </header>
 
     <?php 

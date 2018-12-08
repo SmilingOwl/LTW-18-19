@@ -50,8 +50,8 @@
 <body id="story_item">
 
     <header>
+    <?php include_once('../templates/common/upper_header.php'); ?>
         <h1><?=$story['title']?></a></h1>
-        <span class="menu"><img src="../icons/menu_icon.png" alt="Menu"></span>
     </header>
 
     <section id="story">
