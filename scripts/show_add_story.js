@@ -18,7 +18,7 @@ let receive_html = function(event) {
     popup.innerHTML = '<form action="../actions/add_story.php" method="post" enctype="multipart/form-data">' +
         '<label>Title: <textarea name="title"></textarea></label>' +
         '<textarea name="text"> Write your story here! </textarea>'+
-        '<label>Change profile picture: ' + 
+        '<label>Choose picture: ' + 
             '<input type="file" name="fileToUpload" id="fileToUpload"> ' + 
         '</label>' + 
         '<input type="hidden" name="user_id" value="' + user_id + '">' +
@@ -36,12 +36,6 @@ let receive_html = function(event) {
     body.insertBefore(popup, add_story_button);
 
     body.removeChild(add_story_button);
-
-    let head = document.querySelector('head');
-    let first_script = document.querySelector('head script:first-of-type');
-    let script_to_add = document.createElement('script');
-    script_to_add.src = "../scripts/add_story.js";
-    head.insertBefore(script_to_add, first_script);
 }
 
 add_story_button.addEventListener('click', show_add_story_popup);
