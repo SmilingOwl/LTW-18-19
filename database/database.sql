@@ -20,6 +20,7 @@ CREATE TABLE Users (
   email VARCHAR NOT NULL,
   birthdate DATE,
   photo VARCHAR,
+  presentation VARCHAR,
   password VARCHAR NOT NULL
 );
 
@@ -80,15 +81,16 @@ CREATE TABLE DislikesComments (
   PRIMARY KEY(user_id, comment_id)
 );
 
-INSERT INTO Users (user_id, username, email, birthdate, photo, password) Values (1, 'lorem', 'lorem@gmail.com', '1998-12-03', 'lorem.jpg', 'asdfg');
+INSERT INTO Users (user_id, username, email, birthdate, photo, presentation, password) Values (1, 'lorem', 'lorem@gmail.com', 
+  '1998-12-03', 'lorem.jpg', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry.', 'asdfg');
 INSERT INTO Users (username, email, birthdate, photo, password) Values ('lorina', 'lorina@gmail.com', '1998-12-03', 'lorina.jpg', 'asdfghj');
 
 INSERT INTO Story (writer_id, title, text, photo, id_taste) VALUES (1, 'Lorem',
  'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum in ultricies mi. Sed fermentum vitae sapien sed aliquam. Maecenas a.',
- 'lorem.jpg', 1);
+ '../pictures/profile/1.jpg', 1);
 INSERT INTO Story (writer_id, title, text, photo, id_taste) VALUES (2, 'Ipsum',
  'Ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum in ultricies mi. Sed fermentum vitae sapien sed aliquam. Maecenas a.',
- 'orem.jpg', 2);
+ '../pictures/profile/2.jpg', 2);
 
 INSERT INTO Comment (story_id, user_id, text) VALUES (1, 2,'nice!');
 

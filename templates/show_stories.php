@@ -1,6 +1,6 @@
 <section id="stories">
     <?php foreach($stories as $story) { 
-        $user = get_user($story['writer_id']);
+        $writer = get_user($story['writer_id']);
         $num_comments = get_comments_in_story($story['story_id']); 
         $tasteChoice = get_taste_choice($story['id_taste']);
         $comments_to_write='comments';
@@ -25,7 +25,7 @@
         </header>
         <p><?=$story['text']?></p>
         <footer>
-            <span class="author">By <?=$user['username']?></span>
+            <span class="author">By <?=$writer['username']?></span>
             <span class="likes"><?=count($likes)?> <img src="../icons/like_icon.png" alt="<?=$likes_to_write?>"></span>
             <span class="dislikes"><?=count($dislikes)?> <img src="../icons/dislike_icon.png" alt="<?=$dislikes_to_write?>"></span>
             <span class="tasteChoice">

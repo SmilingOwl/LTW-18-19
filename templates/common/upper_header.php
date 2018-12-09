@@ -8,7 +8,7 @@
         <h5 id="header_title"> Eunoia </h5>
 
         <?php if ($username != NULL) { ?>
-              <h6><?=$username?></h6>
+              <h6><a href="profile.php"><?=$username?></a></h6>
               <h6><a href="../actions/action_logout.php">Logout</a></h6>
         <?php } ?>
     </div>

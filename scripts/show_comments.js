@@ -32,7 +32,7 @@ let receive_answer_show_comments = function() {
     let new_comment_section = document.createElement('section');
     new_comment_section.id = "comments_section";
     for (let i = 0; i < comments_to_show.length; i++)
-    new_comment_section.innerHTML +=  '<article class="comment">' +
+    new_comment_section.innerHTML +=  '<article>' +
         '<span class="user">' + comments_to_show[i].username + ' </span>' + 
         '<p>' + comments_to_show[i].text + '</p>';
 

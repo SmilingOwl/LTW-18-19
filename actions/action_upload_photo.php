@@ -13,13 +13,11 @@
     $upload_is_Ok = 0;
   }
   
-
   //Overide picture
   if (file_exists($target_file)) {
     unlink($target_file);
   }
  
-
   if ($upload_is_Ok == 0) {
     $_SESSION['ERROR'] =  "Error uploading photo";
 

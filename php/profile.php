@@ -7,53 +7,56 @@
     $user_id = $_SESSION['user_id'];
     $stories = get_stories_by_user($user_id);
     $user = get_user($user_id);
+    $users_taste_choices = get_users_taste_choices($user_id);
 
     include_once('../templates/common/header.php');
 ?>
 
 <header>
-  <title>User profile page</title>
-  <link href="../css/layout_profile.css" rel="stylesheet">
-  <span class="menu"><img src="../icons/menu_icon.png" alt="Menu"></span>
+    <link href="../css/layout_profile.css" rel="stylesheet">
+    <?php include_once('../templates/common/upper_header.php'); ?>
 </header>
 
-<body>
+<section id="profile_photo">
     <img src=<?=$user['photo']?> alt="Can't load picture">
-    <h3><?=$user['username']?>'s Profile</h3>
-
-    <p id="presentation">
-        Lorem Ipsum is simply dummy text of the printing and typesetting
-        industry. Lorem Ipsum has been the industry's standard dummy text
-        ever since the 1500s, when an unknown printer took a galley of type
-        and scrambled it to make a type specimen book. It has survived not
-    </p>
-    <section id="interests">
-        <h4>My interests</h4>
-        <ul>
-            <li>Local</a></li>
-            <li>World</a></li>
-            <li>Politics</a></li>
-            <li>Sports</a></li>
-            <li>Science</a></li>
-            <li>Weather</a></li>
-        </ul>
-    </section>
-
-    <section id="stories">
-        <h4> My Stories: </h4>
-        <?php include_once('../templates/show_stories.php');?>
-    </section>
     <div id="photo_field">
-            <form action="../actions/action_upload_photo.php" method="post" enctype="multipart/form-data">
-                <label>Photo</label>
-                <img id="photo" src=<?=$user['photo']?> alt="Profile picture">
+        <form action="../actions/action_upload_photo.php" method="post" enctype="multipart/form-data">
+            <label>Change profile picture: 
                 <input type="file" name="fileToUpload" id="fileToUpload">
-                <input type="submit" name="Submit" value="Upload">
-            </form>
+            </label>
+            <input type="submit" name="Submit" value="Upload">
+        </form>
     </div>
-</body>
+</section>
 
+<section id="profile_name">
+    <h3><?=$user['username']?>'s Profile</h3>
+    <?php
+        $points = get_points($user_id);
+    ?>
+    <h4>Number of Points: <?=$points?></h4>
+</section>
 
-<footer>
-    <?php include_once('../templates/common/footer.php');?>
-</footer>
+<section id="presentation">
+    <h4><?=$user['username']?> says: </h4>
+    <p><?=$user['presentation']?></p>
+</section>
+
+<section id="interests">
+    <h4> My interests:</h4>
+    <ul>
+    <?php foreach($users_taste_choices as $each_taste_choice) { ?>
+        <li><a href="taste_choice_stories.php?id_taste=<?=$each_taste_choice['id_taste']?>"> <?=$each_taste_choice['taste']?></a></li>
+    <?php } ?>
+    </ul>
+</section>
+
+<section id="profile_stories">
+    <h4> My Stories: </h4>
+<?php 
+    include_once('../templates/show_stories.php');
+?>
+</section>
+<?php
+    include_once('../templates/common/footer.php');
+?>

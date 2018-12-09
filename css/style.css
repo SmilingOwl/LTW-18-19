@@ -1,7 +1,7 @@
 body {
     font-family: 'Verdana', sans-serif;
     background-color: #1F2833;
-    margin: 0em;
+    margin: 0em 12em;
     padding: 0em;
 }
 body > header {
@@ -11,6 +11,10 @@ body > header {
     padding: 0.6em;
     margin: 0em 0em 1em 0em;
     font-family: "Georgia";
+}
+
+html {
+    background-color: #1F2833;
 }
 
 body> header h1 {
@@ -116,20 +120,25 @@ div.about{
   }
   
 a{
-    color: rgb(165, 179, 178);
+    color: #1F2833;
     font-family: "Georgia";
     text-decoration: none;
+    font-style: italic;
 }
   div.register_container > form{
     margin: 0;
     padding: 1em;
   }
   
-  #final{
-      font-family: sans-serif;
-       text-align: center;
-       color:white;
-  }
+#final{
+    font-family: sans-serif;
+    text-align: center;
+    color:white;
+}
+
+#final a {
+    color: #66FCF1;
+}
   
 #story {
     margin: 1em;
@@ -147,7 +156,7 @@ a{
     margin: 0px;
     border: 0px;
 }
-#story p:first-of-type:first-letter {
+#story > p:first-of-type:first-letter {
     font-size: 32px;
     color: #1F2833;
     font-family: "Times New Roman", Times, serif;
@@ -223,7 +232,13 @@ input[type=submit] {
 
 #stories {
     display: block;
-    padding: 1em;
+    padding: 0em;
+    margin: 0em ;
+}
+
+#stories h4{
+    font-family: "Georgia";
+    font-size: 1.2em;
     margin: 0em;
 }
 
@@ -247,7 +262,7 @@ input[type=submit] {
     font-size: 1.5em;
 }
 
-#stories article p {
+#stories article#story > p {
     padding: 1em;
     text-decoration: none;
     font-family: "Times New Roman";
@@ -341,28 +356,56 @@ body#story_item {
 }
 
 
-#photo_field img {
+div#photo_field img {
     height: 200px; 
     width: 200px;
     object-fit: cover;
     border: 1px solid #979797;
     border-radius: 5%;
     margin: 1em 0;
-  }
+}
   
-  #photo_field input[type="file"] {
+#photo_field input[type="file"] {
     font-family: "Montserrat", sans-serif;
     font-size: 0.8em;
     font-weight: 300;
     color: #666666;
     margin: 1em 0;
     width: 100%;
-  }
+}
+
+#photo_field input[type=submit] {
+    width: 30%;
+    color:white;
+    font-family:'Open Sans Condensed';
+    font-size:0.8em;
+    border: 3px solid black ;
+    margin: 0em;
+    margin-left: 1em;
+    padding: 0.5em 1.5em;
+    background-color: #1F2833;
+}
   
-  #photo_field input[type="submit"] {
-    background-color: #576886;
-  }
-  
-  #photo_field input[type="submit"]:hover {
+#photo_field input[type="submit"]:hover {
     background-color: #948f8c;
-  }
+}
+
+#main_header a {
+    color: #66FCF1;
+}
+
+#save_tastes {
+    display: block;
+    background-color: #DCDCDC;
+    margin: 0em 15em;
+}
+
+section#messages {
+    margin: 0 auto; 
+    text-align: center;
+    font-size: 0.8em;
+}
+
+section#messages .error {
+     color: red;
+}

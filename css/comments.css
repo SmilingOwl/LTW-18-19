@@ -93,21 +93,33 @@
 }
 
 #comments_section {
-  background-color: #ccc;
+  background-color: #DCDCDC;
+  padding-top: 0.2em;
 }
 
 #comments_section article {
+  display: grid;
+  grid-template-areas: "span p";
+  grid-template-columns: 1fr 6fr;
+  grid-template-rows: auto;
   font-style: italic;
-  font-family: "Calibri";
+  font-family: "Georgia";
   font-size: 0.8em;
-  background-color: #ccc;
-  border: 1px solid #1F2833;
-  margin: 0em;
-  padding: 0em 2em;
+  background-color: #ccc; 
+  border-radius: 25px;
+  margin: 0em 1em;
+  padding: 1em 2em;
+}
+
+#comments_section .user::after { 
+  content: ' says: ';
 }
 
 #comments_section p {
-  background-color: #ccc;
+  background-color: #ccc; 
+  font-family: "Times New Roman";
+  font-size: 1.2em;
+  font-style: none;
   margin: 0em;
-  padding: 0em;
+  padding: 0.5em;
 }

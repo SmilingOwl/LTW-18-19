@@ -30,18 +30,21 @@ body {
   "image name"
   "description story"
   "inter story"
+  ". story"
   "foot foot";
   grid-template-columns: 1fr 2fr;
-  grid-template-rows: 40px 1fr 1fr 3fr;
+  grid-template-rows: auto auto auto auto auto auto auto;
 }
 
 body > header {
-  background-color: #edeff0;
+  background-color: #1F2833;
   grid-area: head;
+  margin-bottom: 0.2em;
+  margin-right: 0em;
+  padding-bottom: 1.5em;
 }
 
-body > img {
-  grid-area: image;
+#profile_photo img {
   height: 200px; 
   width: 200px;
   margin-left: 1em;
@@ -49,22 +52,47 @@ body > img {
   border-radius: 25px;
 }
 
-body > h3 {
-  grid-area: name;
+#profile_photo img {
+  height: 200px; 
+  width: 200px;
+  margin-left: 1em;
+  border: 2px solid black;
+  border-radius: 25px;
 }
 
-body > p {
+body > header#profile_photo {
+  grid-area: image;
+}
+
+#profile_name {
+  grid-area: name;
+  text-align: center;
+  margin: 1em;
+}
+
+#presentation {
+  margin: 2em 1em;
   grid-area: description;
-  margin-left: 1em;
+  font-family: "Georgia";
+  text-align: center;
+}
+
+#presentation p {
   text-align: justify;
   text-indent: 25px;
+  font-family: "Times New Roman";
 }
 
 #interests {
   grid-area: inter;
-  display: grid;
-  grid-template-columns: auto;
-  grid-template-rows: repeat(6, auto);
+  text-align: center;
+}
+
+#interests h4{
+  font-family: "Georgia";
+  font-size: 1.2em;
+  margin-top: 0em;
+  margin-bottom: 1em;
 }
 
 #interests ul {
@@ -88,10 +116,21 @@ body > p {
   padding: 1em 0;
 }
 
-#stories {
+#profile_stories {
   grid-area: story;
+  text-align: center;
 }
 
 body > footer {
   grid-area: foot;
+}
+
+#profile_name > h3 {
+  font-family: "Georgia";
+  font-size: 1.5em;
+}
+
+#profile_name > h4 {
+  font-family: "Georgia";
+  font-size: 0.8em;
 }

@@ -1,8 +1,9 @@
 profile = document.querySelector('#menu li:first-child');
 favorites = document.querySelector('#menu li:nth-child(2)');
 homepage = document.querySelector('#menu li:nth-child(3)');
-logout = document.querySelector('#menu li:nth-child(4)');
-delete_account = document.querySelector('#menu li:nth-child(5)');
+change_interests = document.querySelector('#menu li:nth-child(4)');
+logout = document.querySelector('#menu li:nth-child(5)');
+delete_account = document.querySelector('#menu li:nth-child(6)');
 buttons = document.getElementsByTagName('li');
 
 change_color = function() {
@@ -69,3 +70,9 @@ logout_func = function(){
 }
 
 logout.addEventListener('click', logout_func);
+
+go_to_taste_choices = function() {
+    window.location.href="taste_choices.php?";
+}
+
+change_interests.addEventListener('click', go_to_taste_choices);

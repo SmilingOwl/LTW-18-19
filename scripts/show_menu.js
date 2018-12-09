@@ -31,6 +31,7 @@ let show_menu = function() {
         '<li>My Profile</li>' +
         '<li>My Favorites</li>' +
         '<li>Homepage</li>' +
+        '<li>Change Interests </li>' +
         '<li>Log Out</li>' +
         '<li>Delete Account</li>' +
     '</ul>';

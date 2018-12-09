@@ -19,6 +19,9 @@
     </header>
 
     <?php 
+        if(sizeof($stories) == 0)
+            echo "<h3> You don't have any favorite stories!</h2>";
+        else
         include_once('../templates/show_stories.php');
         include_once('../templates/common/footer.php');
     ?>

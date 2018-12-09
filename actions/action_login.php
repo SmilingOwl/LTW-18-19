@@ -11,6 +11,7 @@
     header("Location:../php/homepage.php");}
 
   else {
+    $_SESSION['messages'][] = array('type' => 'error', 'content' => 'Incorrect username or password!');
     header("Location:../php/first_page.php");
   }
 ?>

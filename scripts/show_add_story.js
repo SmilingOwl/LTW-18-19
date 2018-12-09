@@ -15,10 +15,12 @@ let receive_html = function(event) {
     let body=document.querySelector('body');
     let popup = document.createElement('section');
     popup.id = "create_story";
-    popup.innerHTML = '<form>' +
+    popup.innerHTML = '<form action="../actions/add_story.php" method="post" enctype="multipart/form-data">' +
         '<label>Title: <textarea name="title"></textarea></label>' +
         '<textarea name="text"> Write your story here! </textarea>'+
-        '<textarea name="image"> Write the name of the image here! </textarea>' +
+        '<label>Change profile picture: ' + 
+            '<input type="file" name="fileToUpload" id="fileToUpload"> ' + 
+        '</label>' + 
         '<input type="hidden" name="user_id" value="' + user_id + '">' +
         '<select name="tasteChoice">' +
         '</select>' +

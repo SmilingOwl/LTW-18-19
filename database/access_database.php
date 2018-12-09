@@ -154,21 +154,32 @@
         return $stmt->fetch();
     }
 
-    function add_story($user_id, $title, $text, $img, $id_taste_choice) {
+    function add_story($user_id, $title, $text, $id_taste_choice) {
         global $db;
     
-        $stmt = $db->prepare('INSERT INTO Story (writer_id, title, text, photo, id_taste) VALUES (?, ?, ?, ?, ?)');
-        $stmt->execute(array($user_id, $title, $text, $img, $id_taste_choice));
+        $stmt = $db->prepare('INSERT INTO Story (writer_id, title, text, id_taste) VALUES (?, ?, ?, ?)');
+        $stmt->execute(array($user_id, $title, $text, $id_taste_choice));
 
-        $stmt = $db->prepare('SELECT * FROM Story, Users, TasteChoice WHERE text = :t AND title = :title AND Story.photo = :img 
+        $stmt = $db->prepare('SELECT * FROM Story, Users, TasteChoice WHERE text = :t AND title = :title
                                 AND Story.id_taste = :id_taste_choice AND Story.writer_id = Users.user_id
                                 AND Story.writer_id = :u_id AND TasteChoice.id_taste=Story.id_taste');
         $stmt->bindParam(':u_id', $user_id, PDO::PARAM_INT);
         $stmt->bindParam(':t', $text, PDO::PARAM_STR);
         $stmt->bindParam(':title', $title, PDO::PARAM_STR);
-        $stmt->bindParam(':img', $img, PDO::PARAM_STR);
         $stmt->bindParam(':id_taste_choice', $id_taste_choice, PDO::PARAM_STR);
         $stmt->execute();
-        return $stmt->fetch();
+        return $stmt->fetch()['story_id'];
+    }
+
+    function save_taste_choice_user($user_id, $id_taste) {
+        global $db;
+        $stmt = $db->prepare('INSERT INTO TasteChoiceUser (user_id, id_taste) VALUES (?, ?)');
+        $stmt->execute(array($user_id, $id_taste));
+    }
+
+    function clear_taste_choices_user($user_id) {
+        global $db;
+        $stmt = $db->prepare('DELETE FROM TasteChoiceUser WHERE user_id = ?');
+        $stmt->execute(array($user_id));
     }
 ?>

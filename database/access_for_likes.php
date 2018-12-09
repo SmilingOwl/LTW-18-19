@@ -33,10 +33,14 @@
 
     function add_favorite_story($user_id, $story_id){
         global $db;
-        $stmt = $db->prepare('SELECT * FROM SavedStory WHERE user_id = ? AND story_id=?');
+        $stmt = $db->prepare('SELECT * FROM SavedStory WHERE user_id = ? AND story_id = ?');
         $stmt->execute(array($user_id, $story_id));
         if(empty($stmt->fetch())) {
             $stmt = $db->prepare('INSERT INTO SavedStory (user_id, story_id) VALUES (?, ?)');
+            $stmt->execute(array($user_id, $story_id));
+        }
+        else {
+            $stmt = $db->prepare('DELETE FROM SavedStory WHERE user_id = ? AND story_id = ?');
             $stmt->execute(array($user_id, $story_id));
         }
 
@@ -98,7 +102,6 @@
         return $stmt->fetchAll();
     }
 
-
     function get_likes_comment($id){
         global $db;
         $stmt = $db->prepare('SELECT * FROM LikesComments WHERE comment_id = :id');
@@ -113,6 +116,24 @@
         $stmt->bindParam(':id', $id, PDO::PARAM_INT);
         $stmt->execute();
         return $stmt->fetchAll();
+    }
+
+    function get_points($id) {
+        global $db;
+        $points = 0;
+        $stmt = $db->prepare('SELECT * FROM Story, LikesStories WHERE writer_id = :id 
+                                AND Story.story_id = LikesStories.story_id AND user_id <> :id');
+        $stmt->bindParam(':id', $id, PDO::PARAM_INT);
+        $points += count($stmt->fetchAll());
+        $stmt = $db->prepare('SELECT * FROM Story, DislikesStories WHERE writer_id = :id 
+                                AND Story.story_id = DislikesStories.story_id AND user_id <> :id');
+        $stmt->bindParam(':id', $id, PDO::PARAM_INT);
+        $points -= count($stmt->fetchAll());
+        $stmt = $db->prepare('SELECT * FROM Story, SavedStory WHERE writer_id = :id 
+                                AND Story.story_id = SavedStory.story_id AND user_id <> :id');
+        $stmt->bindParam(':id', $id, PDO::PARAM_INT);
+        $points += 10*count($stmt->fetchAll());
+        return $points;
     }
 
     function add_like_to_comment($user_id, $comment_id){

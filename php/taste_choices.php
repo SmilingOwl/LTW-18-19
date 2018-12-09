@@ -3,25 +3,28 @@
     include_once('../database/connection.php');
     include_once('../database/access_database.php');
 
-    $user_id = $_SESSION['id'];
+    $user_id = $_SESSION['user_id'];
     $taste_choices = get_taste_choices();
     $users_taste_choices = get_users_taste_choices($user_id);
-
-    include_once('../templates/common/header.php');
 ?>
+<!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="utf-8">
-        <link href="..css/style.css" rel="stylesheet">
-    </head>
-
-    <body>
+<head>
+    <title>Stories Website</title>
+    <meta charset="utf-8">
+    <link href="../css/style.css" rel="stylesheet">
+    <link href="../css/comments.css" rel="stylesheet">
+    <link href="../css/layout.css" rel="stylesheet">
+    <link href="../css/icons.css" rel="stylesheet">
+</head>
+<body>
    
    <header>
-            <h5>Choose your <br> favorites topics!</h5>
-        </header>
+    <?php include_once('../templates/common/upper_header.php');?>
+        <h3>Choose your <br> favorites topics!</h5>
+    </header>
     <div id=save_tastes>
-        <form action="homepage.php" method="get">
+        <form action="../actions/save_taste_choices.php" method="post">
         <?php foreach($taste_choices as $taste) { 
             $is_checked = false;
             foreach($users_taste_choices as $user_taste)
@@ -31,9 +34,9 @@
                 }
             if ($is_checked) {
         ?>
-            <label><input type="checkbox" name="interest" value=<?=$taste['taste']?> checked="checked"> <?=$taste['taste']?> </label>
+            <label><input type="checkbox" name=<?=$taste['taste']?> value=<?=$taste['taste']?> checked> <?=$taste['taste']?> </label>
         <?php } else {?>
-            <label><input type="checkbox" name="interest" value=<?=$taste['taste']?>> <?=$taste['taste']?> </label>
+            <label><input type="checkbox" name=<?=$taste['taste']?> value=<?=$taste['taste']?>> <?=$taste['taste']?> </label>
         <?php }} ?>
             <input type="submit" value="Submit">
 
