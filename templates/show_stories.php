@@ -25,7 +25,7 @@
         </header>
         <p><?=$story['text']?></p>
         <footer>
-            <span class="author">By <?=$writer['username']?></span>
+            <span class="author">By <a href="profile.php?user_id=<?=$writer['user_id']?>"> <?=$writer['username']?> </a></span>
             <span class="likes"><?=count($likes)?> <img src="../icons/like_icon.png" alt="<?=$likes_to_write?>"></span>
             <span class="dislikes"><?=count($dislikes)?> <img src="../icons/dislike_icon.png" alt="<?=$dislikes_to_write?>"></span>
             <span class="tasteChoice">

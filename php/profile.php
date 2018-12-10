@@ -3,8 +3,10 @@
     include_once('../database/connection.php');
     include_once('../database/access_database.php');
     include_once('../database/access_for_likes.php');
-    
+
     $user_id = $_SESSION['user_id'];
+    if(isset($_GET['user_id']))
+        $user_id = $_GET['user_id'];
     $stories = get_stories_by_user($user_id);
     $user = get_user($user_id);
     $users_taste_choices = get_users_taste_choices($user_id);
@@ -23,6 +25,7 @@
 
 <section id="profile_photo">
     <img src=<?=$user['photo']?> alt="Can't load picture">
+    <?php if($user_id == $_SESSION['user_id']) {?>
     <div id="photo_field">
         <form action="../actions/action_upload_photo.php" method="post" enctype="multipart/form-data">
             <label>Change profile picture: 
@@ -31,6 +34,7 @@
             <input type="submit" name="Submit" value="Upload">
         </form>
     </div>
+    <?php } ?>
 </section>
 
 <section id="profile_name">
@@ -42,7 +46,7 @@
     <section id="presentation">
     <?php if($user['presentation']!= null) { ?>
         <p><?=$user['presentation']?></p>
-    <?php } else {?>
+    <?php } else if($user_id == $_SESSION['user_id']) {?>
         <h4> Add a presentation: </h4>
         <form action="../actions/add_presentation.php" method="post" >
             <input type="text" name="presentation" value="">
@@ -53,7 +57,7 @@
 </section>
 
 <section id="interests">
-    <h4> My interests:</h4>
+    <h4><?=$user['username']?>'s interests:</h4>
     <ul>
     <?php foreach($users_taste_choices as $each_taste_choice) { ?>
         <li><a href="taste_choice_stories.php?id_taste=<?=$each_taste_choice['id_taste']?>"> <?=$each_taste_choice['taste']?></a></li>
@@ -62,7 +66,7 @@
 </section>
 
 <section id="profile_stories">
-    <h4> My Stories: </h4>
+    <h4><?=$user['username']?>'s Stories: </h4>
 <?php 
     include_once('../templates/show_stories.php');
 ?>

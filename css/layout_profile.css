@@ -22,7 +22,25 @@ body {
   border-top: 5px solid #1F2833;
 }
 
-/* layout */
+#presentation {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+#presentation > form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+#presentation input[type="submit"] {
+  width: 50%;
+  padding: 0.5em 0.5em;
+}
+
 body {
   display: grid;
   grid-template-areas:

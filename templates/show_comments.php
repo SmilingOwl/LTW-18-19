@@ -14,7 +14,7 @@
 ?>
     <article class="comment">
         <?php $comment_user = get_user($comment['user_id']);?>
-        <span class="user"><?=$comment_user['username']?> </span>
+        <span class="user"><a href="profile.php?user_id=<?=$comment_user['user_id']?>"> <?=$comment_user['username']?> </a> </span>
         <p><?=$comment['text']?></p>
         <footer>
             <span class="likes"><?=count($comments_likes)?> <img src="../icons/like_icon.png" alt="<?=$likes_to_write?>"></span>

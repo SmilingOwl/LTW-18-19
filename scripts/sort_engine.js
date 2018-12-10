@@ -44,7 +44,8 @@ let show_sorted_stories = function(event) {
             '</header>' +
             '<p>' + filtered_stories[i].text + '</p>' +
             '<footer>' +
-                '<span class="author">By ' + filtered_stories[i].username + '</span>' +
+                '<span class="author">By <a href="profile.php?user_id=' +  filtered_stories[i].writer_id +
+                '"> ' + filtered_stories[i].username + ' </a></span>' +
                 '<span class="likes">' + filtered_stories[i].likes + ' <img src="../icons/like_icon.png" alt="likes"></span>' +
                 '<span class="dislikes">' + filtered_stories[i].dislikes + ' <img src="../icons/dislike_icon.png" alt="dislikes"></span>' +
                 '<span class="tasteChoice">' +

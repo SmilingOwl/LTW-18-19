@@ -13,6 +13,7 @@
 <body>
    
    <header>
+    <script src="../scripts/show_menu.js" defer></script>
     <?php include_once('../templates/common/upper_header.php');?>
         <h3>Choose your <br> favorites topics!</h5>
     </header>

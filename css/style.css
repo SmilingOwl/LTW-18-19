@@ -169,12 +169,6 @@ a{
     display: block;
 }
 
-#story footer {
-    display: block;
-    font-family: "Georgia";
-    font-size: 1.2em;
-}
-
 label{
     margin: 0.5em;
     padding: 0.4em;
@@ -210,10 +204,11 @@ input[type=submit] {
 
 #menu {
     display: block;
-    padding: 0em 0em 25em 0em;
+    padding: 0em;
     margin: 0em;
     background-color: #DCDCDC;
-    border: 1px solid #1F2833;
+    border: 2px solid #1F2833;
+    height: 100%;
 }
 
 #menu ul {
@@ -226,7 +221,7 @@ input[type=submit] {
     padding: 1.5em;
     margin: 0em;
     font-family: "Georgia";
-    border: 1px solid #1F2833;
+    border-bottom: 2px solid #1F2833;
 }
 
 #stories {
@@ -266,13 +261,23 @@ input[type=submit] {
     text-decoration: none;
     font-family: "Times New Roman";
     font-size: 1.1em;
+    text-indent: 20px;
+    text-align: justify;
 }
 
 #stories article footer {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
     padding: 0.1em 1em;
     text-decoration: none;
     font-family: "Times New Roman";
     font-size: 0.8em;
+}
+
+#stories article footer span {
+    display: block;
+    margin: 0em 0.3em;
 }
 
 #copyright {
@@ -410,4 +415,22 @@ section#messages {
 
 section#messages .error {
      color: red;
+}
+
+#filter_stories {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+#paragraphs {
+    font-family: 'Times New Roman', Times, sans-serif;
+    font-size: 18px;
+    text-indent: 20px;
+    text-align: justify;
+}
+
+#paragraphs p:first-letter {
+    font-size: 32px;
+    color: #1F2833;
 }

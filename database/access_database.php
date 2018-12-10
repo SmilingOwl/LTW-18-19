@@ -83,7 +83,7 @@
 
     function get_comments_with_user($id){
         global $db;
-        $stmt = $db->prepare('SELECT Comment.text, Users.username FROM Comment, Users WHERE story_id = :id
+        $stmt = $db->prepare('SELECT Users.user_id, Comment.text, Users.username FROM Comment, Users WHERE story_id = :id
             AND Comment.user_id = Users.user_id');
         $stmt->bindParam(':id', $id, PDO::PARAM_INT);
         $stmt->execute();
