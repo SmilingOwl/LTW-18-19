@@ -31,9 +31,22 @@
     if(count($dislikes) == 1)
         $dislikes_to_write='dislike';
 
-    include_once('../templates/common/header.php');
 ?>
 
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Stories Website</title>
+    <meta charset="utf-8">
+    <link href="../css/style.css" rel="stylesheet">
+    <link href="../css/comments.css" rel="stylesheet">
+    <link href="../css/layout.css" rel="stylesheet">
+    <link href="../css/icons.css" rel="stylesheet">
+    <script src="../scripts/add_comment.js" defer></script>
+    <script src="../scripts/show_menu.js" defer></script>
+    <script src="../scripts/update_likes.js" defer></script>
+    <script src="../scripts/add_favorite.js" defer></script>
+</head>
 <body id="story_item">
 
     <header>

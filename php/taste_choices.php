@@ -14,6 +14,7 @@
    
    <header>
     <?php include_once('../templates/common/upper_header.php');?>
+    <script src="../scripts/show_menu.js" defer></script>
         <h3>Choose your <br> favorites topics!</h5>
     </header>
     <div id=save_tastes>

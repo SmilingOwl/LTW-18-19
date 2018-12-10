@@ -33,6 +33,7 @@ let show_menu = function() {
         '<li>Homepage</li>' +
         '<li>Change Interests </li>' +
         '<li>About</li>' +
+        '<li>Edit Account</li>' +
         '<li>Delete Account</li>' +
     '</ul>';
     html.insertBefore(menu, body);

@@ -3,7 +3,9 @@ favorites = document.querySelector('#menu li:nth-child(2)');
 homepage = document.querySelector('#menu li:nth-child(3)');
 change_interests = document.querySelector('#menu li:nth-child(4)');
 about = document.querySelector('#menu li:nth-child(5)');
-delete_account = document.querySelector('#menu li:nth-child(6)');
+edit_account = document.querySelector('#menu li:nth-child(6)');
+delete_account = document.querySelector('#menu li:nth-child(7)');
+
 buttons = document.getElementsByTagName('li');
 
 change_color = function() {
@@ -22,7 +24,7 @@ for(let i = 0; i< buttons.length; i++){
 }
 
 go_to_profile = function() {
-    window.location.href="profile.php";
+    window.location.href="profile.php?";
 }
 
 profile.addEventListener('click', go_to_profile);
@@ -32,6 +34,11 @@ go_to_favorites = function() {
 }
 
 favorites.addEventListener('click', go_to_favorites);
+
+go_to_edit_profile = function() {
+    window.location.href="edit_profile.php";
+}
+edit_account.addEventListener('click',go_to_edit_profile);
 
 go_to_homepage = function() {
     window.location.href="homepage.php";

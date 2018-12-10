@@ -14,11 +14,12 @@
 
   function verifyLogin($username, $password) {
     $db = Database::instance()->db();
+    
     $stmt = $db->prepare('SELECT * FROM Users WHERE username = ?');
     $stmt->execute(array($username));
-    
+
     $user = $stmt->fetch();
-    if($user !== false && password_verify($password,$user['password']))
+    if($user !== false && password_verify($password, $user['password']))
       return getID($username);
     else return -1;
   }
@@ -111,6 +112,35 @@
       return false;
     }
   } 
+
+  function updateUserPassword($userID, $newpassword){
+    $db = Database::instance()->db();
+    try {
+      $stmt = $db->prepare('UPDATE Users SET password = ? WHERE user_id = ?');
+      $options = ['cost' => 12];
+      if($stmt->execute((password_hash($newpassword, PASSWORD_DEFAULT, $options)),$userID))
+          return true;
+      else{
+        return false;
+      }   
+    }catch(PDOException $e) {
+      return false;
+    }
+  }
+
+  function updateUserEmail($userID, $email){
+    $db = Database::instance()->db();
+      try {
+        $stmt = $db->prepare('UPDATE Users SET email = ? WHERE user_id = ?');
+        if($stmt->execute(array($email, $userID)))
+            return true;
+        else{
+          return false;
+        }   
+      }catch(PDOException $e) {
+        return false;
+      }
+    }
 
   function updateStoryPhoto($storyID, $photoName) {
     $db = Database::instance()->db();

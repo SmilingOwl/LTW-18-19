@@ -46,15 +46,8 @@ body > header {
 #profile_photo img {
   height: 200px; 
   width: 200px;
-  margin-left: 1em;
-  border: 2px solid black;
-  border-radius: 25px;
-}
-
-#profile_photo img {
-  height: 200px; 
-  width: 200px;
-  margin-left: 1em;
+  margin-top: 2em;
+  margin-left: 2em;
   border: 2px solid black;
   border-radius: 25px;
 }
