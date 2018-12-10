@@ -16,7 +16,7 @@
             It's a website thoughtfully designed, beautifully crafted to be simple, clean and easy to use.
         </p>
         <p>
-            This project was developed for the Web Languages and Technologies (LTW) class of the Master in Informatics and Computer Engineering
+            This project was developed for the Web Languages and Technologies (LTW) class of the Masters Degree in Informatics and Computer Engineering
             (MIEIC) at the Faculty of Engineering of the University of Porto (FEUP), by Ana Secuiu, Helena Montenegro and Juliana Marques in 2018.
         </p>
         <p>Enjoy! </p>

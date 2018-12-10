@@ -22,8 +22,15 @@
 </header>
 
 <section id="profile_photo">
-    <img src=<?=$user['photo']?> >
-   
+    <img src=<?=$user['photo']?> alt="Can't load picture">
+    <div id="photo_field">
+        <form action="../actions/action_upload_photo.php" method="post" enctype="multipart/form-data">
+            <label>Change profile picture: 
+                <input type="file" name="fileToUpload" id="fileToUpload">
+            </label>
+            <input type="submit" name="Submit" value="Upload">
+        </form>
+    </div>
 </section>
 
 <section id="profile_name">

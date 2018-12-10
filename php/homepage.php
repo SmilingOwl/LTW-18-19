@@ -19,6 +19,7 @@
     <script src="../scripts/show_comments.js" defer></script>
     <script src="../scripts/show_add_story.js" defer></script>
     <script src="../scripts/search_engine.js" defer></script>
+    <script src="../scripts/sort_engine.js" defer></script>
     <?php include_once('../templates/common/upper_header.php'); ?>
         <h1> Home Page </h1>
     </header>
@@ -26,6 +27,15 @@
     <input type="hidden" name="user_id" value="<?=$users_id?>">
     <header id="filter_stories">
             <label>Search: <input type="text" name="search_box" value=""></label>
+            <label>Sort: 
+                <select name="sort_menu">
+                    <option value="date">Most Recent</option>
+                    <option value="likes">Most Likes</option>
+                    <option value="dislikes">Most Dislikes</option>
+                    <option value="favorites">Most Favorites</option>
+                    <option value="comments">Most Comments</option>
+                </select>
+            </label>
     </header>
 
 <?php 
