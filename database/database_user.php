@@ -116,9 +116,9 @@
   function updateUserPassword($userID, $newpassword){
     $db = Database::instance()->db();
     try {
-      $stmt = $db->prepare('UPDATE Users SET password = ? WHERE user_id = ?');
       $options = ['cost' => 12];
-      if($stmt->execute((password_hash($newpassword, PASSWORD_DEFAULT, $options)),$userID))
+      $stmt = $db->prepare('UPDATE Users SET password = ? WHERE user_id = ?');
+      if($stmt->execute(array(password_hash($newpassword, PASSWORD_DEFAULT, $options), $userID)))
           return true;
       else{
         return false;

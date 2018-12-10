@@ -10,7 +10,7 @@
 
 
     if( (verifyLogin($username, $current_password) )!= -1){
-        if($email!==null) {
+        if($email != "") {
 
             if(updateUserEmail($userID, $email)){
                 
@@ -26,4 +26,4 @@
         
     } else $_SESSION['messages'][] = array('type' => 'error', 'content' =>'Error! Password is not correct');
    
-header('Location:../php/edit_profile.php'); 
+header('Location:../php/homepage.php'); 
