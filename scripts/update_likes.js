@@ -139,8 +139,6 @@ let receive_answer_like_comment = function(event) {
     current_comment.insertBefore(new_likes_comment, current_dislikes);
 }
 
-for(let i = 0; i < likes_comments.length; i++)
-    likes_comments[i].addEventListener('click', addlike_comment);
 /*END OF PART4*/
 
 /*BEGINING OF PART5 : add dislike by clicking on comments*/
@@ -169,10 +167,32 @@ let receive_answer_dislike_comment = function(event) {
 
     let new_dislikes_comment = document.createElement('span');
     new_dislikes_comment.className = "dislikes";
-    new_dislikes.innerHTML = answer + ' <img src="../icons/dislike_icon.png" alt="' + dislikes_to_write + '"></img>';
+    new_dislikes_comment.innerHTML = answer + ' <img src="../icons/dislike_icon.png" alt="' + dislikes_to_write + '"></img>';
     current_comment.insertBefore(new_dislikes_comment, current_input);
 }
-
-for(let i = 0; i < dislikes_comments.length; i++)
-    dislikes_comments[i].addEventListener('click', add_dislike_comment);
 /*END OF PART5*/
+
+
+for(let i = 0; i < likes_comments.length; i++) {
+    likes_comments[i].addEventListener('click', addlike_comment); 
+    dislikes_comments[i].addEventListener('click', add_dislike_comment);
+
+    let id_comment=likes_comments[i].parentNode.querySelector('input[name=id_comment]').value;
+    console.log(id_comment);
+    console.log(user_id);
+
+    let request_likes_comments = new XMLHttpRequest();
+    request_likes_comments.addEventListener('load', function(event){
+        let answer = JSON.parse(this.responseText);
+        console.log(this.responseText);
+        if(answer == 1 || answer == 3) {
+            likes_comments[i].style.color = "blue";
+        }
+        if(answer == 2 || answer == 3) {
+            dislikes_comments[i].style.color = "blue";
+        }
+    });
+    request_likes_comments.open('POST', '../actions/check_like_comments.php', true);
+    request_likes_comments.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+    request_likes_comments.send(encodeForAjax({id_comment: id_comment, user_id: user_id}));
+}

@@ -14,6 +14,10 @@
 
 <header>
     <link href="../css/layout_profile.css" rel="stylesheet">
+    <script src="../scripts/add_favorite.js" defer></script>
+    <script src="../scripts/update_likes.js" defer></script>
+    <script src="../scripts/show_menu.js" defer></script>
+    <script src="../scripts/show_comments.js" defer></script>
     <?php include_once('../templates/common/upper_header.php'); ?>
 </header>
 
@@ -35,11 +39,17 @@
         $points = get_points($user_id);
     ?>
     <h4>Number of Points: <?=$points?></h4>
-</section>
-
-<section id="presentation">
-    <h4><?=$user['username']?> says: </h4>
-    <p><?=$user['presentation']?></p>
+    <section id="presentation">
+    <?php if($user['presentation']!= null) { ?>
+        <p><?=$user['presentation']?></p>
+    <?php } else {?>
+        <h4> Add a presentation: </h4>
+        <form action="../actions/add_presentation.php" method="post" >
+            <input type="text" name="presentation" value="">
+            <input type="submit" name="submit" value="Submit">
+        </form>
+    <?php } ?>
+    </section>
 </section>
 
 <section id="interests">

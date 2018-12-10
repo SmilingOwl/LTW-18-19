@@ -20,6 +20,7 @@
             <span class="likes"><?=count($comments_likes)?> <img src="../icons/like_icon.png" alt="<?=$likes_to_write?>"></span>
             <span class="dislikes"><?=count($comments_dislikes)?> <img src="../icons/dislike_icon.png" alt="<?=$dislikes_to_write?>"></span>
             <input type="hidden" name="id_comment" value="<?=$comment['id_comment']?>">
+            <input type="hidden" name="user_id" value="<?=$comment['user_id']?>">
         </footer>
     </article>
 <?php } ?>

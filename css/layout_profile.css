@@ -28,7 +28,6 @@ body {
   grid-template-areas:
   "head head"
   "image name"
-  "description story"
   "inter story"
   ". story"
   "foot foot";
@@ -70,17 +69,22 @@ body > header#profile_photo {
   margin: 1em;
 }
 
-#presentation {
-  margin: 2em 1em;
-  grid-area: description;
-  font-family: "Georgia";
-  text-align: center;
+#profile_name form {
+  text-align: left;
 }
 
 #presentation p {
-  text-align: justify;
+  text-align: center;
   text-indent: 25px;
   font-family: "Times New Roman";
+}
+
+#presentation p:after, #presentation p:before {
+  content: '\201C';
+  font-size: 2.8em;
+  position: relative;
+  top: 15px;
+  color: #ccc;
 }
 
 #interests {
@@ -91,7 +95,7 @@ body > header#profile_photo {
 #interests h4{
   font-family: "Georgia";
   font-size: 1.2em;
-  margin-top: 0em;
+  margin-top: 3em;
   margin-bottom: 1em;
 }
 

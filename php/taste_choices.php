@@ -6,17 +6,10 @@
     $user_id = $_SESSION['user_id'];
     $taste_choices = get_taste_choices();
     $users_taste_choices = get_users_taste_choices($user_id);
+
+    include_once('../templates/common/header.php');
 ?>
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Stories Website</title>
-    <meta charset="utf-8">
-    <link href="../css/style.css" rel="stylesheet">
-    <link href="../css/comments.css" rel="stylesheet">
-    <link href="../css/layout.css" rel="stylesheet">
-    <link href="../css/icons.css" rel="stylesheet">
-</head>
+
 <body>
    
    <header>

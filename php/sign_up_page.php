@@ -16,6 +16,13 @@
  		</header>
 		<div class="register_container_sign_up">
 			<h1>Sign Up </h1>
+			<?php if (isset($_SESSION['messages'])) {?>
+        <section id="messages">
+          <?php foreach($_SESSION['messages'] as $message) { ?>
+            <div class="<?=$message['type']?>"><?=$message['content']?></div>
+          <?php } ?>
+        </section>
+ <?php unset($_SESSION['messages']); } ?>
 			<form action="../actions/action_sign_up.php" method="post">
 			
 				<label>Username:

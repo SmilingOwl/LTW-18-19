@@ -29,7 +29,8 @@
 }
 
 #comments footer {
-  background-color: #1F2833;
+  background-color: #edeff0;
+  border-top: 2px solid #DCDCDC;
   display: flex;
   flex-direction: row;
   font-family: "Calibri";

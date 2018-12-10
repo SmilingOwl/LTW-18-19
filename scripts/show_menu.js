@@ -32,7 +32,7 @@ let show_menu = function() {
         '<li>My Favorites</li>' +
         '<li>Homepage</li>' +
         '<li>Change Interests </li>' +
-        '<li>Log Out</li>' +
+        '<li>About</li>' +
         '<li>Delete Account</li>' +
     '</ul>';
     html.insertBefore(menu, body);

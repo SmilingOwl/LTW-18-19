@@ -1,13 +1,6 @@
 <?php include_once('../includes/session.php'); 
-
+	include_once('../templates/common/header.php');
 ?>
-
-<!DOCTYPE html>
-<html>
-	<head>
-   		<meta charset="utf-8">
-    	<link href="../css/style.css" rel="stylesheet">
-	</head>
 
 	<body id=first_page>
 		<header>
@@ -19,6 +12,13 @@
 
 	<div class="register_container">
 		<h1> Login </h1>
+		<?php if (isset($_SESSION['messages'])) {?>
+        <section id="messages">
+          <?php foreach($_SESSION['messages'] as $message) { ?>
+            <div class="<?=$message['type']?>"><?=$message['content']?></div>
+          <?php } ?>
+        </section>
+ 	<?php unset($_SESSION['messages']); } ?>
 		<form action="../actions/action_login.php" method="post" class="register_form">
 			<label>Username:
 				<input type="text" name="username" placeholder="username" required="required">

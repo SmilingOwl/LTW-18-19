@@ -7,26 +7,18 @@
     $users_id = $_SESSION['user_id'];
     $stories = get_all_stories($users_id);
     $user = get_user($users_id);
+
+    include_once('../templates/common/header.php');
 ?>
 
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Stories Website</title>
-    <meta charset="utf-8">
-    <link href="../css/style.css" rel="stylesheet">
-    <link href="../css/layout.css" rel="stylesheet">
-    <link href="../css/icons.css" rel="stylesheet">
-    <link href="../css/comments.css" rel="stylesheet">
+<body>
+    <header>
     <script src="../scripts/add_favorite.js" defer></script>
     <script src="../scripts/update_likes.js" defer></script>
     <script src="../scripts/show_menu.js" defer></script>
     <script src="../scripts/show_comments.js" defer></script>
     <script src="../scripts/show_add_story.js" defer></script>
     <script src="../scripts/search_engine.js" defer></script>
-</head>
-<body>
-    <header>
     <?php include_once('../templates/common/upper_header.php'); ?>
         <h1> Home Page </h1>
     </header>

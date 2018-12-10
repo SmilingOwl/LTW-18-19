@@ -182,4 +182,10 @@
         $stmt = $db->prepare('DELETE FROM TasteChoiceUser WHERE user_id = ?');
         $stmt->execute(array($user_id));
     }
+
+    function add_presentation($user_id, $presentation) {
+        global $db;
+        $stmt = $db->prepare('UPDATE Users SET presentation = ? WHERE user_id = ?');
+        $stmt->execute(array($presentation, $user_id));
+    }
 ?>

@@ -122,17 +122,20 @@
         global $db;
         $points = 0;
         $stmt = $db->prepare('SELECT * FROM Story, LikesStories WHERE writer_id = :id 
-                                AND Story.story_id = LikesStories.story_id AND user_id <> :id');
+                                AND Story.story_id =LikesStories.story_id AND user_id <> :id');
         $stmt->bindParam(':id', $id, PDO::PARAM_INT);
-        $points += count($stmt->fetchAll());
+        $stmt->execute();
+        $points += sizeof($stmt->fetchAll());
         $stmt = $db->prepare('SELECT * FROM Story, DislikesStories WHERE writer_id = :id 
                                 AND Story.story_id = DislikesStories.story_id AND user_id <> :id');
         $stmt->bindParam(':id', $id, PDO::PARAM_INT);
-        $points -= count($stmt->fetchAll());
+        $stmt->execute();
+        $points -= sizeof($stmt->fetchAll());
         $stmt = $db->prepare('SELECT * FROM Story, SavedStory WHERE writer_id = :id 
                                 AND Story.story_id = SavedStory.story_id AND user_id <> :id');
         $stmt->bindParam(':id', $id, PDO::PARAM_INT);
-        $points += 10*count($stmt->fetchAll());
+        $stmt->execute();
+        $points += 10*sizeof($stmt->fetchAll());
         return $points;
     }
 

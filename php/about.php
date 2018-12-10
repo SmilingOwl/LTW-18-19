@@ -1,17 +1,9 @@
-<html>
-    <head>
-        <meta charset="utf-8">
-        <link href="../css/style.css" rel="stylesheet">
-        <link href="../css/icons.css" rel="stylesheet">
-        <link href="../css/layout.css" rel="stylesheet">
-        <script src="../scripts/show_menu.js" defer></script>
-
-
-    </head>
+<?php include_once('../templates/common/header.php'); ?>
 
     <body>
     <header>
-        <?php include_once('../templates/common/header.php'); ?>
+        <script src="../scripts/show_menu.js" defer></script>
+        <?php include_once('../templates/common/upper_header.php'); ?>
         <h3>About</h3>
     </header>
     <div class="about">

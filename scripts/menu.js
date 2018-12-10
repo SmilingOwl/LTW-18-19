@@ -2,7 +2,7 @@ profile = document.querySelector('#menu li:first-child');
 favorites = document.querySelector('#menu li:nth-child(2)');
 homepage = document.querySelector('#menu li:nth-child(3)');
 change_interests = document.querySelector('#menu li:nth-child(4)');
-logout = document.querySelector('#menu li:nth-child(5)');
+about = document.querySelector('#menu li:nth-child(5)');
 delete_account = document.querySelector('#menu li:nth-child(6)');
 buttons = document.getElementsByTagName('li');
 
@@ -28,13 +28,13 @@ go_to_profile = function() {
 profile.addEventListener('click', go_to_profile);
 
 go_to_favorites = function() {
-    window.location.href="favorites.php?";
+    window.location.href="favorites.php";
 }
 
 favorites.addEventListener('click', go_to_favorites);
 
 go_to_homepage = function() {
-    window.location.href="homepage.php?";
+    window.location.href="homepage.php";
 }
 
 homepage.addEventListener('click', go_to_homepage);
@@ -46,7 +46,7 @@ function encodeForAjax(data) {
 }
 
 go_to_first_page = function() {
-    window.location.href="first_page.php?";
+    window.location.href="first_page.php";
 }
 
 delete_account_func = function(){
@@ -61,18 +61,14 @@ delete_account_func = function(){
 
 delete_account.addEventListener('click', delete_account_func);
 
-logout_func = function(){
-    let request = new XMLHttpRequest();
-    request.addEventListener('load', go_to_first_page);
-    request.open('POST', '../actions/action_logout.php', true);
-    request.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-    request.send();
+go_to_about_page = function(){
+    window.location.href="about.php";
 }
 
-logout.addEventListener('click', logout_func);
+about.addEventListener('click', go_to_about_page);
 
 go_to_taste_choices = function() {
-    window.location.href="taste_choices.php?";
+    window.location.href="taste_choices.php";
 }
 
 change_interests.addEventListener('click', go_to_taste_choices);
