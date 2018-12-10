@@ -22,7 +22,7 @@ for(let i = 0; i< buttons.length; i++){
 }
 
 go_to_profile = function() {
-    window.location.href="profile.php?";
+    window.location.href="profile.php";
 }
 
 profile.addEventListener('click', go_to_profile);
