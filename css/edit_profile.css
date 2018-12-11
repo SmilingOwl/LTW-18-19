@@ -1,0 +1,92 @@
+
+  
+  /* style */
+  
+  html {
+    background-color: #1F2833;
+  }
+  
+  body {
+    background-color: #edeff0;
+    margin: auto;
+    width:75%;
+    height: auto;
+  }
+  
+  body {
+    display: grid;
+    grid-template-areas:
+    "head head"
+    "personal_header account"
+    "foot foot";
+    grid-template-columns: 1fr 2fr;
+    grid-template-rows: auto auto auto auto auto auto auto;
+  }
+  
+  body > header {
+    background-color: #1F2833;
+    grid-area: head;
+    margin-bottom: 0.2em;
+    margin-right: 0em;
+    padding-bottom: 1.5em;
+  }
+ 
+h3{
+    text-align: center;
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+    margin-left: 0.1em;
+    margin-right: 0.1em;
+    font-weight: bold;
+}
+
+  
+  #account form {
+    text-align: left;
+    margin: 1em;
+    font-size: 0.9em;
+  }
+  
+  #account form>label{
+    font-weight: bold;
+    font-size:1em;
+  }
+
+  span.hint{
+    font-weight: lighter;
+    font-size:0.8em;
+  }
+
+  body > footer {
+    grid-area: foot;
+  }
+
+  #profile_photo img {
+    display: block;
+    margin-top: 1em;
+    margin-bottom: 1em;
+    margin-left: auto;
+    margin-right: auto;
+    width: 60%;
+    border: 2px solid black;
+    border-radius: 25px;
+  }
+
+  label{
+      font-weight: bold;
+      font-size: 0.9em;
+      margin-top:0em;
+      margin-bottom:0.3em;
+  }
+  textarea{
+      width: 70%;
+      margin-left: 1em;
+      margin-bottom:0.3em;
+  }
+  input{
+      width: 15em;
+  }
+
+  div#photo_field{
+      margin:1em;
+  }

@@ -113,6 +113,18 @@
     }
   } 
 
+  function updateUserPresentation($userID, $presentation){
+    $db = Database::instance()->db();
+    try {
+      $stmt = $db->prepare('UPDATE Users SET presentation = ? WHERE user_id = ?');
+      if($stmt->execute(array($presentation, $userID)))
+          return true;
+      else
+          return false;
+    }catch(PDOException $e) {
+      return false;
+    }
+  }
   function updateUserPassword($userID, $newpassword){
     $db = Database::instance()->db();
     try {

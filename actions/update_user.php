@@ -7,22 +7,27 @@
     $email = $_POST['email'];
     $current_password = $_POST['currpassword'];
     $new_password = $_POST['password'];
+    $presentation=$_POST['presentation'];
 
 
     if( (verifyLogin($username, $current_password) )!= -1){
         if($email != "") {
 
             if(updateUserEmail($userID, $email)){
-                
+               
+                if(updateUserPresentation($userID, $presentation)){
+ 
                 if($new_password != null){
                    
                     if(!updateUserPassword($userID, $new_password))
                     $_SESSION['messages'][] = array('type' => 'error', 'content' => 'Error on updating password!');                          
                 }
 
+                } else $_SESSION['messages'][] = array('type' => 'error', 'content' => 'Error on updating data base'); 
+
             } else $_SESSION['messages'][] = array('type' => 'error', 'content' => 'Error on updating data base');     
 
-        } else $_SESSION['messages'][] = array('type' => 'error', 'content' =>'Error! email and password cannot be null');
+        } else $_SESSION['messages'][] = array('type' => 'error', 'content' =>'Error! email,password cannot be null');
         
     } else $_SESSION['messages'][] = array('type' => 'error', 'content' =>'Error! Password is not correct');
    
