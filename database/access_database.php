@@ -173,8 +173,24 @@
 
     function save_taste_choice_user($user_id, $id_taste) {
         global $db;
-        $stmt = $db->prepare('INSERT INTO TasteChoiceUser (user_id, id_taste) VALUES (?, ?)');
+        if(!check_taste_choice_user($user_id, $id_taste)){
+            $stmt = $db->prepare('INSERT INTO TasteChoiceUser (user_id, id_taste) VALUES (?, ?)');
+            $stmt->execute(array($user_id, $id_taste));
+            return true;
+        } else {
+            $stmt = $db->prepare('DELETE FROM TasteChoiceUser WHERE user_id = ? AND id_taste = ?');
+            $stmt->execute(array($user_id, $id_taste));
+            return false;
+        }
+    }
+
+    function check_taste_choice_user($user_id, $id_taste) {
+        global $db;
+        $stmt = $db->prepare('SELECT * FROM TasteChoiceUser WHERE user_id = ? AND id_taste = ?');
         $stmt->execute(array($user_id, $id_taste));
+        if($stmt->fetch() !== false)
+            return true;
+        return false;
     }
 
     function clear_taste_choices_user($user_id) {
@@ -187,5 +203,15 @@
         global $db;
         $stmt = $db->prepare('UPDATE Users SET presentation = ? WHERE user_id = ?');
         $stmt->execute(array($presentation, $user_id));
+    }
+
+    function get_followers($id_taste) {
+        global $db;
+        $stmt = $db->prepare('SELECT * FROM TasteChoice, TasteChoiceUser 
+                                WHERE TasteChoice.id_taste = :id 
+                                AND TasteChoice.id_taste = TasteChoiceUser.id_taste');
+        $stmt->bindParam(':id', $id_taste, PDO::PARAM_INT);
+        $stmt->execute();
+        return sizeof($stmt->fetchAll());
     }
 ?>

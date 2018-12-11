@@ -134,6 +134,15 @@ body > header#profile_photo {
 #profile_stories {
   grid-area: story;
   text-align: center;
+  font-family: "Georgia";
+  font-size: 0.9em;
+  margin-left: 1em;
+}
+
+#profile_stories > h4 {
+  font-family: "Georgia";
+  font-size: 1.2em;
+  margin-top: 3em;
 }
 
 body > footer {

@@ -57,7 +57,6 @@ body > header h3 {
     font-weight: bold;
 }
   
-  
   /*LOGIN*/
   
   div.register_container>h1{
@@ -433,4 +432,22 @@ section#messages .error {
 #paragraphs p:first-letter {
     font-size: 32px;
     color: #1F2833;
+}
+
+#followers_sect {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+    justify-content: space-between;
+    margin: 0em 1em;
+}
+
+body > h3 {
+    color: #DCDCDC;
+    font-size: 1.5em;
+    margin-top: 5em;
+    margin-bottom: 5em;
+    font-family: Georgia;
+    text-align: center;
+    font-weight: bold;
 }

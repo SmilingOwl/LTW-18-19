@@ -136,6 +136,18 @@
         $stmt->bindParam(':id', $id, PDO::PARAM_INT);
         $stmt->execute();
         $points += 10*sizeof($stmt->fetchAll());
+        $stmt = $db->prepare('SELECT * FROM Comment, LikesComments WHERE Comment.user_id = :id
+                                AND Comment.id_comment = LikesComments.comment_id 
+                                AND LikesComments.user_id <> :id');
+        $stmt->bindParam(':id', $id, PDO::PARAM_INT);
+        $stmt->execute();
+        $points += sizeof($stmt->fetchAll());
+        $stmt = $db->prepare('SELECT * FROM Comment, DislikesComments WHERE Comment.user_id = :id
+                                AND Comment.id_comment = DislikesComments.comment_id 
+                                AND DislikesComments.user_id <> :id');
+        $stmt->bindParam(':id', $id, PDO::PARAM_INT);
+        $stmt->execute();
+        $points -= sizeof($stmt->fetchAll());
         return $points;
     }
 
