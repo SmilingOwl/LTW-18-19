@@ -34,6 +34,7 @@
             <span class="comments"><?=count($num_comments)?> 
                 <img src="../icons/comment_icon.png" alt="<?=$comments_to_write?>"></span>
             <span class="favorites"><?=count($favorites)?> <img src="../icons/saved_icon.png" alt="<?=$favorites_to_write?>"></span>
+            <span class="date"><?=$story['date']?></span>
             <input type="hidden" name="story_id" value="<?=$story['story_id']?>">
             <input type="hidden" name="user_id" value="<?=$user['user_id']?>">
         </footer>

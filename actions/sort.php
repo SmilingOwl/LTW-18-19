@@ -23,11 +23,13 @@
         $dislikes = get_dislikes_story($story['story_id']);
         $favorites = get_favorites_story($story['story_id']);
         $comments = get_comments_in_story($story['story_id']);
+        $taste_choice = get_taste_choice($story['id_taste']);
         
         $story['likes'] = count($likes);
         $story['dislikes'] = count($dislikes);
         $story['favorites'] = count($favorites);
         $story['comments'] = count($comments);
+        $story['taste'] = $taste_choice['taste'];
         array_push($stories_to_return, $story);
     }
 

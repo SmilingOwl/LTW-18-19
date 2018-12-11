@@ -31,7 +31,9 @@ function receiveComments(event) {
         comments.user_id + '"> ' + 
         comments.username + ' </a></span><p>' +
         comments.text + '</p>' + 
-        '<footer><span class="likes">0 <img src="../icons/like_icon.png" alt="likes"></span> <span class="dislikes">0 <img src="../icons/dislike_icon.png" alt="dislikes"></span></footer>';
+        '<footer><span class="likes">0 <img src="../icons/like_icon.png" alt="likes"></span>' +
+        '<span class="dislikes">0 <img src="../icons/dislike_icon.png" alt="dislikes"></span>' +
+        '<span class="date">' + comments.date + '</span></footer>';
 
       section.insertBefore(comment, commentForm);
 }

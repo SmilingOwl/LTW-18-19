@@ -27,3 +27,12 @@ span.comments img {
     width: 20px;
     height: 20px;
 }
+
+span.close {
+    float: right;
+}
+
+span.close img {
+    width: 30px;
+    height: 30px;
+}

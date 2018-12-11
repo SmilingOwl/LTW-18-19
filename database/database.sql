@@ -30,6 +30,7 @@ CREATE TABLE Story (
   title VARCHAR NOT NULL,
   text VARCHAR NOT NULL,
   photo VARCHAR,
+  date DATE,
   id_taste INTEGER NOT NULL
 );
 
@@ -37,6 +38,7 @@ CREATE TABLE Comment (
   id_comment INTEGER PRIMARY KEY AUTOINCREMENT,
   story_id INTEGER REFERENCES Story,
   user_id INTEGER REFERENCES Users,
+  date DATE,
   text VARCHAR NOT NULL
 );
 

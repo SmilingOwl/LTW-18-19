@@ -49,11 +49,12 @@ let show_sorted_stories = function(event) {
                 '<span class="likes">' + filtered_stories[i].likes + ' <img src="../icons/like_icon.png" alt="likes"></span>' +
                 '<span class="dislikes">' + filtered_stories[i].dislikes + ' <img src="../icons/dislike_icon.png" alt="dislikes"></span>' +
                 '<span class="tasteChoice">' +
-                    '<a href="taste_choice_stories.php?id_taste=' + filtered_stories[i].id_taste + '">#taste</a>' +
+                    '<a href="taste_choice_stories.php?id_taste=' + filtered_stories[i].id_taste + '">#' + filtered_stories[i].taste + '</a>' +
                 '</span>' +
                 '<span class="comments">' + filtered_stories[i].comments +
                     '<img src="../icons/comment_icon.png" alt="comments"></span>' +
                 '<span class="favorites">'+ filtered_stories[i].favorites +' <img src="../icons/saved_icon.png" alt="favorites"></span>' +
+                '<span class="date">' + filtered_stories[i].date + '</span>' +
                 '<input type="hidden" name="story_id" value="' + filtered_stories[i].story_id + '">' +
                 '<input type="hidden" name="user_id" value="' + filtered_stories[i].user_id + '">' +
             '</footer>';
