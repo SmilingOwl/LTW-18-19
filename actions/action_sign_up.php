@@ -3,6 +3,7 @@
   include_once('../includes/session.php');
   include_once('../database/database_user.php');
 
+  
 if ( !preg_match ("/^[a-zA-Z0-9]+$/",$_POST['username'])) {
     $_SESSION['messages'][] = array('type' => 'error', 'content' => 'Username can only contain letters and numbers!');
 	die(header('Location:../php/sign_up_page.php'));

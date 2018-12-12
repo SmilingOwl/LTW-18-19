@@ -16,6 +16,14 @@
     <script src="../scripts/show_menu.js" defer></script>
     <?php include_once('../templates/common/upper_header.php');?>
         <h3>Choose your <br> favorites topics!</h5>
+        <?php if (isset($_SESSION['messages'])) {?>
+            <section id="messages">
+            <?php foreach($_SESSION['messages'] as $message) { ?>
+                <div class="<?=$message['type']?>"><?=$message['content']?></div>
+            <?php } ?>
+            </section>
+        <?php unset($_SESSION['messages']); } ?>
+
     </header>
     <div id=save_tastes>
         <form action="../actions/save_taste_choices.php" method="post">

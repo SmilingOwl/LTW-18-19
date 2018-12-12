@@ -194,6 +194,18 @@
         return false;
     }
 
+    function duplicateTasteChoices($taste) {
+        global $db;
+        try {
+          $stmt = $db->prepare('SELECT taste FROM TasteChoice WHERE taste = ?');
+          $stmt->execute(array($taste));
+          return $stmt->fetch()  !== false;
+        
+        }catch(PDOException $e) {
+          return true;
+        }
+    }
+
     function check_taste_choice_user($user_id, $id_taste) {
         global $db;
         $stmt = $db->prepare('SELECT * FROM TasteChoiceUser WHERE user_id = ? AND id_taste = ?');
