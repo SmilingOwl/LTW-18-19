@@ -3,10 +3,11 @@
 
   function insertUser($username, $password, $email, $birthdate) {
     $db = Database::instance()->db();
-    $stmt = $db->prepare('INSERT INTO Users (username, email, birthdate, password) VALUES(?,?,?,?)');
+    $img = "../pictures/profile/default.png";
+    $stmt = $db->prepare('INSERT INTO Users (username, email, birthdate, photo, password) VALUES(?,?,?,?,?)');
     $options = ['cost' => 12];
 
-    $stmt->execute(array($username, $email, $birthdate, password_hash($password, PASSWORD_DEFAULT, $options)));
+    $stmt->execute(array($username, $email, $birthdate, $img, password_hash($password, PASSWORD_DEFAULT, $options)));
     $stmt = $db->prepare('SELECT user_id FROM Users WHERE username = ?');
     $stmt->execute(array($username));
     return $stmt->fetch()['user_id'];
