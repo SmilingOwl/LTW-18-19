@@ -5,11 +5,12 @@
         $stmt->bindParam(':id', $id, PDO::PARAM_INT);
         $stmt->execute();
         return $stmt->fetchAll();
+        
     }
 
     function get_stories_by_username($id){
         global $db;
-        $stmt = $db->prepare('SELECT writer_id, user_id, story_id, id_taste, text, username, title, date
+        $stmt = $db->prepare('SELECT writer_id, user_id, story_id, id_taste, text, username, title 
                             FROM Story, Users WHERE username = :id AND writer_id = user_id ORDER BY story_id DESC');
         $stmt->bindParam(':id', $id, PDO::PARAM_STR);
         $stmt->execute();
@@ -34,7 +35,7 @@
 
     function get_stories_by_title($id){
         global $db;
-        $stmt = $db->prepare('SELECT writer_id, user_id, story_id, id_taste, text, username, title, date
+        $stmt = $db->prepare('SELECT writer_id, user_id, story_id, id_taste, text, username, title
                         FROM Story, Users WHERE title = :id AND writer_id = user_id ORDER BY story_id DESC');
         $stmt->bindParam(':id', $id, PDO::PARAM_STR);
         $stmt->execute();
@@ -141,10 +142,9 @@
 
     function add_comment($story_id, $id_user, $text) {
         global $db;
-        $curr_date = getdate();
-        $date = $curr_date['year'] . "-" . $curr_date['mon'] . "-" . $curr_date['mday'];
-        $stmt = $db->prepare('INSERT INTO Comment (story_id, user_id, text, date) VALUES (?, ?, ?, ?)');
-        $stmt->execute(array($story_id, $id_user, $text, $date));
+    
+        $stmt = $db->prepare('INSERT INTO Comment (story_id, user_id, text) VALUES (?, ?, ?)');
+        $stmt->execute(array($story_id, $id_user, $text));
 
         $stmt = $db->prepare('SELECT * FROM Comment, Users WHERE story_id = :s_id AND Comment.user_id= :u_id AND text = :t
                                 AND Comment.user_id = Users.user_id');
@@ -157,12 +157,9 @@
 
     function add_story($user_id, $title, $text, $id_taste_choice) {
         global $db;
-
-        $curr_date = getdate();
-        $date = $curr_date['year'] . "-" . $curr_date['mon'] . "-" . $curr_date['mday'];
     
-        $stmt = $db->prepare('INSERT INTO Story (writer_id, title, text, id_taste, date) VALUES (?, ?, ?, ?, ?)');
-        $stmt->execute(array($user_id, $title, $text, $id_taste_choice, $date));
+        $stmt = $db->prepare('INSERT INTO Story (writer_id, title, text, id_taste) VALUES (?, ?, ?, ?)');
+        $stmt->execute(array($user_id, $title, $text, $id_taste_choice));
 
         $stmt = $db->prepare('SELECT * FROM Story, Users, TasteChoice WHERE text = :t AND title = :title
                                 AND Story.id_taste = :id_taste_choice AND Story.writer_id = Users.user_id
@@ -186,6 +183,15 @@
             $stmt->execute(array($user_id, $id_taste));
             return false;
         }
+    }
+
+    function add_new_taste_choices($taste){
+        global $db;
+        $stmt = $db->prepare('INSERT INTO TasteChoice(taste) VALUES(?)');
+        $stmt->execute(array($taste));
+        if($stmt->fetch() !== false)
+            return true;
+        return false;
     }
 
     function check_taste_choice_user($user_id, $id_taste) {
