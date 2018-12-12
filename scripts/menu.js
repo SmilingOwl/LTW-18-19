@@ -56,7 +56,6 @@ function encodeForAjax(data) {
 }
 
 go_to_first_page = function() {
-    console.log("entrou!");
     window.location.href="first_page.php";
 }
 
@@ -65,10 +64,9 @@ delete_account_func = function(){
     let alertDelete = document.createElement('article');
     alertDelete.classList.add('alert');
         
-    alertDelete.innerHTML = '<form >' + '<p>' + "Are you sure you want to delete your account?" +'</p>'
+    alertDelete.innerHTML =  '<p>' + "Are you sure you want to delete your account?" +'</p>'
         + '<input type="submit" name="Confirm" value="Confirm">'+
-        '<input type="submit" name="Cancel" value="Cancel">'
-        + '</form>';
+        '<input type="submit" name="Cancel" value="Cancel">';
 
         body.insertBefore(alertDelete, header);
 
@@ -81,7 +79,6 @@ delete_account_func = function(){
        confirm_button.addEventListener('click', function(){
         let user_id=document.querySelector('input[name=user_id]').value;
         let request = new XMLHttpRequest();
-        console.log("!");
         request.addEventListener('load', go_to_first_page);
         request.open('POST', '../actions/delete_account.php', true);
         request.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');

@@ -5,3 +5,37 @@ html {
     grid-template-areas: "nav body";
     
 }
+
+article.alert {
+    display: grid;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border: 2px solid #1F2833;
+    padding: 1em;
+    border-radius: 25px;
+    background-color: #DCDCDC;
+    box-shadow: 10px 10px 6px 0px #1F2833;
+    grid-template-areas: "message message"
+                         "confirm cancel";
+    text-align: center;
+}
+
+article.alert > p {
+    grid-area: message;
+} 
+
+article.alert > input[name="Confirm"] {
+    grid-area: confirm;
+    width: 80%;
+    padding-right: 1em;
+    padding-left: 1em;
+}
+
+article.alert > input[name="Cancel"] {
+    grid-area: cancel;
+    width: 80%;
+    padding-right: 1em;
+    padding-left: 1em;
+}

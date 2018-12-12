@@ -1,4 +1,5 @@
 <?php
+    include_once('../database/connection.php');
     function add_like_to_story($user_id, $story_id){
         global $db;
         $stmt = $db->prepare('SELECT * FROM LikesStories WHERE user_id = ? AND story_id=?');

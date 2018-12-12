@@ -12,8 +12,7 @@ body > header {
     font-family: "Georgia";
     text-align: center;
 }
-
-body#first_page > header img, body#first_page>header h1 {
+body#first_page > header img,body#first_page>header h1 {
     display:inline-block;
     vertical-align:middle;
     font-size: 4em;
@@ -21,12 +20,12 @@ body#first_page > header img, body#first_page>header h1 {
     letter-spacing: 0.1em;
     text-transform: uppercase;
     font-weight: 1000;
+   
 }
 
 html {
     background-color: #1F2833;
 }
-
 h5#header_title{
     text-align: left;
 }
@@ -81,41 +80,43 @@ div.about{
   }
 
 
-  div.register_container_sign_up {
+  div.register_container_sign_up{
       display: block;
       margin: auto;
       width: 45%;
       border: 3px solid;
-      border-radius: 25px;
       padding: 10px;
       background-color: #DCDCDC;
       text-align: left;
       font-weight: bold;
   }
 
+  div.register_container_sign_up span{
+    font-weight: lighter;
+  }
+
   div.register_container_sign_up > form > label:nth-child(1) > input {
     margin-left: 63px;
   }
+
   div.register_container_sign_up > form > label:nth-child(2) > input {
     margin-left: 100px;
   }
+
   div.register_container_sign_up > form > label:nth-child(3) > input {
     margin-left: 65px;
     width: 230px;
   }
+
   div.register_container_sign_up > form > label:nth-child(4) > input {
     margin-left: 65px;
   }
 
-  div.register_container_sign_up > form > input {
+   div.register_container_sign_up > form > input {
     display: block;
     margin-left: auto;
     margin-right: auto;
     border-radius: 5px;
-  }
-
-  div.register_container_sign_up span {
-    font-weight: lighter;
   }
   
   div.register_container_sign_up > h1 {
@@ -209,17 +210,15 @@ input[type=checkbox]{
   
 input[type=submit] {
     width: 30%;
-    color: white;
+    color:white;
     font-family:'Open Sans Condensed';
-    font-size: 1em;
+    font-size:1em;
     border: 3px solid black ;
     margin: 1em;
-    
     padding-top: 0.5em;
     padding-right: 1.5em;
     padding-bottom: 0.5em;
     padding-left: 1.5em;
-    
     background-color: #1F2833;
 }
 

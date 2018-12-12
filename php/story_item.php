@@ -1,6 +1,5 @@
 <?php
     include_once('../includes/session.php');
-    include_once('../database/connection.php');
     include_once('../database/access_database.php');
     include_once('../database/access_for_likes.php');
 
@@ -32,57 +31,9 @@
         $dislikes_to_write='dislike';
 
     include_once('../templates/common/header.php');
+    include_once('../templates/story_item/scripts.php');
+    include_once('../templates/common/upper_header.php');
+    include_once('../templates/story_item/story_section.php');
+    include_once('../templates/story_item/comments_section.php');
+    include_once('../templates/common/footer.php');
 ?>
-
-<body id="story_item">
-
-    <header>
-    <script src="../scripts/add_comment.js" defer></script>
-    <script src="../scripts/add_favorite.js" defer></script>
-    <script src="../scripts/update_likes.js" defer></script>
-    <script src="../scripts/show_menu.js" defer></script>
-    <?php include_once('../templates/common/upper_header.php'); ?>
-        <h1><?=$story['title']?></a></h1>
-    </header>
-
-    <section id="story">
-        <article>
-            <div id="paragraphs">
-            <?php foreach($paragraphs as $paragraph) {?>
-                <p><?=$paragraph?></p>
-            <?php } ?>
-            </div>
-            <header>
-                <img src=<?=$story['photo']?> alt="Can't load picture">
-            </header>
-            <footer>
-                <span class="author">By <a href="profile.php?user_id=<?=$writer['user_id']?>"> <?=$writer['username']?> </a></span>
-                <span class="likes"><?=count($likes)?> <img src="../icons/like_icon.png" alt="<?=$likes_to_write?>"></span>
-                <span class="dislikes"><?=count($dislikes)?> <img src="../icons/dislike_icon.png" alt="<?=$dislikes_to_write?>"></span>
-                <span class="tasteChoice">
-                    <a href="story_item.html">#<?=$tasteChoice['taste']?></a>
-                </span>
-                <span class="favorites"><?=count($favorites)?> <img src="../icons/saved_icon.png" alt="favorites"></span>
-                <span class="date"><?=$story['date']?></span>
-                <input type="hidden" name="user_id" value="<?=$user_id?>">
-                <input type="hidden" name="story_id" value="<?=$story_id?>">
-            </footer>
-        </article>
-    </section>
-
-    <section id="comments">
-    <h3> Comments: </h3>
-    <?php include_once('../templates/show_comments.php'); ?>
-    <?php if (isset($_SESSION['user_id'])) { ?>
-        <form>
-            <h3><?=$user['username']?> says:</h3>
-            <textarea name="text"> Write your comment here! </textarea>
-            <input type="hidden" name="user_id" value="<?=$user_id?>">
-            <input type="hidden" name="story_id" value="<?=$story_id?>">
-            <input type="submit" value="Reply">
-        </form>
-    <?php } else {?>
-        <h3> Log in to add a comment! <h3>
-    <?php } ?>
-    </section>
-<?php include_once('../templates/common/footer.php'); ?>

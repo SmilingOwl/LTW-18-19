@@ -108,7 +108,7 @@ let dislikes_comments = document.querySelectorAll('#comments span.dislikes');
 let current_comment;
 let current_likes;
 let current_dislikes;
-let current_input;
+let current_date;
 
 /*BEGINING OF PART4 : add like by clicking on comments*/
 let addlike_comment = function() {
@@ -137,6 +137,7 @@ let receive_answer_like_comment = function(event) {
     new_likes_comment.className = "likes";
     new_likes_comment.innerHTML = answer + '<img src="../icons/like_icon.png" alt="' + likes_to_write + '"></img>';
     current_comment.insertBefore(new_likes_comment, current_dislikes);
+    new_likes_comment.style.color = "blue";
 }
 
 /*END OF PART4*/
@@ -147,7 +148,7 @@ let add_dislike_comment = function() {
     current_comment = this.parentNode;
     current_likes = this;
     current_dislikes = this.parentNode.querySelector('span.dislikes');
-    current_input = this.parentNode.querySelector('input[name=id_comment]');
+    current_date = this.parentNode.querySelector('span.date');
     
     let request4 = new XMLHttpRequest();
     request4.addEventListener('load', receive_answer_dislike_comment);
@@ -168,7 +169,8 @@ let receive_answer_dislike_comment = function(event) {
     let new_dislikes_comment = document.createElement('span');
     new_dislikes_comment.className = "dislikes";
     new_dislikes_comment.innerHTML = answer + ' <img src="../icons/dislike_icon.png" alt="' + dislikes_to_write + '"></img>';
-    current_comment.insertBefore(new_dislikes_comment, current_input);
+    current_comment.insertBefore(new_dislikes_comment, current_date);
+    new_dislikes_comment.style.color = "blue";
 }
 /*END OF PART5*/
 

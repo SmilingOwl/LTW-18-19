@@ -9,7 +9,7 @@ function encodeForAjax(data) {
 
 /* Part to add favorites on click */
 let add_favorite = function() {
-    let user_id=this.parentNode.querySelector('input[name=user_id]').value;    
+    let user_id=this.parentNode.querySelector('input[name=user_id]').value;
     let story_id=this.parentNode.querySelector('input[name=story_id]').value;
     selected_favorite = this;
     
@@ -24,12 +24,13 @@ let receive_favorite_count = function(event) {
     
     let answer = JSON.parse(this.responseText);
     let footer = selected_favorite.parentNode;
+    let date = footer.querySelector('span.date');
     footer.removeChild(selected_favorite);
 
     let new_favorites = document.createElement('span');
     new_favorites.className = "favorites";
     new_favorites.innerHTML = answer + '<img src="../icons/saved_icon.png" alt="favorites"></img>';
-    footer.appendChild(new_favorites);
+    footer.insertBefore(new_favorites, date);
     new_favorites.style.color = "blue";
 }
 
@@ -38,8 +39,8 @@ let receive_favorite_count = function(event) {
 for(let i = 0; i < favorites_span.length; i++) {
     favorites_span[i].addEventListener('click', add_favorite);
 
-    let user_id=favorites_span[i].parentNode.querySelector('input[name=user_id]').value;
-    let story_id=favorites_span[i].parentNode.querySelector('input[name=story_id]').value;
+    let user_id=favorites_span[i].parentNode.querySelector('input[name="user_id"]').value;
+    let story_id=favorites_span[i].parentNode.querySelector('input[name="story_id"]').value;
 
     let request_favorites = new XMLHttpRequest();
     request_favorites.addEventListener('load', function(){
