@@ -11,6 +11,7 @@
  	<header>
     <?php include_once('../templates/common/upper_header.php'); ?> 
     <link href="../css/edit_profile.css" rel="stylesheet">
+    <input type="hidden" name="user_id" value=<?=$user_id?>>
         
         <script src="../scripts/show_menu.js" defer></script>    
     	<h3>Edit Profile</h3>

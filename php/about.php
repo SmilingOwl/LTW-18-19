@@ -1,9 +1,15 @@
-<?php include_once('../templates/common/header.php'); ?>
+<?php 
+include_once('../templates/common/header.php');    
+include_once('../includes/session.php');
+$user_id = $_SESSION['user_id'];
+  ?>
+
 
     <body>
     <header>
         <script src="../scripts/show_menu.js" defer></script>
         <?php include_once('../templates/common/upper_header.php'); ?>
+        <input type="hidden" name="user_id" value=<?=$user_id?>>
         <h3>About</h3>
     </header>
     <div class="about">

@@ -14,6 +14,7 @@
    
    <header>
     <script src="../scripts/show_menu.js" defer></script>
+    <input type="hidden" name="user_id" value=<?=$user_id?>>
     <?php include_once('../templates/common/upper_header.php');?>
         <h3>Choose your <br> favorites topics!</h5>
         <?php if (isset($_SESSION['messages'])) {?>
