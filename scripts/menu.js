@@ -6,6 +6,8 @@ about = document.querySelector('#menu li:nth-child(5)');
 edit_account = document.querySelector('#menu li:nth-child(6)');
 delete_account = document.querySelector('#menu li:nth-child(7)');
 
+body=document.querySelector('body');
+
 buttons = document.getElementsByTagName('li');
 
 change_color = function() {
@@ -22,6 +24,7 @@ for(let i = 0; i< buttons.length; i++){
     buttons[i].addEventListener('mouseover', change_color);
     buttons[i].addEventListener('mouseout', change_color_back);
 }
+
 
 go_to_profile = function() {
     window.location.href="profile.php?";
@@ -53,17 +56,39 @@ function encodeForAjax(data) {
 }
 
 go_to_first_page = function() {
+    console.log("entrou!");
     window.location.href="first_page.php";
 }
 
 delete_account_func = function(){
-    let user_id=document.querySelector('input[name=user_id]').value;
+    let header=document.querySelector('body> header:first-of-type');
+    let alertDelete = document.createElement('article');
+    alertDelete.classList.add('alert');
+        
+    alertDelete.innerHTML = '<form >' + '<p>' + "Are you sure you want to delete your account?" +'</p>'
+        + '<input type="submit" name="Confirm" value="Confirm">'+
+        '<input type="submit" name="Cancel" value="Cancel">'
+        + '</form>';
 
-    let request = new XMLHttpRequest();
-    request.addEventListener('load', go_to_first_page);
-    request.open('POST', '../actions/delete_account.php', true);
-    request.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-    request.send(encodeForAjax({user_id: user_id}));
+        body.insertBefore(alertDelete, header);
+
+       let confirm_button= alertDelete.querySelector('input[name="Confirm"]');
+       let cancel_button= alertDelete.querySelector('input[name="Cancel"]');
+
+        cancel_button.addEventListener('click',function(){
+            body.removeChild(alertDelete);
+        })
+       confirm_button.addEventListener('click', function(){
+        let user_id=document.querySelector('input[name=user_id]').value;
+        let request = new XMLHttpRequest();
+        console.log("!");
+        request.addEventListener('load', go_to_first_page);
+        request.open('POST', '../actions/delete_account.php', true);
+        request.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+        request.send(encodeForAjax({user_id: user_id}));
+       })
+
+
 }
 
 delete_account.addEventListener('click', delete_account_func);
