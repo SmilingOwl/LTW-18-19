@@ -1,13 +1,23 @@
 #comments {
-  margin: 1em;
+  background-color: #DCDCDC;
+  margin: 0%;
+  padding: 3%;
+  border-bottom: 1px solid #DCDCDC;
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
 }
-
-#comments article{
+#comments h3 {
+  margin-left: 1em;
+}
+#comments article {
   background-color: #edeff0;
   margin: 1em;
+  border: 1px solid #edeff0;
+  border-radius: 10px;
 }
 
 #comments .user {
+  padding: 2%;
   font-style: italic;
   font-family: "Calibri";
   font-size: 1.3em;
@@ -57,8 +67,10 @@
 }
 #comments form {
   width: auto;
-  margin: 0;
+  margin: 1em;
   background-color: #edeff0;
+  border: 1px solid #edeff0;
+  border-radius: 10px;
 }
 
 #comments input {
