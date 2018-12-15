@@ -56,16 +56,14 @@ function encodeForAjax(data) {
 }
 
 go_to_first_page = function() {
-    console.log(this.responseText);
-    //window.location.href="first_page.php";
+    window.location.href="first_page.php";
 }
 
-//let csrf = null;
+let csrf;
 delete_account_func = function(){
 
     let request_csrf = new XMLHttpRequest();
     request_csrf.addEventListener('load', function(event){
-        console.log(this.responseText);
         csrf = JSON.parse(this.responseText);
         let header=document.querySelector('body> header:first-of-type');
         let alertDelete = document.createElement('article');
