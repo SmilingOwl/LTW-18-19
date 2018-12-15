@@ -73,21 +73,12 @@ CREATE TABLE DislikesStories (
 
 CREATE TABLE LikesComments (
   user_id INTEGER REFERENCES Users,
-  comment_id INTEGER REFERENCES Story,
+  comment_id INTEGER REFERENCES Comment,
   PRIMARY KEY(user_id, comment_id)
 );
 
 CREATE TABLE DislikesComments (
   user_id INTEGER REFERENCES Users,
-  comment_id INTEGER REFERENCES Story,
+  comment_id INTEGER REFERENCES Comment,
   PRIMARY KEY(user_id, comment_id)
 );
-
-INSERT INTO TasteChoice (taste) VALUES ('animals');
-INSERT INTO TasteChoice (taste) VALUES ('art');
-INSERT INTO TasteChoice (taste) VALUES ('photography');
-INSERT INTO TasteChoice (taste) VALUES ('music');
-INSERT INTO TasteChoice (taste) VALUES ('books');
-INSERT INTO TasteChoice (taste) VALUES ('fashion');
-INSERT INTO TasteChoice (taste) VALUES ('health');
-INSERT INTO TasteChoice (taste) VALUES ('movies');
