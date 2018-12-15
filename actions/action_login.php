@@ -12,6 +12,6 @@
 
   else {
     $_SESSION['messages'][] = array('type' => 'error', 'content' => 'Incorrect username or password!');
-    header("Location:../php/first_page.php");
+    die(header("Location:../php/first_page.php"));
   }
 ?>
