@@ -1,4 +1,6 @@
+    <?php if(isset($_SESSION['user_id'])) { ?>
     <input type="hidden" name="user_id" value=<?=$user_id?>>
+    <?php } ?>
     <h3>About</h3>
 </header>
 <div class="about">

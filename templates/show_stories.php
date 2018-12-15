@@ -36,7 +36,9 @@
             <span class="favorites"><?=count($favorites)?> <img src="../icons/saved_icon.png" alt="<?=$favorites_to_write?>"></span>
             <span class="date"><?=$story['date']?></span>
             <input type="hidden" name="story_id" value="<?=$story['story_id']?>">
-            <input type="hidden" name="user_id" value="<?=$user['user_id']?>">
+            <?php if(isset($_SESSION['user_id'])) { ?>
+                <input type="hidden" name="user_id" value="<?=$user['user_id']?>">
+            <?php } ?>
         </footer>
     </article>
     <?php } ?>

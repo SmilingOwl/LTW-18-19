@@ -1,7 +1,7 @@
 <?php 
     include_once('../includes/session.php');
-
-    $user_id = $_SESSION['user_id'];
+    if(isset($_SESSION['user_id']))
+        $user_id = $_SESSION['user_id'];
 
     include_once('../templates/common/header.php');
     include_once('../templates/about/before_upper_header.php');
