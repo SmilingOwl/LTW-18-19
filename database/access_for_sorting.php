@@ -40,7 +40,7 @@
     }
 
     function get_stories_sort_by_comments(){
-        global $db;
+        $db = Database::instance()->db();
         $stmt = $db->prepare('SELECT Story.story_id as story_id, writer_id, title, Story.date as date, Story.text as text, Story.photo, id_taste, username, count(*) as comments
                               FROM Story, Users, Comment WHERE Users.user_id = writer_id AND Story.story_id = Comment.story_id
                               GROUP BY Story.story_id

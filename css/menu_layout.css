@@ -24,6 +24,8 @@ article.alert {
 
 article.alert > p {
     grid-area: message;
+    font-size: 1em;
+    font-family: Georgia; 
 } 
 
 article.alert > input[name="Confirm"] {
