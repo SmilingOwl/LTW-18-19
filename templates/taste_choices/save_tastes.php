@@ -1,4 +1,5 @@
 <div id=save_tastes>
+<div class="scrollbar">
     <form id= add_new_topic action="../actions/add_taste_choices.php" method="post">
         <label><input type="text" name="taste" placeholder="Add a new topic!" ></label>
         <input type="submit" value="Add">
@@ -20,4 +21,5 @@
     <?php }} ?>
         <input type="submit" value="Submit">
     </form>
+    </div>
 </div>
