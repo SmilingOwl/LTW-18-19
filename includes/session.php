@@ -1,5 +1,9 @@
 <?php
+ini_set('session.use_only_cookies', 1);
+ini_set('session.use_trans_sid',0);
+
   session_start();
+  session_regenerate_id(true);
 
   function setCurrentUser($userID, $username) {
       $_SESSION['username'] = $username;
