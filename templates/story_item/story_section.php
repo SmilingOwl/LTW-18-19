@@ -5,7 +5,7 @@
     <article>
         <div id="paragraphs">
         <?php foreach($paragraphs as $paragraph) {?>
-            <p><?=$paragraph?></p>
+            <p><?=htmlentities($paragraph)?></p>
         <?php } ?>
         </div>
         <header>
