@@ -56,35 +56,45 @@ function encodeForAjax(data) {
 }
 
 go_to_first_page = function() {
-    window.location.href="first_page.php";
+    console.log(this.responseText);
+    //window.location.href="first_page.php";
 }
 
+//let csrf = null;
 delete_account_func = function(){
-    let header=document.querySelector('body> header:first-of-type');
-    let alertDelete = document.createElement('article');
-    alertDelete.classList.add('alert');
+
+    let request_csrf = new XMLHttpRequest();
+    request_csrf.addEventListener('load', function(event){
+        console.log(this.responseText);
+        csrf = JSON.parse(this.responseText);
+        let header=document.querySelector('body> header:first-of-type');
+        let alertDelete = document.createElement('article');
+        alertDelete.classList.add('alert');
         
-    alertDelete.innerHTML =  '<p>' + "Are you sure you want to delete your account?" +'</p>'
-        + '<input type="submit" name="Confirm" value="Confirm">'+
-        '<input type="submit" name="Cancel" value="Cancel">';
+        alertDelete.innerHTML =  '<p>' + "Are you sure you want to delete your account?" +'</p>'
+            + '<input type="submit" name="Confirm" value="Confirm">'+
+            '<input type="submit" name="Cancel" value="Cancel">';
 
-        body.insertBefore(alertDelete, header);
+            body.insertBefore(alertDelete, header);
 
-       let confirm_button= alertDelete.querySelector('input[name="Confirm"]');
-       let cancel_button= alertDelete.querySelector('input[name="Cancel"]');
+        let confirm_button= alertDelete.querySelector('input[name="Confirm"]');
+        let cancel_button= alertDelete.querySelector('input[name="Cancel"]');
 
-        cancel_button.addEventListener('click',function(){
-            body.removeChild(alertDelete);
-        })
-       confirm_button.addEventListener('click', function(){
-        let user_id=document.querySelector('input[name=user_id]').value;
-        let request = new XMLHttpRequest();
-        request.addEventListener('load', go_to_first_page);
-        request.open('POST', '../actions/delete_account.php', true);
-        request.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-        request.send(encodeForAjax({user_id: user_id}));
-       })
-
+            cancel_button.addEventListener('click',function(){
+                body.removeChild(alertDelete);
+            })
+        confirm_button.addEventListener('click', function(){
+            let user_id=document.querySelector('input[name=user_id]').value;
+            let request = new XMLHttpRequest();
+            request.addEventListener('load', go_to_first_page);
+            request.open('POST', '../actions/delete_account.php', true);
+            request.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+            request.send(encodeForAjax({user_id: user_id, csrf: csrf}));
+        });
+    });
+    request_csrf.open('POST', '../actions/get_csrf.php', true);
+    request_csrf.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+    request_csrf.send();
 
 }
 
