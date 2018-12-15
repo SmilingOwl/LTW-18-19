@@ -23,7 +23,7 @@
         <header>
             <h1><a href="story_item.php?story_id=<?=$story['story_id']?>"><?=$story['title']?></a></h1>
         </header>
-        <p><?=$story['text']?></p>
+        <p><?=htmlentities($story['text'])?></p>
         <footer>
             <span class="author">By <a href="profile.php?user_id=<?=$writer['user_id']?>"> <?=$writer['username']?> </a></span>
             <span class="likes"><?=count($likes)?> <img src="../icons/like_icon.png" alt="<?=$likes_to_write?>"></span>
