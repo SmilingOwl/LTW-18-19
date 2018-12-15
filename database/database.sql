@@ -82,12 +82,3 @@ CREATE TABLE DislikesComments (
   comment_id INTEGER REFERENCES Story,
   PRIMARY KEY(user_id, comment_id)
 );
-
-INSERT INTO TasteChoice (taste) VALUES ('animals');
-INSERT INTO TasteChoice (taste) VALUES ('art');
-INSERT INTO TasteChoice (taste) VALUES ('photography');
-INSERT INTO TasteChoice (taste) VALUES ('music');
-INSERT INTO TasteChoice (taste) VALUES ('books');
-INSERT INTO TasteChoice (taste) VALUES ('fashion');
-INSERT INTO TasteChoice (taste) VALUES ('health');
-INSERT INTO TasteChoice (taste) VALUES ('movies');
