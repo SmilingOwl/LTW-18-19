@@ -55,6 +55,16 @@
       $stmt->execute(array($userID));
       $ids=$stmt->fetchAll();
       foreach($ids as $id) {
+        $stmt = $db->prepare('SELECT id_comment FROM Comment WHERE story_id = ?');
+        $stmt->execute(array($id['story_id']));
+        $comments_ids=$stmt->fetchAll();
+        foreach($comments_ids as $comments_id)
+        {
+          $stmt = $db->prepare('DELETE FROM LikesComments WHERE comment_id = ?');
+          $stmt->execute(array($comments_id['id_comment']));
+          $stmt = $db->prepare('DELETE FROM DislikesComments WHERE comment_id = ?');
+          $stmt->execute(array($comments_id['id_comment']));
+        }
         $stmt = $db->prepare('DELETE FROM Comment WHERE story_id = ?');
         $stmt->execute(array($id['story_id']));
         $stmt = $db->prepare('DELETE FROM LikesStories WHERE story_id = ?');
@@ -66,6 +76,16 @@
       }
       $stmt = $db->prepare('DELETE FROM Story WHERE writer_id = ?');
       $stmt->execute(array($userID));
+      $stmt = $db->prepare('SELECT id_comment FROM Comment WHERE user_id = ?');
+      $stmt->execute(array($userID));
+      $comments_ids=$stmt->fetchAll();
+      foreach($comments_ids as $comments_id)
+      {
+        $stmt = $db->prepare('DELETE FROM LikesComments WHERE comment_id = ?');
+        $stmt->execute(array($comments_id['id_comment']));
+        $stmt = $db->prepare('DELETE FROM DislikesComments WHERE comment_id = ?');
+        $stmt->execute(array($comments_id['id_comment']));
+      }
       $stmt = $db->prepare('DELETE FROM Comment WHERE user_id = ?');
       $stmt->execute(array($userID));
       $stmt = $db->prepare('DELETE FROM Users WHERE user_id = ?');
