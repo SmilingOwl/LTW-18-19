@@ -1,12 +1,11 @@
-# LTW-18-19
+# LTW-Web Languages and Technologies
+**Lective Year:** 2018/2019
 
 Projects for the Web Languages and Technologies (LTW) class of the Master in Informatics and Computer Engineering (MIEIC) at the Faculty of Engineering of the University of Porto (FEUP).
 
-### Made by :
+Developed in collaboration with *Helena Montenegro* and *Ana Secui*
 
-- Ana Secuiu up201803342
-- Helena Montenegro  up201604184
-- Juliana Marques up201605568
+**Techonologies used:** HTML, CSS, PHP, Javascript, Ajax/JSON, PDO/SQL (using sqlite).
 
 ### Pages 
 
@@ -49,5 +48,3 @@ Projects for the Web Languages and Technologies (LTW) class of the Master in Inf
 - [x] SQL injection.
 - [x] Password storage.
 - [x] Session Fixation.
-
-The following technologies are all used: HTML, CSS, PHP, Javascript, Ajax/JSON, PDO/SQL (using sqlite).
