@@ -1,13 +1,13 @@
 # LTW-Web Languages and Technologies
+
 **Lective Year:** 2018/2019
 
-Projects for the Web Languages and Technologies (LTW) class of the Master in Informatics and Computer Engineering (MIEIC) at the Faculty of Engineering of the University of Porto (FEUP).
+**Techonologies used:** HTML, CSS, PHP, Javascript, Ajax/JSON, PDO/SQL (using sqlite)
 
 Developed in collaboration with *Helena Montenegro* and *Ana Secui*
 
-**Techonologies used:** HTML, CSS, PHP, Javascript, Ajax/JSON, PDO/SQL (using sqlite).
 
-### Pages 
+## Pages 
 
 - [x] Login/ main page.
 - [x] Register page.
@@ -21,7 +21,7 @@ Developed in collaboration with *Helena Montenegro* and *Ana Secui*
 - [x] Homepage.
 
 
-### Features
+## Features
 
 - [x] Register a new account.
 - [x] Login and logout.
@@ -40,7 +40,7 @@ Developed in collaboration with *Helena Montenegro* and *Ana Secui*
 - [x] Each user accumulates points: publishing stories, having comments and likes in their stories, and when their stories are added to the favorite´s page of other users.
 
 
-### Security 
+## Security 
 
 - [x] Path Traversal Attack.
 - [x] XSS.
@@ -48,3 +48,34 @@ Developed in collaboration with *Helena Montenegro* and *Ana Secui*
 - [x] SQL injection.
 - [x] Password storage.
 - [x] Session Fixation.
+
+## Some screenshots
+
+### Login page
+
+![Login](https://github.com/SmilingOwl/LTW-18_19/blob/master/prints/login.PNG)
+<br>
+<br>
+
+### Home page
+
+![Home](https://github.com/SmilingOwl/LTW-18_19/blob/master/prints/homePage.PNG)
+<br>
+<br>
+
+### Add new story
+
+![Add](https://github.com/SmilingOwl/LTW-18_19/blob/master/prints/add.PNG)
+<br>
+<br>
+
+### Favourites page
+
+![Fav](https://github.com/SmilingOwl/LTW-18_19/blob/master/prints/fav.PNG)
+<br>
+<br>
+
+### Profile page
+
+![Profile](https://github.com/SmilingOwl/LTW-18_19/blob/master/prints/profile.PNG)
+<br>
